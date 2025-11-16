@@ -77,6 +77,10 @@
     letter-spacing: 2px;
 }
 
+.section-main-title.no-uppercase {
+    text-transform: none; /* 大文字変換を解除 */
+}
+
 .section-sub-title {
     text-align: center;
     font-size: 1rem;
