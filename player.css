@@ -1,0 +1,285 @@
+/* ======== 選手個人ページ専用スタイル ======== */
+
+/* ヒーローイメージ (チーム情報ページと同じスタイル) */
+.page-hero { 
+    background-image: url('images/team-hero.jpg'); /* チームページ用の背景画像 */
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景画像の上に半透明の黒いオーバーレイ */
+    z-index: 1;
+}
+
+.page-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+.page-hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+.player-page-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ヘッダー情報 */
+.player-profile-header {
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.player-profile-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+.player-profile-position {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--light-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.player-profile-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin: 10px 0 5px 0;
+}
+
+.player-profile-name-en {
+    font-size: 1.2rem;
+    color: var(--light-text);
+}
+
+/* ギャラリー */
+.player-gallery {
+    margin-bottom: 30px;
+}
+
+.player-main-image {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.player-main-image img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    background-color: #f5f5f5;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.player-thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.player-thumbnails img {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, border-color 0.3s;
+}
+
+.player-thumbnails img:hover,
+.player-thumbnails img.thumb-active {
+    opacity: 1;
+    border-color: var(--accent-color);
+}
+
+/* 経歴 */
+.player-profile-section {
+    margin-bottom: 40px;
+}
+
+.player-bio {
+    font-size: 1rem; /* Q&Aの回答と同じフォントサイズ */
+    color: var(--light-text);
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-top: 2px solid var(--accent-color); /* 上に赤い線 */
+    border-bottom: 2px solid var(--accent-color); /* 下に赤い線 */
+}
+
+.profile-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 30px 0;
+}
+
+.career-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+    text-align: center; /* 中央揃え */
+}
+
+.career-list {
+    background-color: #ffe5e5; /* 回答列と同じ背景色（より薄い赤系） */
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 600px; /* 横幅を小さく */
+    margin-left: auto; /* 中央配置 */
+    margin-right: auto; /* 中央配置 */
+}
+
+.career-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* 中の文字は左寄せ */
+}
+
+.career-list li {
+    font-size: 1rem;
+    color: var(--dark-text);
+    line-height: 1.8;
+    padding: 5px 0;
+    text-align: left; /* 中の文字は左寄せ */
+    display: block; /* 各項目をブロック要素として表示 */
+}
+
+/* Q&A */
+.qna-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.qna-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.qna-table th,
+.qna-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+/* Q&Aヘッダー行 */
+.qna-header-row {
+    background-color: #ff8a80; /* 赤系の色 */
+}
+
+.qna-header-question {
+    background-color: #ff8a80 !important; /* 赤系の色 */
+    color: var(--dark-text) !important;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 2px solid #ff7043;
+    width: 30%;
+}
+
+.qna-header-answer {
+    background-color: #ffe5e5 !important; /* より薄い赤系の色 */
+    color: var(--dark-text) !important;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+    border-bottom: 2px solid #ff9a9e;
+    width: 70%;
+}
+
+.qna-table th:not(.qna-header-question):not(.qna-header-answer) {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    width: 30%;
+    color: var(--dark-text);
+}
+
+.qna-table td {
+    color: var(--light-text);
+    line-height: 1.7;
+    /* 回答が長い場合に改行する */
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.qna-table td .instagram-link {
+    color: var(--dark-text); /* 黒色 */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.qna-table td .instagram-link:hover {
+    color: var(--dark-text); /* ホバー時も黒色 */
+    text-decoration: underline;
+}
+
+/* 戻るボタン */
+.back-to-list-btn {
+    display: inline-block;
+    margin-top: 40px;
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+.back-to-list-btn:hover {
+    background-color: #333;
+}
+.back-to-list-btn i {
+    margin-right: 8px;
+}
+
+/* 選手ページ (レスポンシブ) */
+@media (max-width: 768px) {
+    .page-hero-title {
+        font-size: 2rem;
+    }
+    .page-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .player-profile-number { font-size: 2.5rem; }
+    .player-profile-name { font-size: 2rem; }
+    
+    .qna-table th {
+        width: 40%;
+    }
+}

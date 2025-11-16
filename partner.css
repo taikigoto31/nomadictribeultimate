@@ -1,0 +1,104 @@
+/* ======== パートナーページ専用スタイル ======== */
+
+/* ヒーローイメージ */
+.partner-hero {
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    background-image: url('images/partner-hero.jpg'); /* パートナーページ用の背景画像 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.partner-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景画像の上に半透明の黒いオーバーレイ */
+    z-index: 1;
+}
+
+.partner-hero-title,
+.partner-hero-subtitle {
+    position: relative;
+    z-index: 2;
+}
+
+.partner-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.partner-hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* メインコンテンツエリア */
+.partner-page {
+    background-color: var(--white);
+    padding: 40px 20px; /* .wrapperのpaddingと重複しないよう調整 */
+}
+
+/* イントロダクション */
+.partner-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.partner-intro h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.partner-intro p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--dark-text);
+}
+
+/* パートナーロゴグリッド */
+.partner-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.partner-logo-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white);
+    transition: box-shadow 0.3s, transform 0.3s;
+    width: fit-content; /* ロゴのサイズに合わせて調整 */
+}
+
+.partner-logo-item:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+}
+
+.partner-logo-item img {
+    height: 80px; /* ロゴの高さを統一 */
+    width: auto;
+    max-width: 200px; /* ロゴの最大幅を統一 */
+    object-fit: contain;
+}

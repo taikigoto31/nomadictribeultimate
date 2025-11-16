@@ -1,0 +1,925 @@
+/* ======== 基本スタイル ======== */
+:root {
+    --main-color: #111111; /* メインの黒 */
+    --accent-color: #E60012; /* アクセントの赤 */
+    --light-bg: #f5f5f5; /* 背景の薄いグレー */
+    --white: #ffffff;
+    --dark-text: #333333;
+    --light-text: #555555;
+    --border-color: #eeeeee;
+    /* --brand-purple: #4B0082; (紫色の変数は削除、またはコメントアウト) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* セクションの副題スタイルを追加 */
+.section-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-top: -20px; /* タイトルの下に近づける */
+    margin-bottom: 20px;
+}
+
+/* ======== ヘッダー ======== */
+.header {
+    background-color: var(--main-color); /* メインカラーを黒に */
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 下線を追加 */
+}
+
+.header-top-left {
+    display: flex;
+    align-items: center;
+}
+
+/* ロゴをリンクにするためのスタイルを追加 (エラー修正) */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: inherit; /* 親要素の色を継承 */
+    min-width: 0; /* flexアイテムが縮小できるように */
+}
+
+.logo {
+    flex-shrink: 0; /* ロゴコンテナは縮小しない */
+    max-width: 200px; /* ロゴの最大幅を制限 */
+}
+
+.logo img {
+    height: 60px; /* ロゴの高さ調整 */
+    width: auto;
+    max-width: 100%; /* コンテナからはみ出さないように */
+    object-fit: contain; /* アスペクト比を保ちながら収める */
+}
+
+.site-branding .site-title {
+    font-size: 1.5rem; /* タイトルサイズ */
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.site-branding .site-description {
+    font-size: 1.5rem; /* 説明文サイズ */
+    margin: 0;
+    opacity: 0.8;
+}
+
+.header-top-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* ソーシャルアイコン間のスペース */
+}
+
+.header-top-right .social-icon i {
+    font-size: 3.5rem;
+    color: var(--white);
+    transition: color 0.3s;
+}
+
+.header-top-right .social-icon:hover i {
+    color: var(--accent-color); /* ホバーでアクセントカラーに */
+}
+
+.header-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center; /* 中央寄せ */
+    flex-wrap: wrap; /* 狭い画面で折り返す */
+    gap: 25px; /* リンク間のスペース */
+}
+
+.nav-links li a {
+    color: var(--white);
+    font-weight: 600;
+    transition: color 0.3s, opacity 0.3s;
+    white-space: nowrap; /* リンクテキストの改行を防ぐ */
+}
+
+.nav-links li a:hover {
+    color: var(--accent-color); /* ホバーでアクセントカラーに */
+    opacity: 1;
+}
+
+.hamburger-menu {
+    display: none; /* モバイル以外では非表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px; /* ソーシャルアイコンとの間隔 */
+    padding: 5px;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+/* ======== ヒーローセクション (連動ギャラリー) ======== */
+.hero-fixed {
+    background-color: var(--main-color); /* 背景色 */
+    padding-bottom: 30px; /* 下部サムネイルとの間隔 */
+    overflow: hidden; /* 左右の画像がはみ出た場合を考慮 */
+}
+
+/* メインの3画像エリア */
+.hero-main-area {
+    max-width: 2000px; /* 表示エリアの最大幅 */
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow: hidden; /* はみ出た部分を隠す */
+}
+
+/* スライダーコンテナ（3画像を横並び） */
+.hero-slider-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 左・中央・右を同じサイズに */
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+/* 中央のメイン画像コンテナ */
+.hero-center-image-container {
+    position: relative;
+    z-index: 10;
+}
+
+#mainHeroImage {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    border-radius: 5px;
+}
+
+/* 左右の画像 */
+.hero-side-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-side-image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    opacity: 0.5;
+    border-radius: 5px;
+}
+
+.hero-side-image.left {
+    justify-self: end;
+}
+
+.hero-side-image.right {
+    justify-self: start;
+}
+
+
+/* サムネイルコンテナ */
+.hero-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 20px 0;
+    max-width: 1000px; /* メイン画像エリアより少し狭く */
+    margin: 0 auto;
+}
+
+.hero-thumbnails img {
+    width: 24%; /* 4枚なので 100% / 4 (隙間を考慮して調整) */
+    height: 100px; /* サムネイルの高さ固定 */
+    object-fit: cover;
+    border: 2px solid transparent; /* 初期ボーダー */
+    transition: border-color 0.3s, opacity 0.3s;
+    cursor: pointer;
+    opacity: 0.7; /* 非アクティブ時は少し透明に */
+}
+
+.hero-thumbnails img:hover {
+    opacity: 1; /* ホバーで不透明に */
+}
+
+/* 現在選択されているサムネイルのスタイル（赤枠は削除） */
+.hero-thumbnails img.active-thumb {
+    opacity: 1;
+}
+
+/* ======== 試合日程 ======== */
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr; /* 1カラムレイアウト */
+    gap: 40px;
+    background-color: var(--white);
+    margin-bottom: 20px; /* セクション間のスペース */
+}
+
+.match-schedule ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.match-schedule li {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.5fr;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    transition: box-shadow 0.3s;
+}
+
+.match-schedule li:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* 日付 */
+.match-schedule .schedule-date {
+    text-align: center;
+    border-right: 1px solid var(--border-color);
+    padding-right: 15px;
+}
+
+.match-schedule .schedule-date .day {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--main-color);
+    display: block;
+}
+
+.match-schedule .schedule-date .weekday {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--light-text);
+}
+
+/* 試合情報 */
+.match-schedule .schedule-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.match-schedule .schedule-tournament {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 3px;
+}
+
+.match-schedule .schedule-tournament .tournament-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.match-schedule .schedule-tournament .tournament-link:hover {
+    color: #c00;
+    text-decoration: underline;
+}
+
+.match-schedule .schedule-opponent {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* 結果 */
+.match-schedule .schedule-result {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.match-schedule .schedule-result .youtube-link {
+    color: #FF0000;
+    text-decoration: none;
+    transition: opacity 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.match-schedule .schedule-result .youtube-link:hover {
+    opacity: 0.8;
+}
+
+.match-schedule .schedule-result .youtube-icon {
+    font-size: 1.8rem;
+    vertical-align: middle;
+}
+
+.match-schedule .schedule-result .schedule-score {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--main-color);
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.match-schedule .schedule-result .result-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+}
+
+.match-schedule .schedule-result .result-tag.win {
+    background-color: var(--accent-color);
+}
+
+.match-schedule .schedule-result .result-tag.loss {
+    background-color: #777;
+}
+
+.match-schedule .schedule-result .result-tag.draw {
+    background-color: #aaa;
+}
+
+/* ======== 試合日程 (レスポンシブ) ======== */
+@media (max-width: 768px) {
+    .match-schedule li {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .match-schedule .schedule-date {
+        border-right: none;
+        border-bottom: 1px dashed var(--border-color);
+        padding-right: 0;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .match-schedule .schedule-info {
+        align-items: center;
+    }
+
+    .match-schedule .schedule-result {
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* ======== スケジュール一覧ボタン (修正：赤色に変更) ======== */
+.schedule-link-container {
+    text-align: center; /* ボタンを中央揃え */
+    margin-top: 20px; /* スケジュールリストとの間隔 */
+}
+
+.schedule-link-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    /* チームカラー（アクセントの赤）に変更 */
+    border: 2px solid var(--accent-color); 
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.schedule-link-btn:hover {
+    background-color: var(--accent-color); /* ホバー時に背景を赤に */
+    color: var(--white); /* ホバー時にテキストを白に */
+}
+
+
+/* ======== ニュース (削除) ======== */
+/* ======== 動画 (削除) ======== */
+
+/* ======== ニュース ======== */
+.news-section {
+    background-color: var(--white);
+    margin-bottom: 20px; /* セクション間のスペース */
+}
+
+.news ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    transition: opacity 0.3s;
+}
+
+.news-link:hover {
+    opacity: 0.8;
+}
+
+.news-image {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    background-color: var(--accent-color); /* 赤背景 */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.news-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.news-date {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.news-category {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border: 1px solid var(--accent-color);
+    background-color: #ffe5e5; /* 薄い赤背景 */
+    color: var(--dark-text);
+    border-radius: 4px;
+}
+
+.news-description {
+    font-size: 0.95rem;
+    color: var(--dark-text);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.news-link-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.news-link-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.news-link-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* ======== Instagram ======== */
+.instagram {
+    background-color: var(--white);
+    margin-bottom: 20px; /* セクション間のスペース */
+}
+
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 修正: 4列に変更 */
+    gap: 10px;
+}
+
+.insta-post { /* リンク用のスタイルを追加 */
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+    aspect-ratio: 1; /* 正方形を維持 */
+}
+
+.insta-post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 0.8; /* ホバー時に少し透明にする */
+}
+
+.insta-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ======== パートナー ======== */
+.partner {
+    background-color: var(--white);
+    margin-bottom: 20px; /* セクション間のスペース */
+}
+
+.partner-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.partner-logos img {
+    height: 80px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+.partner-link-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.partner-link-btn {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.partner-link-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* ======== フッター ======== */
+.footer {
+    background-color: var(--main-color);
+    color: var(--white);
+    padding-top: 40px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding-bottom: 40px;
+    justify-items: center;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 250px;
+}
+
+.footer-social-column {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 250px;
+}
+
+.footer-column h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.footer-column > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-column > ul li {
+    padding-left: 0;
+}
+
+.footer-column > ul li::before {
+    content: "- ";
+    margin-right: 5px;
+}
+
+.footer-column ul li a {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+}
+
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    margin-top: 20px;
+}
+
+.footer-social .fa-instagram {
+    font-size: 3rem;
+}
+
+.footer-social a {
+    color: var(--white);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-social a:hover {
+    opacity: 1;
+}
+
+.footer-branding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+    margin-bottom: 15px;
+}
+
+.footer-logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+.footer-brand-text {
+    text-align: center;
+}
+
+.footer-brand-text h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    color: var(--white);
+    letter-spacing: 2px;
+}
+
+.footer-brand-text p {
+    font-size: 0.9rem;
+    margin: 0;
+    opacity: 0.9;
+    color: var(--white);
+}
+
+.copyright {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+
+/* ======== レスポンシブ対応 (モバイル) ======== */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+    }
+
+    .header-top {
+        flex-wrap: wrap; /* 要素が収まらない場合に折り返す */
+        justify-content: space-between;
+    }
+
+    .header-top-left {
+        flex-grow: 1; /* 左側がスペースを占める */
+        max-width: calc(100% - 60px); /* ハンバーガーボタンの分を引く */
+    }
+
+    .site-branding .site-title {
+        font-size: 1.2rem; /* モバイルでは少し小さく */
+    }
+    .site-branding .site-description {
+        font-size: 0.8rem;
+    }
+
+    .header-top-right {
+        order: 1; /* ソーシャルアイコンの表示順序を調整 */
+        width: 100%; /* フル幅にして中央寄せ */
+        justify-content: center;
+        margin-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 10px;
+    }
+
+    .hamburger-menu {
+        display: block;
+        position: static; /* 絶対配置を解除 */
+        margin: 0; /* マージンをリセット */
+    }
+
+    .header-bottom {
+        padding: 0; /* モバイルではパディングを調整 */
+    }
+
+    .nav-links {
+        display: none; /* JSで表示を制御 */
+        flex-direction: column;
+        background-color: var(--main-color);
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        gap: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li a {
+        padding: 10px 0; /* リンクのクリック範囲を広げる */
+    }
+    
+    .section-title {
+        font-size: 1.5rem; /* モバイルでのタイトルサイズ */
+    }
+    
+    /* モバイルでのヒーロー画像調整 */
+    .hero-slider-container {
+        grid-template-columns: 1fr; /* モバイルでは1カラムに */
+    }
+    .hero-side-image {
+        display: none; /* サイド画像はモバイルでは非表示 */
+    }
+    .hero-center-image-container {
+        grid-column: 1 / -1; /* 1カラム占有 */
+    }
+    #mainHeroImage {
+        max-height: 300px; /* モバイルでは高さを小さく */
+    }
+    .hero-thumbnails {
+        flex-wrap: wrap; /* サムネイルを折り返す */
+        justify-content: space-around;
+        padding: 10px;
+    }
+    .hero-thumbnails img {
+        width: 48%; /* モバイルで2列表示 */
+        height: 80px;
+        margin-bottom: 5px;
+    }
+
+    /* Insta-gridのレスポンシブ調整 */
+    .insta-grid {
+        grid-template-columns: repeat(2, 1fr); /* モバイルでは2列にする */
+    }
+
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+
+    /* .movie-thumbnails は削除されたため、関連スタイルも削除 (あるいはコメントアウト) */
+    /*
+    .movie-thumbnails {
+        grid-template-columns: 1fr;
+    }
+    */
+
+    .footer-container {
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+        display: flex;
+        gap: 30px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCHEDULE - Nomadic Tribe Ultimate</title>
+    
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- 共通CSSの読み込み -->
+    <link rel="stylesheet" href="style.css">
+    <!-- スケジュールページ専用CSSの読み込み -->
+    <link rel="stylesheet" href="schedule.css">
+
+</head>
+<body>
+
+    <!-- ======== ヘッダー (共通部品) ======== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <!-- ======== メインコンテンツ (スケジュール) ======== -->
+    <main>
+        <div class="schedule-hero">
+            <h2 class="schedule-hero-title">SCHEDULE</h2>
+            <p class="schedule-hero-subtitle">試合スケジュール</p>
+        </div>
+
+        <section class="schedule-page wrapper">
+            
+            <!-- 年月フィルター -->
+            <div class="schedule-filter">
+                <span class="year" id="schedule-year">2025</span>
+                <div class="months" id="schedule-months">
+                    <a href="#" data-month="1">01</a>
+                    <a href="#" data-month="2">02</a>
+                    <a href="#" data-month="3">03</a>
+                    <a href="#" data-month="4">04</a>
+                    <a href="#" data-month="5">05</a>
+                    <a href="#" data-month="6">06</a>
+                    <a href="#" data-month="7">07</a>
+                    <a href="#" data-month="8">08</a>
+                    <a href="#" data-month="9">09</a>
+                    <a href="#" data-month="10">10</a>
+                    <a href="#" data-month="11">11</a>
+                    <a href="#" data-month="12">12</a>
+                </div>
+            </div>
+
+            <!-- 試合リスト -->
+            <ul class="schedule-list" id="schedule-list">
+                <!-- JavaScriptで動的に生成されます -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- ======== フッター (共通部品) ======== -->
+    <div id="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
+    <!-- 共通JavaScriptの読み込み -->
+    <script src="script.js"></script>
+    
+    <!-- 試合スケジュールデータの読み込み -->
+    <script src="data/schedule-data.js"></script>
+    <!-- 試合スケジュール表示用のJavaScript -->
+    <script src="schedule.js"></script>
+</body>
+</html>

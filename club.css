@@ -1,0 +1,185 @@
+/* ======== クラブ概要ページ専用スタイル ======== */
+
+/* ヒーローイメージ */
+.club-hero {
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    background-image: url('images/club-hero.jpg'); /* クラブ概要ページ用の背景画像 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.club-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景画像の上に半透明の黒いオーバーレイ */
+    z-index: 1;
+}
+
+.club-hero-title,
+.club-hero-subtitle {
+    position: relative;
+    z-index: 2;
+}
+
+.club-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.club-hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* メインコンテンツエリア */
+.club-page {
+    background-color: var(--white);
+    padding: 30px 20px; /* .wrapperのpaddingと重複しないよう調整 */
+}
+
+/* 各セクション共通 */
+.club-section {
+    max-width: 800px; /* コンテンツ幅を制限 */
+    margin: 0 auto 50px auto; /* 中央寄せ */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 40px;
+}
+
+.club-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.club-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--dark-text);
+}
+
+/* セクションタイトル */
+.section-main-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-sub-title {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+/* ビジョン */
+.vision-box {
+    border: 2px solid var(--border-color);
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: var(--light-bg);
+}
+
+.vision-box p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.6;
+}
+.vision-box p:first-child {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
+/* 沿革 */
+.history-list {
+    list-style: none;
+    padding: 0;
+}
+
+.history-list li {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+.history-list li:last-child {
+    border-bottom: none;
+}
+
+.history-year {
+    font-size: 1.1rem;
+    font-weight: normal; /* 太字を解除 */
+    color: var(--dark-text); /* 黒字 */
+    width: 80px;
+    flex-shrink: 0;
+}
+
+.history-events {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-event {
+    font-size: 1rem;
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+.history-event a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.history-event a:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+/* アクセス */
+.access-item {
+    margin-bottom: 30px;
+}
+.access-item h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.access-item p {
+    margin-bottom: 15px;
+}
+
+.access-map {
+    margin-top: 15px;
+}
+
+.access-map img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.access-map iframe {
+    width: 100%;
+    height: 450px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}

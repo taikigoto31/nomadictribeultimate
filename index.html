@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomadic Tribe Ultimate</title>
+    
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- 共通CSSの読み込み -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ======== ヘッダー (共通部品) ======== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <!-- ======== メインコンテンツ ======== -->
+    <main>
+
+        <!-- ヒーローセクション (連動ギャラリー) -->
+        <section class="hero-fixed">
+            <div class="hero-main-area">
+                <div class="hero-slider-container">
+                    <!-- 前の画像 -->
+                    <div class="hero-side-image left">
+                        <img id="prevHeroImage" src="https://placehold.co/600x400/111/333?text=PREV" alt="Previous Image">
+                    </div>
+                    <!-- メイン画像 (中央) -->
+                    <div class="hero-center-image-container">
+                        <img id="mainHeroImage" src="https://placehold.co/800x500/111/555?text=MAIN" alt="Main Image">
+                    </div>
+                    <!-- 次の画像 -->
+                    <div class="hero-side-image right">
+                        <img id="nextHeroImage" src="https://placehold.co/600x400/111/333?text=NEXT" alt="Next Image">
+                    </div>
+                </div>
+            </div>
+            <!-- サムネイルコンテナ (JSで中身を生成) -->
+            <div class="hero-thumbnails" id="heroThumbnails">
+                <!-- サムネイル画像は script.js によってここに追加されます -->
+            </div>
+        </section>
+
+        <!-- 試合日程 -->
+        <section class="info-section wrapper">
+            <div class="match-schedule">
+                <h2 class="section-title">MATCH SCHEDULE</h2>
+                <p class="section-subtitle">試合スケジュール</p>
+                <ul id="recent-matches-list">
+                    <!-- JavaScriptで直近4試合が表示されます -->
+                </ul>
+                
+                <!-- ▼ 修正：スケジュール一覧へのリンクボタンを追加 ▼ -->
+                <div class="schedule-link-container">
+                    <a href="schedule.html" class="schedule-link-btn">
+                        スケジュール一覧はこちら
+                    </a>
+                </div>
+                <!-- ▲ 修正ここまで ▲ -->
+
+            </div>
+        </section>
+
+        <!-- ニュース -->
+        <section class="news-section wrapper">
+            <div class="news">
+                <h2 class="section-title">NEWS</h2>
+                <p class="section-subtitle">お知らせ</p>
+                <ul id="recent-news-list">
+                    <!-- JavaScriptで直近4件のお知らせが表示されます -->
+                </ul>
+                
+                <!-- お知らせ一覧へのリンクボタン -->
+                <div class="news-link-container">
+                    <a href="news.html" class="news-link-btn">
+                        お知らせ一覧はこちら
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram -->
+        <section class="instagram wrapper">
+            <h2 class="section-title">INSTAGRAM</h2>
+            <p class="section-subtitle">インスタグラム</p>
+            <div class="insta-grid">
+                <!-- 1 -->
+                <a href="https://www.instagram.com/p/DP00jrAke_K/" target="_blank" rel="noopener noreferrer" class="insta-post">
+                    <img src="images/instagram/instagram_1.jpg" alt="Instagram Post 1">
+                </a>
+                <!-- 2 -->
+                <a href="https://www.instagram.com/p/DO0h0_BEZeu/" target="_blank" rel="noopener noreferrer" class="insta-post">
+                    <img src="images/instagram/instagram_2.jpg" alt="Instagram Post 2">
+                </a>
+                <!-- 3 -->
+                <a href="https://www.instagram.com/nomadictribe_ultimate/p/DOWAfdzkT4i/" target="_blank" rel="noopener noreferrer" class="insta-post">
+                    <img src="images/instagram/instagram_3.jpg" alt="Instagram Post 3">
+                </a>
+                <!-- 4 -->
+                <a href="https://www.instagram.com/reel/DOVkAHJgV-9/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer" class="insta-post">
+                    <img src="images/instagram/instagram_4.jpg" alt="Instagram Post 4">
+                </a>
+            </div>
+        </section>
+
+        <!-- パートナー -->
+        <section class="partner wrapper">
+            <h2 class="section-title">PARTNER</h2>
+            <p class="section-subtitle">パートナー企業</p>
+            <div class="partner-logos">
+                <a href="http://www.clubjr.com/specialsupportteam.html" target="_blank" rel="noopener noreferrer">
+                    <img src="images/partnerlogo_1.gif" alt="CLUB Jr. ロゴ">
+                </a>
+                <a href="https://www.ovniultimate.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="images/partnerlogo_2.png" alt="OVNI ロゴ">
+                </a>
+            </div>
+            <!-- パートナー企業紹介へのリンクボタン -->
+            <div class="partner-link-container">
+                <a href="partner.html" class="partner-link-btn">
+                    パートナー企業紹介
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======== フッター (共通部品) ======== -->
+    <div id="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
+    <!-- 共通JavaScriptの読み込み -->
+    <script src="script.js"></script>
+    
+    <!-- 試合スケジュールデータの読み込み -->
+    <script src="data/schedule-data.js"></script>
+    <!-- トップページ用の試合スケジュール表示 -->
+    <script src="index-schedule.js"></script>
+    
+    <!-- お知らせデータの読み込み -->
+    <script src="data/news-data.js"></script>
+    <!-- トップページ用のお知らせ表示 -->
+    <script src="index-news.js"></script>
+</body>
+</html>

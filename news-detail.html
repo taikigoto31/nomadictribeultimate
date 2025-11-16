@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS - Nomadic Tribe Ultimate</title>
+    
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- 共通CSSの読み込み -->
+    <link rel="stylesheet" href="style.css">
+    <!-- お知らせ詳細ページ専用CSSの読み込み -->
+    <link rel="stylesheet" href="news-detail.css">
+</head>
+<body>
+
+    <!-- ======== ヘッダー (共通部品) ======== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <!-- ======== メインコンテンツ (お知らせ詳細) ======== -->
+    <main>
+        <div class="news-hero">
+            <h2 class="news-hero-title">NEWS</h2>
+            <p class="news-hero-subtitle">お知らせ</p>
+        </div>
+
+        <section class="news-detail-page wrapper">
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb" id="breadcrumb">
+                <!-- JavaScriptで生成されます -->
+            </nav>
+
+            <!-- 記事コンテンツ -->
+            <article class="news-detail-content" id="news-detail-content">
+                <!-- JavaScriptで生成されます -->
+            </article>
+
+            <!-- ページナビゲーション -->
+            <nav class="news-navigation" id="news-navigation">
+                <!-- JavaScriptで生成されます -->
+            </nav>
+        </section>
+    </main>
+
+    <!-- ======== フッター (共通部品) ======== -->
+    <div id="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
+    <!-- 共通JavaScriptの読み込み -->
+    <script src="script.js"></script>
+    
+    <!-- お知らせデータの読み込み -->
+    <script src="data/news-data.js"></script>
+    <!-- お知らせ詳細表示用のJavaScript -->
+    <script src="news-detail.js"></script>
+</body>
+</html>
+

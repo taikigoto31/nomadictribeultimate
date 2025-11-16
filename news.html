@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS - Nomadic Tribe Ultimate</title>
+    
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- 共通CSSの読み込み -->
+    <link rel="stylesheet" href="style.css">
+    <!-- お知らせページ専用CSSの読み込み -->
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+
+    <!-- ======== ヘッダー (共通部品) ======== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <!-- ======== メインコンテンツ (お知らせ) ======== -->
+    <main>
+        <div class="news-hero">
+            <h2 class="news-hero-title">NEWS</h2>
+            <p class="news-hero-subtitle">お知らせ</p>
+        </div>
+
+        <section class="news-page wrapper">
+            <ul class="news-list" id="news-list">
+                <!-- JavaScriptでお知らせが表示されます -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- ======== フッター (共通部品) ======== -->
+    <div id="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
+    <!-- 共通JavaScriptの読み込み -->
+    <script src="script.js"></script>
+    
+    <!-- お知らせデータの読み込み -->
+    <script src="data/news-data.js"></script>
+    <!-- お知らせ表示用のJavaScript -->
+    <script src="news.js"></script>
+</body>
+</html>
+

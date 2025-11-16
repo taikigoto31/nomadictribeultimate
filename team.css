@@ -1,0 +1,228 @@
+/* ======== チームページ専用スタイル ======== */
+
+/* ★追加★ サイトのブランドカラー（紫）を定義 */
+:root {
+    --brand-purple: #4a148c; /* 画像から抽出した濃い紫色 */
+}
+
+/* ヒーローイメージ (★修正★) */
+.page-hero { 
+    background-image: url('images/team-hero.jpg'); /* チームページ用の背景画像 */
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* ▼▼▼ 以下を追加（疑似要素でさらに暗くする） ▼▼▼ */
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景画像の上に半透明の黒いオーバーレイ */
+    z-index: 1;
+}
+/* ▲▲▲ ここまで追加 ▲▲▲ */
+
+.page-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* ▼▼▼ 以下を追加（疑似要素より手前に出す） ▼▼▼ */
+    position: relative;
+    z-index: 2;
+    /* ▲▲▲ ここまで追加 ▲▲▲ */
+}
+
+.page-hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    /* ▼▼▼ 以下を追加（疑似要素より手前に出す） ▼▼▼ */
+    position: relative;
+    z-index: 2;
+    /* ▲▲▲ ここまで追加 ▲▲▲ */
+}
+
+
+/* ▼▼▼ パンくずリストのスタイルを追加 ▼▼▼ */
+.breadcrumb {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+}
+.breadcrumb-inner {
+    padding: 10px 20px; /* wrapperのpaddingを上書き */
+    font-size: 0.85rem;
+    color: var(--light-text);
+}
+.breadcrumb-inner a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.breadcrumb-inner a:hover {
+    text-decoration: underline;
+}
+/* ▲▲▲ ここまで追加 ▲▲▲ */
+
+
+/* ページ内ナビゲーション (★修正★) */
+.team-nav {
+    background-color: var(--light-bg);
+    color: var(--white);
+    position: static; /* stickyを削除して通常の位置に */
+    z-index: 90;
+    border-top: none;
+    border-bottom: none;
+}
+
+.team-nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 20px; /* .wrapperのpaddingを上書き */
+    margin: 0 auto;
+}
+
+.team-nav-list a {
+    /* color: var(--white); */ /* <-- 白文字から変更 */
+    color: var(--dark-text); /* <-- 濃いテキスト色に変更 */
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s, opacity 0.3s;
+    opacity: 0.8;
+}
+
+.team-nav-list a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+/* メインコンテンツエリア (★修正★) */
+.team-page {
+    /* background-color: var(--white); */ /* <-- wrapperの外側は背景色(light-bg)にするため削除 */
+    /* .wrapper クラス自体に padding: 40px 20px; が適用されます */
+}
+
+/* カテゴリ (★修正★) */
+.team-category {
+    margin-bottom: 30px; /* 既存の50pxから少し詰める */
+    background-color: var(--white); /* <-- カテゴリごとに白背景を設定 */
+    padding: 30px; /* <-- パディングを追加 */
+    border-radius: 8px; /* <-- 角丸を追加 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* <-- 影を追加 */
+}
+
+.team-category:last-child {
+    margin-bottom: 0;
+}
+
+
+.category-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+/* 選手グリッド */
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* 選手カード (リンク) */
+.player-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* カード全体をブロック要素に */
+    cursor: pointer; /* ポインターカーソルを表示 */
+    position: relative; /* リンクが確実に機能するように */
+    z-index: 1; /* リンクが確実にクリックできるように */
+}
+
+.player-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fafafa;
+    overflow: hidden; /* 画像の角丸を有効にするため */
+    transition: box-shadow 0.3s, transform 0.3s;
+    height: 100%; /* グリッドの高さを揃える */
+}
+
+.player-card-link:hover .player-card {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+.player-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    background-color: #ddd; /* プレースホルダー背景 */
+    aspect-ratio: 3 / 4; /* 画像の縦横比を 3:4 に固定 */
+    object-fit: cover; /* 比率を保ったままトリミング */
+}
+
+.player-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.player-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.player-name {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-top: 5px;
+}
+
+.player-position {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    margin-top: 5px;
+}
+
+
+/* チーム (レスポンシブ) */
+@media (max-width: 768px) {
+    .category-title {
+        font-size: 1.5rem;
+    }
+
+    .player-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    
+    .team-nav-list {
+        gap: 15px;
+        justify-content: space-around;
+    }
+    .team-nav-list a {
+        font-size: 1rem;
+    }
+
+    /* ★追加★ モバイルではカテゴリの左右パディングを減らす */
+    .team-category {
+        padding: 20px 15px;
+    }
+}
