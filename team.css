@@ -5,6 +5,31 @@
     --brand-purple: #4a148c; /* 画像から抽出した濃い紫色 */
 }
 
+/* ======== チーム情報ページのテキスト選択スタイル ======== */
+.team-page ::selection,
+.team-category ::selection,
+.player-card ::selection,
+.player-name ::selection,
+.player-number ::selection,
+.player-position ::selection,
+.category-title ::selection,
+.team-nav ::selection {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.team-page ::-moz-selection,
+.team-category ::-moz-selection,
+.player-card ::-moz-selection,
+.player-name ::-moz-selection,
+.player-number ::-moz-selection,
+.player-position ::-moz-selection,
+.category-title ::-moz-selection,
+.team-nav ::-moz-selection {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
 /* ヒーローイメージ (★修正★) */
 .page-hero { 
     background-image: url('images/team-hero.jpg'); /* チームページ用の背景画像 */

@@ -42,12 +42,49 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
         
         // ヘッダーが挿入された後、ハンバーガーメニューのイベントリスナーを設定
+        setupHamburgerMenu();
+    }
+    
+    // ハンバーガーメニューの設定（既存のヘッダーにも対応）
+    function setupHamburgerMenu() {
         const hamburger = document.querySelector(".hamburger-menu");
         const navLinks = document.querySelector(".nav-links");
+        
         if (hamburger && navLinks) {
-            hamburger.addEventListener("click", () => {
+            // 既に設定済みの場合はスキップ（data属性で管理）
+            if (hamburger.dataset.menuSetup === 'true') {
+                return;
+            }
+            
+            // クリックイベントとタッチイベントの両方に対応
+            const handleMenuToggle = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 navLinks.classList.toggle("active");
-            });
+            };
+            
+            hamburger.addEventListener("click", handleMenuToggle);
+            hamburger.addEventListener("touchend", handleMenuToggle);
+            
+            // 設定済みフラグを設定
+            hamburger.dataset.menuSetup = 'true';
+            
+            // メニュー外をクリックしたときに閉じる（1回のみ設定）
+            if (!document.hamburgerMenuClickListenerAdded) {
+                document.addEventListener("click", function(e) {
+                    if (hamburger && navLinks) {
+                        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                            navLinks.classList.remove("active");
+                        }
+                    }
+                });
+                document.hamburgerMenuClickListenerAdded = true;
+            }
         }
+    }
+    
+    // 既存のヘッダーがある場合も設定（header.jsが後で読み込まれた場合など）
+    if (document.querySelector(".hamburger-menu")) {
+        setupHamburgerMenu();
     }
 });

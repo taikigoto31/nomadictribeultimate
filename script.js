@@ -1,15 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // ======== ハンバーガーメニュー ========
-    const hamburger = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".nav-links"); // .nav-links は <ul>
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active"); // <ul> に .active をトグルする
-        });
-    }
-
     // ======== ヒーロー画像ギャラリー ========
 
     // 1. 表示する画像リストを定義 (4枚)
@@ -89,5 +79,133 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+    // ======== テキスト選択時に下線を追加 ========
+    let currentUnderlinedElements = [];
+    let selectionTimeout = null;
+
+    function addUnderlineToSelection() {
+        // 既存の下線を削除
+        removeUnderlines();
+
+        const selection = window.getSelection();
+        if (!selection || selection.rangeCount === 0 || selection.toString().trim() === '') {
+            return;
+        }
+
+        const range = selection.getRangeAt(0);
+        const container = range.commonAncestorContainer;
+
+        // ヘッダーまたはチーム情報ページ内で選択されているか確認
+        const header = document.querySelector('.header');
+        const teamPage = document.querySelector('.team-page');
+        const teamCategory = document.querySelector('.team-category');
+        const playerCard = document.querySelector('.player-card');
+        
+        const isInHeader = header && header.contains(container);
+        const isInTeamPage = (teamPage && teamPage.contains(container)) ||
+                             (teamCategory && teamCategory.contains(container)) ||
+                             (playerCard && playerCard.contains(container));
+
+        if (!isInHeader && !isInTeamPage) {
+            return;
+        }
+
+        try {
+            // 範囲が要素の境界をまたぐ場合は、先に内容を抽出
+            if (range.collapsed) {
+                return;
+            }
+
+            // 選択範囲の内容を取得
+            const contents = range.cloneContents();
+            
+            // 選択範囲を削除して、<span>を挿入
+            range.deleteContents();
+            
+            // 複数のノードがある場合は、Fragmentで囲む
+            const fragment = document.createDocumentFragment();
+            const span = document.createElement('span');
+            span.className = 'selection-underline';
+            
+            // テキストノードのみの場合は直接追加
+            if (contents.childNodes.length === 0 || 
+                (contents.childNodes.length === 1 && contents.childNodes[0].nodeType === Node.TEXT_NODE)) {
+                span.textContent = contents.textContent || selection.toString();
+            } else {
+                // 複数のノードがある場合は、すべてをspanに追加
+                while (contents.firstChild) {
+                    span.appendChild(contents.firstChild);
+                }
+            }
+            
+            fragment.appendChild(span);
+            range.insertNode(fragment);
+            
+            currentUnderlinedElements.push(span);
+
+            // 選択範囲を再設定（選択を維持）
+            const newRange = document.createRange();
+            newRange.selectNodeContents(span);
+            selection.removeAllRanges();
+            selection.addRange(newRange);
+        } catch (e) {
+            // エラーが発生した場合は何もしない
+            console.log('Selection underline error:', e);
+        }
+    }
+
+    function removeUnderlines() {
+        currentUnderlinedElements.forEach(span => {
+            if (span && span.parentNode) {
+                const parent = span.parentNode;
+                const textNode = document.createTextNode(span.textContent);
+                parent.replaceChild(textNode, span);
+                parent.normalize(); // 隣接するテキストノードを結合
+            }
+        });
+        currentUnderlinedElements = [];
+    }
+
+    // マウスアップ時に選択範囲を確認
+    document.addEventListener('mouseup', function() {
+        if (selectionTimeout) {
+            clearTimeout(selectionTimeout);
+        }
+        
+        selectionTimeout = setTimeout(() => {
+            const selection = window.getSelection();
+            if (selection && selection.toString().trim() !== '' && selection.rangeCount > 0) {
+                addUnderlineToSelection();
+            } else {
+                removeUnderlines();
+            }
+        }, 50);
+    });
+
+    // クリック時（選択解除時）に下線を削除
+    document.addEventListener('click', function(e) {
+        // 下線付き要素内をクリックした場合は削除しない
+        if (!e.target.closest('.selection-underline')) {
+            const selection = window.getSelection();
+            if (!selection || selection.toString().trim() === '') {
+                removeUnderlines();
+            }
+        }
+    });
+
+    // 選択が変更されたときに下線を更新
+    document.addEventListener('selectionchange', function() {
+        if (selectionTimeout) {
+            clearTimeout(selectionTimeout);
+        }
+        
+        selectionTimeout = setTimeout(() => {
+            const selection = window.getSelection();
+            if (!selection || selection.toString().trim() === '' || selection.rangeCount === 0) {
+                removeUnderlines();
+            }
+        }, 100);
+    });
 
 });
