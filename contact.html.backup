@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT - Nomadic Tribe Ultimate</title>
+    
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- 共通CSSの読み込み -->
+    <link rel="stylesheet" href="style.css">
+    <!-- お問い合わせページ専用CSSの読み込み -->
+    <link rel="stylesheet" href="contact.css">
+
+</head>
+<body>
+
+    <!-- ======== ヘッダー (共通部品) ======== -->
+    <div id="header-placeholder"></div>
+    <script src="header.js"></script>
+
+    <!-- ======== メインコンテンツ (お問い合わせ) ======== -->
+    <main>
+        <div class="contact-hero">
+            <h2 class="contact-hero-title">CONTACT</h2>
+            <p class="contact-hero-subtitle">お問い合わせ</p>
+        </div>
+
+        <section class="contact-page wrapper">
+            
+            <!-- 注意書き -->
+            <div class="contact-notice">
+                <p>
+                    チームへのお問い合わせは、下記フォームより承ります。<br>
+                    お問い合わせの際は「<a href="privacy.html" target="_blank">プライバシーポリシー</a>」をご一読いただき、ご同意の上、お問い合わせ内容をご入力ください。
+                </p>
+            </div>
+
+            <!-- フォームタイトル -->
+            <div class="contact-form-title">
+                <h2>CONTACT US</h2>
+                <p>お問い合わせフォーム</p>
+            </div>
+
+            <!-- お問い合わせフォーム -->
+            <!-- Netlifyのフォーム機能と連携 -->
+            <form name="contact" method="POST" action="/thankyou.html" data-netlify="true" class="contact-form">
+                
+                <!-- Netlify スパム防止 (必須) -->
+                <input type="hidden" name="form-name" value="contact">
+                <div style="display:none;">
+                    <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                </div>
+
+                <!-- お問い合わせ内容 -->
+                <div class="form-group">
+                    <label for="type" class="form-label">お問い合わせ内容 <span class="label-required">必須</span></label>
+                    <select id="type" name="type" class="form-select" required> <!-- required を元に戻しました -->
+                        <option value="" selected disabled>選択してください</option>
+                        <option value="チーム全般について">チーム全般について</option>
+                        <option value="ユースについて">ユースについて</option>
+                        <option value="パートナーについて">パートナーについて</option>
+                        <option value="取材・メディアについて">取材・メディアについて</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </div>
+
+                <!-- お名前 -->
+                <div class="form-group">
+                    <label for="name" class="form-label">お名前 <span class="label-required">必須</span></label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="例：山田 太郎" required> <!-- required を元に戻しました -->
+                </div>
+
+                <!-- ふりがな -->
+                <div class="form-group">
+                    <label for="kana" class="form-label">ふりがな</label>
+                    <input type="text" id="kana" name="kana" class="form-input" placeholder="例：やまだ たろう">
+                </div>
+                
+                <!-- 貴社名・団体名 -->
+                <div class="form-group">
+                    <label for="company" class="form-label">貴社名・団体名</label>
+                    <input type="text" id="company" name="company" class="form-input" placeholder="例：〇〇株式会社">
+                </div>
+
+                <!-- 電話番号 -->
+                <div class="form-group">
+                    <label for="phone" class="form-label">電話番号</label>
+                    <input type="tel" id="phone" name="phone" class="form-input" placeholder="例：090-1234-5678">
+                </div>
+
+                <!-- メールアドレス -->
+                <div class="form-group">
+                    <label for="email" class="form-label">メールアドレス <span class="label-required">必須</span></label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="例：example@mail.com" required> <!-- required を元に戻しました -->
+                </div>
+
+                <!-- メールアドレス (確認用) -->
+                <div class="form-group">
+                    <label for="email_confirm" class="form-label">メールアドレス (確認用) <span class="label-required">必須</span></label>
+                    <input type="email" id="email_confirm" name="email_confirm" class="form-input" placeholder="確認のためもう一度ご入力ください" required> <!-- required を元に戻しました -->
+                </div>
+
+                <!-- お問い合わせ詳細 -->
+                <div class="form-group">
+                    <label for="message" class="form-label">お問い合わせ詳細 <span class="label-required">必須</span></label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="お問い合わせ内容をご入力ください" required></textarea> <!-- required を元に戻しました -->
+                </div>
+
+                <!-- 同意チェック -->
+                <div class="form-check">
+                    <input type="checkbox" id="agree" name="agree" value="agree" required> <!-- required を元に戻しました -->
+                    <label for="agree">
+                        「<a href="privacy.html" target="_blank">プライバシーポリシー</a>」に同意する
+                    </label>
+                </div>
+
+                <!-- 送信ボタン -->
+                <div class="form-submit">
+                    <button type="submit" class="submit-button">送信する</button>
+                </div>
+
+            </form>
+
+        </section>
+    </main>
+
+    <!-- ======== フッター (共通部品) ======== -->
+    <div id="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
+    <!-- 共通JavaScriptの読み込み -->
+    <script src="script.js"></script>
+</body>
+</html>
+

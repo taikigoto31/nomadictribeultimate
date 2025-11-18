@@ -27,48 +27,18 @@
             <p class="page-hero-subtitle">選手・スタッフ</p>
         </div>
 
-        <!-- ======== ページ内ナビゲーション ======== -->
-        <nav class="team-nav">
-            <ul class="team-nav-list wrapper">
-                <li><a href="#handler">HANDLER</a></li>
-                <li><a href="#deep">DEEP</a></li>
-                <li><a href="#staff">STAFF</a></li>
-            </ul>
-        </nav>
-
-        <!-- ★修正★ .team-page に .wrapper を適用し、中央寄せを実現 -->
+        <!-- ======== 現在作成中メッセージ ======== -->
         <section class="team-page wrapper page-main-content">
-
-            <!-- カテゴリ: Handler (id="handler" を追加) -->
-            <section id="handler" class="team-category">
-                <h3 class="category-title">HANDLER</h3>
-                <!-- ↓↓↓ JSで選手カードがここに挿入されます ↓↓↓ -->
-                <div class="player-grid" id="handler-grid">
-                    <!-- JSが読み込まれれば、ここに選手が表示されます -->
+            <div class="under-construction">
+                <div class="under-construction-content">
+                    <i class="fas fa-tools" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--main-color); margin-bottom: 15px;">現在作成中</h2>
+                    <p style="font-size: 1.1rem; color: var(--light-text); line-height: 1.8;">
+                        このページは現在作成中です。<br>
+                        しばらくお待ちください。
+                    </p>
                 </div>
-                <!-- ↑↑↑ JSで選手カードがここに挿入されます ↑↑↑ -->
-            </section>
-
-            <!-- カテゴリ: Deep (id="deep" を追加) -->
-            <section id="deep" class="team-category">
-                <h3 class="category-title">DEEP</h3>
-                <!-- ↓↓↓ JSで選手カードがここに挿入されます ↓↓↓ -->
-                <div class="player-grid" id="deep-grid">
-                    <!-- JSが読み込まれれば、ここに選手が表示されます -->
-                </div>
-                <!-- ↑↑↑ JSで選手カードがここに挿入されます ↑↑↑ -->
-            </section>
-
-            <!-- カテゴリ: Staff (id="staff" を追加) -->
-            <section id="staff" class="team-category">
-                <h3 class="category-title">STAFF</h3>
-                <!-- ↓↓↓ JSで選手カードがここに挿入されます ↓↓↓ -->
-                <div class="player-grid" id="staff-grid">
-                    <!-- JSが読み込まれれば、ここに選手が表示されます -->
-                </div>
-                <!-- ↑↑↑ JSで選手カードがここに挿入されます ↑↑↑ -->
-            </section>
-
+            </div>
         </section>
     </main>
 
@@ -79,10 +49,10 @@
     <!-- 共通JavaScriptの読み込み -->
     <script src="script.js"></script>
     
-    <!-- ======== このページ専用のJavaScript (★重要★) ======== -->
+    <!-- ======== このページ専用のJavaScript (現在は非表示のためコメントアウト) ======== -->
     <!-- 1. 選手データベースを読み込む -->
-    <script src="data/player.js"></script>
+    <!-- <script src="data/player.js"></script> -->
     <!-- 2. 選手カードを生成するスクリプトを読み込む -->
-    <script src="team.js"></script>
+    <!-- <script src="team.js"></script> -->
 </body>
 </html>
