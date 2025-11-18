@@ -35,29 +35,35 @@ document.addEventListener("DOMContentLoaded", function() {
             nextImage.src = galleryImages[nextIndex];
 
             // (D) サムネイルのアクティブクラスを更新
-            thumbnailsContainer.querySelectorAll('img').forEach((thumb, idx) => {
-                if (idx === selectedIndex) {
-                    thumb.classList.add("active-thumb");
-                } else {
-                    thumb.classList.remove("active-thumb");
-                }
-            });
+            if (thumbnailsContainer) {
+                thumbnailsContainer.querySelectorAll('img').forEach((thumb, idx) => {
+                    if (idx === selectedIndex) {
+                        thumb.classList.add("active-thumb");
+                    } else {
+                        thumb.classList.remove("active-thumb");
+                    }
+                });
+            }
         }
 
         // 5. サムネイルを自動生成してコンテナに追加
-        galleryImages.forEach((src, index) => {
-            const thumb = document.createElement("img");
-            thumb.src = src;
-            thumb.alt = `Thumbnail ${index + 1}`;
-            thumbnailsContainer.appendChild(thumb);
-        });
+        if (thumbnailsContainer) {
+            galleryImages.forEach((src, index) => {
+                const thumb = document.createElement("img");
+                thumb.src = src;
+                thumb.alt = `Thumbnail ${index + 1}`;
+                thumbnailsContainer.appendChild(thumb);
+            });
+        }
 
         // 6. 初期画像を設定 (0番目の画像で初期化)
         let currentIndex = 0;
         mainImage.src = galleryImages[0];
         prevImage.src = galleryImages[(0 - 1 + numImages) % numImages];
         nextImage.src = galleryImages[(0 + 1) % numImages];
-        thumbnailsContainer.querySelectorAll('img')[0].classList.add("active-thumb");
+        if (thumbnailsContainer && thumbnailsContainer.querySelectorAll('img')[0]) {
+            thumbnailsContainer.querySelectorAll('img')[0].classList.add("active-thumb");
+        }
 
         // 7. 自動で画像を切り替える機能（8秒ごと）
         let autoSlideInterval = setInterval(function() {
@@ -65,19 +71,68 @@ document.addEventListener("DOMContentLoaded", function() {
             updateImages(currentIndex);
         }, 8000); // 8000ミリ秒 = 8秒
 
-        // 8. サムネイルクリック時に自動切り替えをリセット
-        thumbnailsContainer.querySelectorAll('img').forEach((thumb, index) => {
-            thumb.addEventListener("click", function() {
-                currentIndex = index;
-                updateImages(currentIndex);
-                // 自動切り替えをリセット
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(function() {
+        // 8. サムネイルクリック時に自動切り替えをリセット（デスクトップのみ）
+        if (thumbnailsContainer) {
+            thumbnailsContainer.querySelectorAll('img').forEach((thumb, index) => {
+                thumb.addEventListener("click", function() {
+                    currentIndex = index;
+                    updateImages(currentIndex);
+                    // 自動切り替えをリセット
+                    clearInterval(autoSlideInterval);
+                    autoSlideInterval = setInterval(function() {
+                        currentIndex = (currentIndex + 1) % numImages;
+                        updateImages(currentIndex);
+                    }, 8000);
+                });
+            });
+        }
+
+        // 9. モバイルでのスワイプ機能
+        const centerImageContainer = document.querySelector('.hero-center-image-container');
+        if (centerImageContainer) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let isSwiping = false;
+
+            centerImageContainer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                isSwiping = false;
+            }, { passive: true });
+
+            centerImageContainer.addEventListener('touchmove', function(e) {
+                isSwiping = true;
+            }, { passive: true });
+
+            centerImageContainer.addEventListener('touchend', function(e) {
+                if (!isSwiping) return;
+                
+                touchEndX = e.changedTouches[0].screenX;
+                const swipeThreshold = 50; // スワイプ判定の最小距離（px）
+
+                // 左にスワイプ（次の画像）
+                if (touchStartX - touchEndX > swipeThreshold) {
                     currentIndex = (currentIndex + 1) % numImages;
                     updateImages(currentIndex);
-                }, 8000);
-            });
-        });
+                    // 自動切り替えをリセット
+                    clearInterval(autoSlideInterval);
+                    autoSlideInterval = setInterval(function() {
+                        currentIndex = (currentIndex + 1) % numImages;
+                        updateImages(currentIndex);
+                    }, 8000);
+                }
+                // 右にスワイプ（前の画像）
+                else if (touchEndX - touchStartX > swipeThreshold) {
+                    currentIndex = (currentIndex - 1 + numImages) % numImages;
+                    updateImages(currentIndex);
+                    // 自動切り替えをリセット
+                    clearInterval(autoSlideInterval);
+                    autoSlideInterval = setInterval(function() {
+                        currentIndex = (currentIndex + 1) % numImages;
+                        updateImages(currentIndex);
+                    }, 8000);
+                }
+            }, { passive: true });
+        }
     }
 
     // ======== テキスト選択時に下線を追加 ========
@@ -206,6 +261,37 @@ document.addEventListener("DOMContentLoaded", function() {
                 removeUnderlines();
             }
         }, 100);
+    });
+
+    // ======== トップに戻るボタン ========
+    // ボタン要素を作成
+    const scrollToTopBtn = document.createElement('button');
+    scrollToTopBtn.className = 'scroll-to-top-btn';
+    scrollToTopBtn.setAttribute('aria-label', 'ページトップに戻る');
+    scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    document.body.appendChild(scrollToTopBtn);
+
+    // スクロール位置に応じてボタンの表示/非表示を切り替え
+    function toggleScrollToTopButton() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    }
+
+    // スクロールイベントリスナー
+    window.addEventListener('scroll', toggleScrollToTopButton);
+
+    // 初期状態を確認
+    toggleScrollToTopButton();
+
+    // クリックでトップにスクロール
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 
 });
