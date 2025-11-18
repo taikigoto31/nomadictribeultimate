@@ -2,12 +2,30 @@
 :root {
     --main-color: #111111; /* メインの黒 */
     --accent-color: #E60012; /* アクセントの赤 */
-    --light-bg: #f5f5f5; /* 背景の薄いグレー */
+    --accent-hover: #C5000F; /* アクセントホバー */
+    --light-bg: #fafafa; /* 背景の薄いグレー（少し明るく） */
     --white: #ffffff;
-    --dark-text: #333333;
-    --light-text: #555555;
-    --border-color: #eeeeee;
-    /* --brand-purple: #4B0082; (紫色の変数は削除、またはコメントアウト) */
+    --dark-text: #1a1a1a; /* より濃いテキスト */
+    --light-text: #666666; /* より洗練されたグレー */
+    --border-color: #e5e5e5; /* より柔らかいボーダー */
+    
+    /* シャドウシステム */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+    --shadow-colored: 0 4px 15px rgba(230, 0, 18, 0.2);
+    
+    /* トランジション */
+    --transition-fast: 0.15s ease-out;
+    --transition-base: 0.3s ease-out;
+    --transition-slow: 0.5s ease-out;
+    
+    /* ボーダー半径 */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
 }
 
 * {
@@ -17,10 +35,12 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     background-color: var(--light-bg);
     color: var(--dark-text);
-    line-height: 1.6;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ======== テキスト選択時のスタイル ======== */
@@ -83,12 +103,25 @@ img {
 
 .section-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.25rem;
     color: var(--dark-text);
-    margin-bottom: 20px;
-    font-weight: 700;
+    margin-bottom: 12px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    margin: 15px auto 0;
+    border-radius: 2px;
 }
 
 /* セクションの副題スタイルを追加 */
@@ -96,27 +129,33 @@ img {
     text-align: center;
     font-size: 1rem;
     color: var(--light-text);
-    margin-top: -20px; /* タイトルの下に近づける */
-    margin-bottom: 20px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 /* ======== ヘッダー ======== */
 .header {
-    background-color: var(--main-color); /* メインカラーを黒に */
+    background-color: var(--main-color);
     color: var(--white);
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(10px);
+    background-color: rgba(17, 17, 17, 0.98);
 }
 
 .header-top {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 下線を追加 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all var(--transition-base);
 }
 
 .header-top-left {
@@ -165,14 +204,30 @@ img {
     gap: 15px; /* ソーシャルアイコン間のスペース */
 }
 
+.header-top-right .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
 .header-top-right .social-icon i {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     color: var(--white);
-    transition: color 0.3s;
+    transition: all var(--transition-base);
+}
+
+.header-top-right .social-icon:hover {
+    background-color: rgba(230, 0, 18, 0.1);
+    transform: translateY(-2px);
 }
 
 .header-top-right .social-icon:hover i {
-    color: var(--accent-color); /* ホバーでアクセントカラーに */
+    color: var(--accent-color);
+    transform: scale(1.1);
 }
 
 .header-bottom {
@@ -192,13 +247,35 @@ img {
 .nav-links li a {
     color: var(--white);
     font-weight: 600;
-    transition: color 0.3s, opacity 0.3s;
-    white-space: nowrap; /* リンクテキストの改行を防ぐ */
+    white-space: nowrap;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
 }
 
 .nav-links li a:hover {
-    color: var(--accent-color); /* ホバーでアクセントカラーに */
-    opacity: 1;
+    color: var(--accent-color);
+    background-color: rgba(230, 0, 18, 0.05);
+    transform: translateY(-1px);
+}
+
+.nav-links li a:hover::before {
+    transform: scaleX(1);
 }
 
 .hamburger-menu {
@@ -219,7 +296,12 @@ img {
     height: 3px;
     background-color: var(--white);
     margin: 6px 0;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
+    border-radius: 2px;
+}
+
+.hamburger-menu:hover span {
+    background-color: var(--accent-color);
 }
 /* ======== ヒーローセクション (連動ギャラリー) ======== */
 .hero-fixed {
@@ -257,7 +339,14 @@ img {
     max-height: 500px;
     object-fit: contain;
     display: block;
-    border-radius: 5px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+}
+
+#mainHeroImage:hover {
+    box-shadow: var(--shadow-xl);
+    transform: scale(1.01);
 }
 
 /* 左右の画像 */
@@ -296,31 +385,41 @@ img {
 }
 
 .hero-thumbnails img {
-    width: 24%; /* 4枚なので 100% / 4 (隙間を考慮して調整) */
-    height: 100px; /* サムネイルの高さ固定 */
+    width: 24%;
+    height: 100px;
     object-fit: cover;
-    border: 2px solid transparent; /* 初期ボーダー */
-    transition: border-color 0.3s, opacity 0.3s;
+    border: 3px solid transparent;
+    transition: all var(--transition-base);
     cursor: pointer;
-    opacity: 0.7; /* 非アクティブ時は少し透明に */
+    opacity: 0.6;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .hero-thumbnails img:hover {
-    opacity: 1; /* ホバーで不透明に */
+    opacity: 1;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(230, 0, 18, 0.3);
 }
 
-/* 現在選択されているサムネイルのスタイル（赤枠は削除） */
 .hero-thumbnails img.active-thumb {
     opacity: 1;
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-colored);
+    transform: translateY(-4px);
 }
 
 /* ======== 試合日程 ======== */
 .info-section {
     display: grid;
-    grid-template-columns: 1fr; /* 1カラムレイアウト */
+    grid-template-columns: 1fr;
     gap: 40px;
     background-color: var(--white);
-    margin-bottom: 20px; /* セクション間のスペース */
+    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .match-schedule ul {
@@ -335,15 +434,18 @@ img {
     align-items: center;
     gap: 15px;
     background-color: var(--white);
-    border-radius: 8px;
-    padding: 12px 20px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid var(--border-color);
-    transition: box-shadow 0.3s;
+    border-radius: var(--radius-md);
+    padding: 18px 24px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
 }
 
 .match-schedule li:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-color: rgba(230, 0, 18, 0.2);
 }
 
 /* 日付 */
@@ -436,24 +538,32 @@ img {
 .match-schedule .schedule-result .result-tag {
     display: inline-flex;
     align-items: center;
-    padding: 3px 10px;
-    border-radius: 15px;
-    font-size: 0.9rem;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--white);
     line-height: 1;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
 }
 
 .match-schedule .schedule-result .result-tag.win {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color), #C5000F);
 }
 
 .match-schedule .schedule-result .result-tag.loss {
-    background-color: #777;
+    background: linear-gradient(135deg, #777, #555);
 }
 
 .match-schedule .schedule-result .result-tag.draw {
-    background-color: #aaa;
+    background: linear-gradient(135deg, #aaa, #888);
+}
+
+.match-schedule li:hover .result-tag {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
 }
 
 /* ======== 試合日程 (レスポンシブ) ======== */
@@ -488,22 +598,50 @@ img {
     margin-top: 20px; /* スケジュールリストとの間隔 */
 }
 
-.schedule-link-btn {
+.schedule-link-btn,
+.news-link-btn,
+.partner-link-btn {
     display: inline-block;
-    padding: 12px 40px;
-    /* チームカラー（アクセントの赤）に変更 */
-    border: 2px solid var(--accent-color); 
+    padding: 14px 42px;
+    border: 2px solid var(--accent-color);
     color: var(--accent-color);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    background-color: transparent;
 }
 
-.schedule-link-btn:hover {
-    background-color: var(--accent-color); /* ホバー時に背景を赤に */
-    color: var(--white); /* ホバー時にテキストを白に */
+.schedule-link-btn::before,
+.news-link-btn::before,
+.partner-link-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--transition-slow);
+}
+
+.schedule-link-btn:hover,
+.news-link-btn:hover,
+.partner-link-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-colored);
+}
+
+.schedule-link-btn:hover::before,
+.news-link-btn:hover::before,
+.partner-link-btn:hover::before {
+    left: 100%;
 }
 
 
@@ -513,7 +651,10 @@ img {
 /* ======== ニュース ======== */
 .news-section {
     background-color: var(--white);
-    margin-bottom: 20px; /* セクション間のスペース */
+    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .news ul {
@@ -525,39 +666,57 @@ img {
 .news-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 0;
+    gap: 15px;
+    padding: 16px;
     border-bottom: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 8px;
+    transition: all var(--transition-base);
+    background-color: var(--white);
 }
 
 .news-item:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+}
+
+.news-item:hover {
+    background-color: #fafafa;
+    box-shadow: var(--shadow-md);
+    transform: translateX(4px);
 }
 
 .news-link {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     text-decoration: none;
     color: inherit;
     width: 100%;
-    transition: opacity 0.3s;
+    transition: all var(--transition-base);
 }
 
 .news-link:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .news-image {
     flex-shrink: 0;
     width: 100px;
     height: 100px;
-    background-color: var(--accent-color); /* 赤背景 */
-    border-radius: 4px;
+    background-color: var(--accent-color);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.news-item:hover .news-image {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
 }
 
 .news-image img {
@@ -587,13 +746,14 @@ img {
 }
 
 .news-category {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 700;
     padding: 4px 12px;
     border: 1px solid var(--accent-color);
-    background-color: #ffe5e5; /* 薄い赤背景 */
-    color: var(--dark-text);
-    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(230, 0, 18, 0.1), rgba(230, 0, 18, 0.05));
+    color: var(--accent-color);
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.5px;
 }
 
 .news-description {
@@ -608,27 +768,14 @@ img {
     margin-top: 15px;
 }
 
-.news-link-btn {
-    display: inline-block;
-    padding: 12px 40px;
-    border: 2px solid var(--accent-color);
-    color: var(--accent-color);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.news-link-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--white);
-}
 
 /* ======== Instagram ======== */
 .instagram {
     background-color: var(--white);
-    margin-bottom: 20px; /* セクション間のスペース */
+    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .insta-grid {
@@ -637,17 +784,34 @@ img {
     gap: 10px;
 }
 
-.insta-post { /* リンク用のスタイルを追加 */
-    border-radius: 4px;
+.insta-post {
+    border-radius: var(--radius-md);
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-    aspect-ratio: 1; /* 正方形を維持 */
+    transition: all var(--transition-base);
+    aspect-ratio: 1;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.insta-post::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(230, 0, 18, 0) 0%, rgba(230, 0, 18, 0.1) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
 }
 
 .insta-post:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    opacity: 0.8; /* ホバー時に少し透明にする */
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.insta-post:hover::after {
+    opacity: 1;
 }
 
 .insta-post img {
@@ -661,7 +825,10 @@ img {
 /* ======== パートナー ======== */
 .partner {
     background-color: var(--white);
-    margin-bottom: 20px; /* セクション間のスペース */
+    margin-bottom: 30px;
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
 }
 
 .partner-logos {
@@ -672,11 +839,29 @@ img {
     gap: 30px;
 }
 
+.partner-logos a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.partner-logos a:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    background-color: #fafafa;
+}
+
 .partner-logos img {
     height: 80px;
     width: auto;
     max-width: 200px;
     object-fit: contain;
+    transition: all var(--transition-base);
 }
 
 .partner-link-container {
@@ -684,22 +869,6 @@ img {
     margin-top: 30px;
 }
 
-.partner-link-btn {
-    display: inline-block;
-    padding: 12px 40px;
-    border: 2px solid var(--accent-color);
-    color: var(--accent-color);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.partner-link-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--white);
-}
 
 /* ======== フッター ======== */
 .footer {
@@ -763,12 +932,32 @@ img {
     color: var(--white);
     text-decoration: none;
     opacity: 0.8;
-    transition: opacity 0.3s;
+    transition: all var(--transition-base);
     font-size: 0.95rem;
+    display: inline-block;
+    padding: 4px 0;
+    position: relative;
+}
+
+.footer-column ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-base);
 }
 
 .footer-column ul li a:hover {
     opacity: 1;
+    color: var(--accent-color);
+    transform: translateX(4px);
+}
+
+.footer-column ul li a:hover::before {
+    width: 100%;
 }
 
 
@@ -787,11 +976,20 @@ img {
 .footer-social a {
     color: var(--white);
     opacity: 0.8;
-    transition: opacity 0.3s;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
 }
 
 .footer-social a:hover {
     opacity: 1;
+    color: var(--accent-color);
+    background-color: rgba(230, 0, 18, 0.1);
+    transform: translateY(-2px) scale(1.1);
 }
 
 .footer-branding {
@@ -838,6 +1036,55 @@ img {
     opacity: 0.7;
 }
 
+
+/* ======== トップに戻るボタン ======== */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.8);
+    transition: all var(--transition-base);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.scroll-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-to-top-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: var(--shadow-xl);
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent-color));
+}
+
+.scroll-to-top-btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.scroll-to-top-btn i {
+    transition: transform var(--transition-base);
+}
+
+.scroll-to-top-btn:hover i {
+    transform: translateY(-2px);
+}
 
 /* ======== レスポンシブ対応 (モバイル) ======== */
 @media (max-width: 768px) {
@@ -886,6 +1133,7 @@ img {
 
     .hamburger-menu {
         display: flex; /* flexboxで中央揃え */
+        flex-direction: column; /* 縦並びに */
         position: relative;
         margin: 0 0 0 10px;
         padding: 8px; /* タップ領域を広げる */
@@ -901,6 +1149,7 @@ img {
         width: 24px; /* 線の幅を少し小さく */
         height: 2.5px; /* 線の太さを少し細く */
         margin: 4px 0;
+        display: block; /* 確実にブロック要素として表示 */
     }
 
     .header-bottom {
@@ -949,7 +1198,7 @@ img {
     
     /* ヒーローセクション改善 */
     .hero-fixed {
-        padding-bottom: 20px;
+        padding-bottom: 10px; /* サムネイルが非表示なのでパディングを減らす */
     }
 
     .hero-main-area {
@@ -977,27 +1226,24 @@ img {
         border-radius: 4px;
     }
 
+    /* モバイルではサムネイルを非表示 */
     .hero-thumbnails {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px;
-        padding: 15px 10px 0 10px;
-        max-width: 100%;
+        display: none;
     }
 
-    .hero-thumbnails img {
-        width: calc(50% - 4px); /* 2列表示、ギャップを考慮 */
-        max-width: 160px;
-        height: 70px; /* 高さを少し小さく */
-        margin-bottom: 0;
-        border-radius: 4px;
-        cursor: pointer;
+    /* メイン画像をスワイプ可能にする */
+    .hero-center-image-container {
+        touch-action: pan-y;
+        overflow: hidden;
     }
 
     /* 試合スケジュール */
-    .info-section {
-        grid-template-columns: 1fr;
-        padding: 20px 15px;
+    .info-section,
+    .news-section,
+    .instagram,
+    .partner {
+        padding: 25px 15px;
+        border-radius: var(--radius-md);
     }
 
     .match-schedule li {
@@ -1074,5 +1320,14 @@ img {
 
     .footer-social {
         justify-content: center;
+    }
+
+    /* トップに戻るボタン（モバイル） */
+    .scroll-to-top-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.3rem;
     }
 }
