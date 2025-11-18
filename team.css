@@ -226,3 +226,36 @@
         padding: 20px 15px;
     }
 }
+
+/* ======== 現在作成中メッセージ ======== */
+.under-construction {
+    background-color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.under-construction-content {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .under-construction {
+        padding: 40px 15px;
+        min-height: 300px;
+    }
+    
+    .under-construction-content h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    .under-construction-content p {
+        font-size: 1rem !important;
+    }
+}
