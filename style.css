@@ -23,6 +23,43 @@ body {
     line-height: 1.6;
 }
 
+/* ======== テキスト選択時のスタイル ======== */
+/* ヘッダー内のテキスト選択 */
+.header ::selection {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.header ::-moz-selection {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* チーム情報ページ内のテキスト選択 */
+.team-page ::selection,
+.team-category ::selection,
+.player-card ::selection {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.team-page ::-moz-selection,
+.team-category ::-moz-selection,
+.player-card ::-moz-selection {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* 選択範囲に下線を追加するためのスタイル */
+.selection-underline {
+    background-color: var(--accent-color) !important;
+    color: var(--white) !important;
+    border-bottom: 2px solid var(--white);
+    display: inline;
+    padding: 0;
+    text-decoration: none;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -171,6 +208,9 @@ img {
     cursor: pointer;
     margin-left: 20px; /* ソーシャルアイコンとの間隔 */
     padding: 5px;
+    z-index: 101; /* ヘッダーのz-indexより上に */
+    position: relative;
+    -webkit-tap-highlight-color: transparent; /* モバイルでのタップ時のハイライトを削除 */
 }
 
 .hamburger-menu span {
@@ -838,8 +878,10 @@ img {
 
     .hamburger-menu {
         display: block;
-        position: static; /* 絶対配置を解除 */
+        position: relative; /* 相対配置 */
         margin: 0; /* マージンをリセット */
+        z-index: 101; /* 確実にクリック可能にする */
+        touch-action: manipulation; /* モバイルでのタッチ操作を最適化 */
     }
 
     .header-bottom {
