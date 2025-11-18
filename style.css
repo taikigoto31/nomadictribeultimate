@@ -841,61 +841,80 @@ img {
 
 /* ======== レスポンシブ対応 (モバイル) ======== */
 @media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .footer-column {
-        margin-bottom: 20px;
-    }
-
+    /* ヘッダー改善 */
     .header-top {
-        flex-wrap: wrap; /* 要素が収まらない場合に折り返す */
+        flex-wrap: nowrap; /* 折り返さない */
         justify-content: space-between;
+        padding: 12px 15px; /* パディングを減らす */
     }
 
     .header-top-left {
-        flex-grow: 1; /* 左側がスペースを占める */
-        max-width: calc(100% - 60px); /* ハンバーガーボタンの分を引く */
+        flex: 1;
+        min-width: 0; /* flexアイテムが縮小できるように */
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 45px; /* ロゴを少し小さく */
+    }
+
+    .site-branding {
+        margin-left: 10px; /* ロゴとの間隔 */
     }
 
     .site-branding .site-title {
-        font-size: 1.2rem; /* モバイルでは少し小さく */
+        font-size: 1rem; /* モバイルではさらに小さく */
+        line-height: 1.2;
     }
     .site-branding .site-description {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
+        margin-top: 2px;
     }
 
     .header-top-right {
-        order: 1; /* ソーシャルアイコンの表示順序を調整 */
-        width: 100%; /* フル幅にして中央寄せ */
-        justify-content: center;
-        margin-top: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 10px;
+        order: 0; /* ソーシャルアイコンを右上に保持 */
+        width: auto;
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .header-top-right .social-icon i {
+        font-size: 2.5rem; /* アイコンを少し小さく */
     }
 
     .hamburger-menu {
-        display: block;
-        position: relative; /* 相対配置 */
-        margin: 0; /* マージンをリセット */
-        z-index: 101; /* 確実にクリック可能にする */
-        touch-action: manipulation; /* モバイルでのタッチ操作を最適化 */
+        display: flex; /* flexboxで中央揃え */
+        position: relative;
+        margin: 0 0 0 10px;
+        padding: 8px; /* タップ領域を広げる */
+        z-index: 101;
+        touch-action: manipulation;
+        min-width: 44px; /* タッチターゲットサイズを確保 */
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-menu span {
+        width: 24px; /* 線の幅を少し小さく */
+        height: 2.5px; /* 線の太さを少し細く */
+        margin: 4px 0;
     }
 
     .header-bottom {
-        padding: 0; /* モバイルではパディングを調整 */
+        padding: 0;
     }
 
     .nav-links {
-        display: none; /* JSで表示を制御 */
+        display: none;
         flex-direction: column;
         background-color: var(--main-color);
         width: 100%;
         text-align: center;
-        padding: 20px 0;
-        gap: 10px;
+        padding: 15px 0;
+        gap: 5px;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -904,55 +923,147 @@ img {
     }
     
     .nav-links li a {
-        padding: 10px 0; /* リンクのクリック範囲を広げる */
+        padding: 12px 0; /* タップ領域を広げる */
+        font-size: 0.95rem;
+        min-height: 44px; /* タッチターゲットサイズを確保 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* セクション全般 */
+    .wrapper {
+        padding: 25px 15px; /* パディングを減らす */
     }
     
     .section-title {
-        font-size: 1.5rem; /* モバイルでのタイトルサイズ */
+        font-size: 1.4rem; /* モバイルでのタイトルサイズ */
+        margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+        margin-top: -12px;
+        margin-bottom: 20px;
     }
     
-    /* モバイルでのヒーロー画像調整 */
+    /* ヒーローセクション改善 */
+    .hero-fixed {
+        padding-bottom: 20px;
+    }
+
+    .hero-main-area {
+        padding: 15px 0 10px 0; /* 上下パディングを減らす */
+    }
+
     .hero-slider-container {
-        grid-template-columns: 1fr; /* モバイルでは1カラムに */
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0 10px; /* 左右パディングを追加 */
     }
+
     .hero-side-image {
-        display: none; /* サイド画像はモバイルでは非表示 */
+        display: none;
     }
+
     .hero-center-image-container {
-        grid-column: 1 / -1; /* 1カラム占有 */
+        grid-column: 1 / -1;
+        width: 100%;
     }
+
     #mainHeroImage {
-        max-height: 300px; /* モバイルでは高さを小さく */
+        max-height: 250px; /* モバイルでは高さをさらに小さく */
+        width: 100%;
+        border-radius: 4px;
     }
+
     .hero-thumbnails {
-        flex-wrap: wrap; /* サムネイルを折り返す */
-        justify-content: space-around;
-        padding: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 15px 10px 0 10px;
+        max-width: 100%;
     }
+
     .hero-thumbnails img {
-        width: 48%; /* モバイルで2列表示 */
-        height: 80px;
-        margin-bottom: 5px;
+        width: calc(50% - 4px); /* 2列表示、ギャップを考慮 */
+        max-width: 160px;
+        height: 70px; /* 高さを少し小さく */
+        margin-bottom: 0;
+        border-radius: 4px;
+        cursor: pointer;
     }
 
-    /* Insta-gridのレスポンシブ調整 */
-    .insta-grid {
-        grid-template-columns: repeat(2, 1fr); /* モバイルでは2列にする */
-    }
-
+    /* 試合スケジュール */
     .info-section {
         grid-template-columns: 1fr;
+        padding: 20px 15px;
     }
 
-    /* .movie-thumbnails は削除されたため、関連スタイルも削除 (あるいはコメントアウト) */
-    /*
-    .movie-thumbnails {
-        grid-template-columns: 1fr;
+    .match-schedule li {
+        padding: 15px 12px;
+        gap: 12px;
     }
-    */
 
+    .schedule-link-btn,
+    .news-link-btn,
+    .partner-link-btn {
+        padding: 14px 30px; /* タップ領域を広げる */
+        font-size: 0.95rem;
+        min-height: 44px; /* タッチターゲットサイズを確保 */
+    }
+
+    /* ニュース */
+    .news-item {
+        padding: 12px 0;
+    }
+
+    .news-image {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+    }
+
+    .news-date {
+        font-size: 0.9rem;
+    }
+
+    .news-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    /* Instagram */
+    .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .insta-post {
+        aspect-ratio: 1;
+    }
+
+    /* パートナー */
+    .partner-logos {
+        gap: 20px;
+        padding: 10px 0;
+    }
+
+    .partner-logos img {
+        height: 60px;
+        max-width: 150px;
+    }
+
+    /* フッター */
     .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
         text-align: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+        align-items: center;
     }
     
     .footer-links {
