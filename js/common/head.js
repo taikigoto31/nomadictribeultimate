@@ -53,13 +53,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
             
-            // .htmlで終わるリンクのみ処理
-            if (href.endsWith('.html')) {
+            // .htmlを含むリンクを処理（クエリパラメータも考慮）
+            const htmlMatch = href.match(/^([^?#]+)\.html(\?[^#]*)?(#.*)?$/);
+            if (htmlMatch) {
                 // クリックイベントを追加（既に追加されていない場合）
                 if (!link.dataset.linkProcessed) {
                     link.dataset.linkProcessed = 'true';
                     const originalHref = href;
-                    const newHref = href.replace(/\.html$/, '');
+                    // .htmlを削除（クエリパラメータとハッシュは保持）
+                    const newHref = htmlMatch[1] + (htmlMatch[2] || '') + (htmlMatch[3] || '');
                     
                     // href属性を.htmlなしに変更（ブラウザのURLバーに表示される）
                     link.setAttribute('href', newHref);
@@ -70,13 +72,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
                         // 実際のファイルパスは.html付きで遷移
-                        const originalHref = this.getAttribute('data-original-href') || this.href + '.html';
-                        
-                        // 相対パスを解決
-                        const linkElement = document.createElement('a');
-                        linkElement.href = originalHref;
-                        
-                        window.location.href = linkElement.href;
+                        const originalHref = this.getAttribute('data-original-href');
+                        if (originalHref) {
+                            window.location.href = originalHref;
+                        } else {
+                            // フォールバック：現在のhrefに.htmlを追加
+                            const currentHref = this.getAttribute('href');
+                            const parts = currentHref.split('?');
+                            const path = parts[0];
+                            const query = parts[1] ? '?' + parts[1] : '';
+                            const hash = this.hash || '';
+                            window.location.href = path + '.html' + query + hash;
+                        }
                     });
                 }
             }
