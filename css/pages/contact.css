@@ -6,7 +6,7 @@
     color: var(--white);
     text-align: center;
     padding: 40px 20px;
-    background-image: url('../../images/contact-hero.jpg'); /* お問い合わせページ用の背景画像 */
+    background-image: url('../../images/header/contact-hero.jpg'); /* お問い合わせページ用の背景画像 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

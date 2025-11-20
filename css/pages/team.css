@@ -32,7 +32,7 @@
 
 /* ヒーローイメージ (★修正★) */
 .page-hero { 
-    background-image: url('../../images/team-hero.jpg'); /* チームページ用の背景画像 */
+    background-image: url('../../images/header/team-hero.jpg'); /* チームページ用の背景画像 */
     background-color: var(--main-color);
     color: var(--white);
     text-align: center;

@@ -116,9 +116,13 @@
     <script src="js/common/script.js"></script>
     
     <!-- ======== このページ専用のJavaScript (新規追加) ======== -->
-    <!-- 1. 選手データベースを読み込む -->
+    <!-- 1. 選手データベースを読み込む（ポジションごとに分かれたファイル） -->
+    <script src="js/data/players-handler.js"></script>
+    <script src="js/data/players-deep.js"></script>
+    <script src="js/data/players-staff.js"></script>
+    <!-- 2. 統合ファイル（既存コードとの互換性のため） -->
     <script src="js/data/player.js"></script>
-    <!-- 2. 選手情報をページに流し込むスクリプトを読み込む -->
+    <!-- 3. 選手情報をページに流し込むスクリプトを読み込む -->
     <script src="js/pages/player.js"></script>
 </body>
 </html>
