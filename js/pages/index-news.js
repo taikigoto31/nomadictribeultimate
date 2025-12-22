@@ -56,7 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const imageSrc = news.image || 'https://placehold.co/150x150/E60012/ffffff?text=LOGO';
         
         // リンクの決定：news.linkがあればそれを使用、なければ詳細ページに遷移
-        let newsLink = `news-detail?id=${news.id}`;
+        // トップページからも news-detail.html に遷移する
+        let newsLink = `news-detail.html?id=${news.id}`;
         if (news.link && news.link.trim() !== '') {
             newsLink = news.link;
         }
