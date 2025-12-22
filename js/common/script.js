@@ -2,12 +2,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // ======== ヒーロー画像ギャラリー ========
 
-    // 1. 表示する画像リストを定義 (4枚)
+    // 1. 表示する画像リストを定義
     const galleryImages = [
-        "images/top/top1.jpg",   // 1枚目
+        "images/top/top1.jpg",  // 1枚目
         "images/top/top2.jpg",  // 2枚目
-        "images/top/top3.jpg", // 3枚目
-        "images/top/top4.jpg"         // 4枚目
+        "images/top/top3.jpg"   // 3枚目
     ];
     const numImages = galleryImages.length;
 
