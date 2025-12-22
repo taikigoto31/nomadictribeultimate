@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <a href="player.html?id=${player.id}" class="player-card-link">
                     <div class="player-card">
                         <div class="player-image">
-                            <img src="${player.playerImage || 'https://placehold.co/300x400/cccccc/666666?text=No+Image'}" 
+                            <img src="${player.playerImage}" 
                                  alt="${player.name}" 
                                  loading="lazy"
-                                 onerror="this.src='https://placehold.co/300x400/cccccc/666666?text=No+Image'; this.onerror=null;">
+                                 onerror="this.closest('.player-card-link').remove();">
                         </div>
                         <div class="player-info">
                             <span class="player-number">${player.number ? '#' + player.number : ''}</span>
@@ -31,8 +31,13 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         }
 
-        // 選手データをループ処理（全員表示）
+        // 選手データをループ処理（写真がある人のみ表示）
         playersData.forEach(player => {
+            // playerImage が設定されていない or 空文字の場合は表示しない
+            if (!player.playerImage || (typeof player.playerImage === 'string' && player.playerImage.trim() === '')) {
+                return;
+            }
+
             const cardHTML = createPlayerCard(player);
             
             // ポジションに応じて適切なグリッドに追加

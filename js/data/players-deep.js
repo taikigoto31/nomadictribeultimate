@@ -142,7 +142,7 @@ const deepPlayers = [
         number: 8,
         position: "DEEP",
         role: "",
-        bio: "身長：181cm　/　体重：77kg　/　生年月日：1999/1/1　/　出身大学：慶応義塾大学",
+        bio: "身長：169cm　/　体重：61kg　/　生年月日：2002/02/08　/　出身大学：慶応義塾大学",
         representativeCareer: [],
         playerImage: "images/players/deep/player_8_thumb1.jpg",
         qnaImages: [
@@ -151,17 +151,17 @@ const deepPlayers = [
             "images/players/deep/player_8_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "くの、ブロ" },
+            { q: "MBTI", a: "INFJ" },
+            { q: "得意なプレー", a: "雰囲気作り" },
+            { q: "試合前ルーティン", a: "試合前用プレイリストを聴く" },
+            { q: "好きな食べ物", a: "餃子" },
+            { q: "好きな曲", a: "one of wun / Gunna" },
+            { q: "趣味", a: "スポーツ観戦" },
+            { q: "もしも生まれ変わったら何になりたい", a: "猫" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "応援よろしくお願いします" }
         ]
     },
     {
@@ -171,8 +171,10 @@ const deepPlayers = [
         number: 11,
         position: "DEEP",
         role: "",
-        bio: "身長：181cm　/　体重：77kg　/　生年月日：1999/1/1　/　出身大学：慶応義塾大学",
-        representativeCareer: [],
+        bio: "身長：168cm　/　体重：55kg　/　生年月日：2001/03/02　/　出身大学：慶応義塾大学",
+        representativeCareer: ["2023年　WFDF世界U-24アルティメット選手権大会　オープン部門",
+            "2024年　WFDFアジア・オセアニアビーチアルティメット選手権大会 オープン部門",
+            "2025年　WFDF世界ビーチアルティメット選手権大会 オープン部門"],
         playerImage: "images/players/deep/player_11_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_11_thumb1.jpg",
@@ -180,17 +182,17 @@ const deepPlayers = [
             "images/players/deep/player_11_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "そうた" },
+            { q: "MBTI", a: "ESFP" },
+            { q: "得意なプレー", a: "運動量、サイドシュート" },
+            { q: "試合前ルーティン", a: "特にないです" },
+            { q: "好きな食べ物", a: "肉" },
+            { q: "好きな曲", a: "ONE OK ROCK / キミシダイ列車" },
+            { q: "趣味", a: "F1観戦" },
+            { q: "もしも生まれ変わったら何になりたい", a: "ハヤブサ" },
+            { q: "インスタグラムアカウント", a: "@sotaono11" },
+            { q: "ひとことコメント", a: "Nomadic Tribeの一員としてクラブ選手権ベスト4に貢献出来るように頑張ります" }
         ]
     },
     {
@@ -200,7 +202,7 @@ const deepPlayers = [
         number: 14,
         position: "DEEP",
         role: "",
-        bio: "身長：181cm　/　体重：77kg　/　生年月日：1999/1/1　/　出身大学：慶応義塾大学",
+        bio: "身長：179cm　/　体重：67kg　/　生年月日：1997/06/10　/　出身大学：慶応義塾大学",
         representativeCareer: [],
         playerImage: "images/players/deep/player_14_thumb1.jpg",
         qnaImages: [
@@ -209,17 +211,17 @@ const deepPlayers = [
             "images/players/deep/player_14_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "ばばしゅん" },
+            { q: "MBTI", a: "ESTJ" },
+            { q: "得意なプレー", a: "サイドスロー" },
+            { q: "試合前ルーティン", a: "やまちゃんカーで会場入りすること" },
+            { q: "好きな食べ物", a: "ハンバーガー" },
+            { q: "好きな曲", a: "菅田将暉 / ロングホープ・フィリア" },
+            { q: "趣味", a: "野球観戦" },
+            { q: "もしも生まれ変わったら何になりたい", a: "ドアラ" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "Go! Nomadic!!" }
         ]
     },
     {
@@ -229,8 +231,9 @@ const deepPlayers = [
         number: 17,
         position: "DEEP",
         role: "",
-        bio: "身長：179cm　/　体重：74kg　/　生年月日：1999/1/1　/　出身大学：国際基督教大学",
-        representativeCareer: [],
+        bio: "身長：176cm　/　体重：64kg　/　生年月日：1995/03/26　/　出身大学：国際基督教大学",
+        representativeCareer: ["2018年 WFDF 世界U24アルティメット選手権 オープン部門",
+            "2024年 WFDF 世界アルティメット選手権 オープン部門"],
         playerImage: "images/players/deep/player_17_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_17_thumb1.jpg",
@@ -238,17 +241,17 @@ const deepPlayers = [
             "images/players/deep/player_17_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
+            { q: "職業", a: "コンサルタント" },
+            { q: "ニックネーム", a: "けんたろう" },
             { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "得意なプレー", a: "気が利くレシーブ" },
+            { q: "試合前ルーティン", a: "ルーティンを作らないこと" },
+            { q: "好きな食べ物", a: "富士そば" },
+            { q: "好きな曲", a: "FRUITS ZIPPER / はちゃめちゃわちゃライフ！" },
+            { q: "趣味", a: "料理" },
+            { q: "もしも生まれ変わったら何になりたい", a: "デコピン" },
+            { q: "インスタグラムアカウント", a: "@kentaronakao" },
+            { q: "ひとことコメント", a: "アルティメット人生の集大成です" }
         ]
     },
     {
@@ -258,8 +261,8 @@ const deepPlayers = [
         number: 18,
         position: "DEEP",
         role: "",
-        bio: "身長：187cm　/　体重：84kg　/　生年月日：1999/1/1　/　出身大学：上智大学",
-        representativeCareer: [],
+        bio: "身長：180cm　/　体重：72kg　/　生年月日：1998/11/24/　出身大学：上智大学",
+        representativeCareer: ["2019年　WFDFU24世界アルティメット選手権大会　オープン部門"],
         playerImage: "images/players/deep/player_18_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_18_thumb1.jpg",
@@ -267,17 +270,17 @@ const deepPlayers = [
             "images/players/deep/player_18_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "そう" },
+            { q: "MBTI", a: "ESTP" },
+            { q: "得意なプレー", a: "バックシュート" },
+            { q: "試合前ルーティン", a: "シュークリーム食べる" },
+            { q: "好きな食べ物", a: "お刺身" },
+            { q: "好きな曲", a: "心絵" },
+            { q: "趣味", a: "美味しいご飯探し" },
+            { q: "もしも生まれ変わったら何になりたい", a: "大谷翔平" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "がんばります。" }
         ]
     },
     {
@@ -287,8 +290,8 @@ const deepPlayers = [
         number: 19,
         position: "DEEP",
         role: "",
-        bio: "身長：184cm　/　体重：81kg　/　生年月日：1999/1/1　/　出身大学：筑波大学",
-        representativeCareer: [],
+        bio: "身長：179cm　/　体重：69kg　/　生年月日：2002/09/09　/　出身大学：筑波大学",
+        representativeCareer: ["2025年　WFDF世界ビーチアルティメット選手権大会 オープン部門"],
         playerImage: "images/players/deep/player_19_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_19_thumb1.jpg",
@@ -296,17 +299,17 @@ const deepPlayers = [
             "images/players/deep/player_19_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "大学院生" },
+            { q: "ニックネーム", a: "ヒビキ" },
+            { q: "MBTI", a: "ENFP" },
+            { q: "得意なプレー", a: "ミドルディフェンス、サイドシュート" },
+            { q: "試合前ルーティン", a: "両手の指の腹を合わせる" },
+            { q: "好きな食べ物", a: "寿司、おでん" },
+            { q: "好きな曲", a: "Greeeen / 冬のある日の唄" },
+            { q: "趣味", a: "旅行" },
+            { q: "もしも生まれ変わったら何になりたい", a: "飼い猫" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "ノンキャリ卒業 Go Nomadic！" }
         ]
     },
     {
@@ -316,8 +319,8 @@ const deepPlayers = [
         number: 25,
         position: "DEEP",
         role: "",
-        bio: "身長：186cm　/　体重：83kg　/　生年月日：1999/1/1　/　出身大学：秋田大学",
-        representativeCareer: [],
+        bio: "身長：183cm　/　体重：68kg　/　生年月日：2000/03/30　/　出身大学：秋田大学",
+        representativeCareer: ["2019年　WFDF世界U24アルティメット選手権大会　ミックス部門"],
         playerImage: "images/players/deep/player_25_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_25_thumb1.jpg",
@@ -325,17 +328,17 @@ const deepPlayers = [
             "images/players/deep/player_25_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "こうちゃん" },
+            { q: "MBTI", a: "ESFP" },
+            { q: "得意なプレー", a: "サイドシュート、スローオフ" },
+            { q: "試合前ルーティン", a: "2025シーズンはリポビタンD飲んでました" },
+            { q: "好きな食べ物", a: "オムライス" },
+            { q: "好きな曲", a: "BiSH / beautifulさ" },
+            { q: "趣味", a: "サイクリング" },
+            { q: "もしも生まれ変わったら何になりたい", a: "魔法使い" },
+            { q: "インスタグラムアカウント", a: "@mk___3303" },
+            { q: "ひとことコメント", a: "NomadicTribeの応援よろしくお願いします！！" }
         ]
     },
     {
@@ -345,8 +348,8 @@ const deepPlayers = [
         number: 44,
         position: "DEEP",
         role: "",
-        bio: "身長：176cm　/　体重：71kg　/　生年月日：1999/1/1　/　出身大学：同志社大学",
-        representativeCareer: [],
+        bio: "身長：182cm　/　体重：70kg　/　生年月日：1999/03/01/　出身大学：同志社大学",
+        representativeCareer: ["2023年　アジアオセアニアアルティメット選手権大会　オープン部門"],
         playerImage: "images/players/deep/player_44_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_44_thumb1.jpg",
@@ -354,17 +357,17 @@ const deepPlayers = [
             "images/players/deep/player_44_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "SE" },
+            { q: "ニックネーム", a: "ごっち" },
+            { q: "MBTI", a: "ISTP" },
+            { q: "得意なプレー", a: "勝負強さ" },
+            { q: "試合前ルーティン", a: "右足からグラウンドに入る" },
+            { q: "好きな食べ物", a: "手羽先" },
+            { q: "好きな曲", a: "ONE OK ROCK / 欲望に満ちた青年団" },
+            { q: "趣味", a: "サウナ・HP作り" },
+            { q: "もしも生まれ変わったら何になりたい", a: "鷹" },
+            { q: "インスタグラムアカウント", a: "@ikiat015" },
+            { q: "ひとことコメント", a: "まだまだ進化し続けるNomadicTribeをご注目ください！" }
         ]
     },
     {
@@ -432,7 +435,7 @@ const deepPlayers = [
         number: 67,
         position: "DEEP",
         role: "",
-        bio: "身長：190cm　/　体重：85kg　/　生年月日：1999/1/1　/　出身大学：ー",
+        bio: "身長：181cm　/　体重：78kg　/　生年月日：1999/07/26　/　出身大学：Deakin University ",
         representativeCareer: [],
         playerImage: "images/players/deep/player_67_thumb1.jpg",
         qnaImages: [
@@ -441,17 +444,17 @@ const deepPlayers = [
             "images/players/deep/player_67_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "英語の先生" },
+            { q: "ニックネーム", a: "Riz" },
+            { q: "MBTI", a: "INFJ" },
+            { q: "得意なプレー", a: " Drinking water" },
+            { q: "試合前ルーティン", a: "No eating" },
+            { q: "好きな食べ物", a: "キムチ" },
+            { q: "好きな曲", a: "Sleep - Godspeed you black emperor " },
+            { q: "趣味", a: "Bikepacking" },
+            { q: "もしも生まれ変わったら何になりたい", a: "キノコ" },
+            { q: "インスタグラムアカウント", a: "@Shrexbox360" },
+            { q: "ひとことコメント", a: "Fuck Clankers" }
         ]
     },
     {
@@ -461,8 +464,8 @@ const deepPlayers = [
         number: 87,
         position: "DEEP",
         role: "",
-        bio: "身長：181cm　/　体重：77kg　/　生年月日：1999/1/1　/　出身大学：慶応義塾大学",
-        representativeCareer: [],
+        bio: "身長：173cm　/　体重：60kg　/　生年月日：1998/06/26　/　出身大学：慶応義塾大学",
+        representativeCareer: ["WFDF2024アジア・オセアニアビーチアルティメット選手権大会　オープン部門"],
         playerImage: "images/players/deep/player_87_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_87_thumb1.jpg",
@@ -470,17 +473,17 @@ const deepPlayers = [
             "images/players/deep/player_87_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "ちょげ" },
+            { q: "MBTI", a: "ISFP" },
+            { q: "得意なプレー", a: "走" },
+            { q: "試合前ルーティン", a: "試合前用のプレイリストを聞く" },
+            { q: "好きな食べ物", a: "パクチー/ピザ/パクチー/ハンバーガー/パクチー" },
+            { q: "好きな曲", a: "SHEESH / These , Days / All Too Well(10minute version)" },
+            { q: "趣味", a: "映画鑑賞　KPOP" },
+            { q: "もしも生まれ変わったら何になりたい", a: "猫" },
+            { q: "インスタグラムアカウント", a: "@takaichi_sanae" },
+            { q: "ひとことコメント", a: "がんばります。" }
         ]
     },
     {

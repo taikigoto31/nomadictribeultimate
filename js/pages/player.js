@@ -126,9 +126,15 @@ document.addEventListener("DOMContentLoaded", function() {
         // メイン画像を設定
         setMainImage(mainImageEl, player);
 
-        // サムネイルを生成
+        // サムネイルを生成（実際に画像パスがあるものだけを対象にする）
         if (player.qnaImages && player.qnaImages.length > 0) {
-            createThumbnails(thumbnailsEl, mainImageEl, player);
+            const validImages = player.qnaImages.filter(src => {
+                return typeof src === 'string' && src.trim() !== '';
+            });
+
+            if (validImages.length > 0) {
+                createThumbnails(thumbnailsEl, mainImageEl, player, validImages);
+            }
         }
     }
 
@@ -152,11 +158,12 @@ document.addEventListener("DOMContentLoaded", function() {
      * @param {HTMLElement} thumbnailsEl - サムネイルコンテナ要素
      * @param {HTMLElement} mainImageEl - メイン画像要素
      * @param {Object} player - 選手データ
+     * @param {string[]} images - 有効な画像パス配列
      */
-    function createThumbnails(thumbnailsEl, mainImageEl, player) {
+    function createThumbnails(thumbnailsEl, mainImageEl, player, images) {
         thumbnailsEl.innerHTML = "";
 
-        player.qnaImages.forEach((imgSrc, index) => {
+        images.forEach((imgSrc, index) => {
             const thumb = createThumbnailImage(imgSrc, player.name, index);
             
             // 最初のサムネイルをアクティブにしてメイン画像を更新
@@ -185,11 +192,16 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function createThumbnailImage(imgSrc, playerName, index) {
         const thumb = document.createElement("img");
-        thumb.src = imgSrc || PLACEHOLDER_IMAGE_THUMB;
+        thumb.src = imgSrc;
         thumb.alt = `${playerName} サムネイル ${index + 1}`;
         thumb.onerror = function() {
-            this.src = PLACEHOLDER_IMAGE_THUMB;
-            this.onerror = null;
+            // 読み込みに失敗したサムネイルは非表示にする
+            const parent = this.parentElement;
+            if (parent) {
+                parent.removeChild(this);
+            } else {
+                this.style.display = "none";
+            }
         };
         return thumb;
     }
