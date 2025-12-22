@@ -202,6 +202,22 @@
     object-fit: cover; /* 比率を保ったままトリミング */
 }
 
+/* STAFFカード用: 画像サイズを他ポジションと同程度に調整しつつレイアウト調整 */
+.team-category#staff .player-card {
+    max-width: 260px;          /* カードの最大幅を制限して、大きくなりすぎないようにする */
+}
+
+/* STAFFグリッド: 2人など少人数でもカード同士の間隔が広がりすぎないように中央寄せ＋幅制限 */
+.team-category#staff .player-grid {
+    justify-items: start;      /* 左寄せ */
+    justify-content: flex-start; /* 左寄せ */
+    gap: 16px;                 /* STAFF だけ少し狭めの隙間 */
+    max-width: 600px;          /* グリッド全体の横幅を制限 */
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
 .player-info {
     padding: 15px;
     text-align: left;

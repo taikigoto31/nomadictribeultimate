@@ -54,18 +54,42 @@
             <p class="page-hero-subtitle">選手・スタッフ</p>
         </div>
 
-        <!-- ======== 現在作成中メッセージ ======== -->
-        <section class="team-page wrapper">
-            <div class="under-construction">
-                <div class="under-construction-content">
-                    <i class="fas fa-tools" style="font-size: 3rem; color: var(--accent-color); margin-bottom: 20px;"></i>
-                    <h2 style="font-size: 2rem; font-weight: 700; color: var(--main-color); margin-bottom: 15px;">現在作成中</h2>
-                    <p style="font-size: 1.1rem; color: var(--light-text); line-height: 1.8;">
-                        このページは現在作成中です。<br>
-                        しばらくお待ちください。
-                    </p>
+        <!-- ======== ページ内ナビゲーション ======== -->
+        <nav class="team-nav wrapper">
+            <ul class="team-nav-list">
+                <li><a href="#handler">HANDLER</a></li>
+                <li><a href="#deep">DEEP</a></li>
+                <li><a href="#staff">STAFF</a></li>
+            </ul>
+        </nav>
+
+        <!-- ======== チーム情報 ======== -->
+        <section class="team-page wrapper page-main-content">
+            
+            <!-- HANDLER -->
+            <div class="team-category" id="handler">
+                <h3 class="category-title">HANDLER</h3>
+                <div class="player-grid" id="handler-grid">
+                    <!-- JavaScriptで選手カードが生成されます -->
                 </div>
             </div>
+
+            <!-- DEEP -->
+            <div class="team-category" id="deep">
+                <h3 class="category-title">DEEP</h3>
+                <div class="player-grid" id="deep-grid">
+                    <!-- JavaScriptで選手カードが生成されます -->
+                </div>
+            </div>
+
+            <!-- STAFF -->
+            <div class="team-category" id="staff">
+                <h3 class="category-title">STAFF</h3>
+                <div class="player-grid" id="staff-grid">
+                    <!-- JavaScriptで選手カードが生成されます -->
+                </div>
+            </div>
+
         </section>
     </main>
 
@@ -77,13 +101,13 @@
     <script src="js/common/script.js"></script>
     
     <!-- ======== このページ専用のJavaScript ======== -->
-    <!-- 現在作成中のため、選手データの読み込みはコメントアウト -->
-    <!--
+    <!-- 1. 選手データを読み込む（ポジションごとに分かれたファイル） -->
     <script src="js/data/players-handler.js"></script>
     <script src="js/data/players-deep.js"></script>
     <script src="js/data/players-staff.js"></script>
+    <!-- 2. 統合ファイル（既存コードとの互換性のため） -->
     <script src="js/data/player.js"></script>
+    <!-- 3. 選手カードを生成するスクリプトを読み込む -->
     <script src="js/pages/team.js"></script>
-    -->
 </body>
 </html>

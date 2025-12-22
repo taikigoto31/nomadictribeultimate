@@ -11,8 +11,12 @@ const handlerPlayers = [
         number: 7,
         position: "HANDLER",
         role: "",
-        bio: "身長：175cm　/　体重：70kg　/　生年月日：1999/1/1　/　出身大学：関西学院大学",
-        representativeCareer: [],
+        bio: "身長：185cm　/　体重：78kg　/　生年月日：2001/12/03　/　出身大学：関西学院大学",
+        representativeCareer: [
+            "2023年 WFDF世界U24アルティメット選手権大会 オープン部門",
+            "2024年 WFDFアジア•オセアニアビーチアルティメット選手権大会 ミックス部門",
+            "2025年 WFDF世界ビーチアルティメット選手権大会 オープン部門"
+        ],
         playerImage: "images/players/handler/player_7_thumb1.jpg",
         qnaImages: [
             "images/players/handler/player_7_thumb1.jpg",
@@ -20,17 +24,17 @@ const handlerPlayers = [
             "images/players/handler/player_7_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
+            { q: "職業", a: "金融会社" },
+            { q: "ニックネーム", a: "ケイタ" },
+            { q: "MBTI", a: "ENFP" },
+            { q: "得意なプレー", a: "コートを広く使ったプレー" },
+            { q: "試合前ルーティン", a: "スパイクは左から" },
+            { q: "好きな食べ物", a: "ラーメン、お寿司" },
+            { q: "好きな曲", a: "目配せ / SUPER BEAVER" },
+            { q: "趣味", a: "釣り、ギター、料理" },
+            { q: "もしも生まれ変わったら何になりたい", a: "猫ちゃん" },
             { q: "インスタグラムアカウント", a: "@keiter.sasaki" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "ひとことコメント", a: "日本のアルティメットを革新します。一緒に頑張りましょう！" }
         ]
     },
     {
@@ -74,8 +78,8 @@ const handlerPlayers = [
         number: 13,
         position: "HANDLER",
         role: "",
-        bio: "身長：178cm　/　体重：72kg　/　生年月日：1999/1/1　/　出身大学：上智大学",
-        representativeCareer: [],
+        bio: "身長：168cm　/　体重：62kg　/　生年月日：1996/04/28　/　出身大学：上智大学",
+        representativeCareer: ["2019年 WFDF世界U-24アルティメット世界選手権 ミックス部門"],
         playerImage: "images/players/handler/player_13_thumb1.jpg",
         qnaImages: [
             "images/players/handler/player_13_thumb1.jpg",
@@ -83,17 +87,17 @@ const handlerPlayers = [
             "images/players/handler/player_13_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "たくみ、たっくん" },
+            { q: "MBTI", a: "ENTJ" },
+            { q: "得意なプレー", a: "勝負所のダイブD" },
+            { q: "試合前ルーティン", a: "家の掃除、整理整頓" },
+            { q: "好きな食べ物", a: "ハンバーグ、エクレア" },
+            { q: "好きな曲", a: "OneRepublic / I Ain’t Worried" },
+            { q: "趣味", a: "世界各国のスイーツを現地で食べること" },
+            { q: "もしも生まれ変わったら何になりたい", a: "カリフォルニアのサーファーガール" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "応援よろしくお願いします！個人的にも気軽に声をかけてくれたら嬉しいです！" }
         ]
     },
     {
@@ -103,8 +107,9 @@ const handlerPlayers = [
         number: 21,
         position: "HANDLER",
         role: "",
-        bio: "身長：178cm　/　体重：72kg　/　生年月日：1999/1/1　/　出身大学：上智大学",
-        representativeCareer: [],
+        bio: "身長：173cm　/　体重：68kg　/　生年月日：2002/03/09　/　出身大学：上智大学",
+        representativeCareer: ["WFDF2025世界U24アルティメット選手権大会 オープン部門",
+            "WFDF2025世界ビーチアルティメット選手権大会 オープン部門"],
         playerImage: "images/players/handler/player_21_thumb1.jpg",
         qnaImages: [
             "images/players/handler/player_21_thumb1.jpg",
@@ -112,17 +117,17 @@ const handlerPlayers = [
             "images/players/handler/player_21_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "フリーター" },
+            { q: "ニックネーム", a: "さとし、さとぼう" },
+            { q: "MBTI", a: "INTP" },
+            { q: "得意なプレー", a: "ディフェンス、走力" },
+            { q: "試合前ルーティン", a: "何も意識してないです" },
+            { q: "好きな食べ物", a: "白米に合うもの" },
+            { q: "好きな曲", a: "あいみょん / 愛を伝えたいだとか" },
+            { q: "趣味", a: "読書" },
+            { q: "もしも生まれ変わったら何になりたい", a: "女の子" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "若手らしく頑張ります" }
         ]
     },
     {
@@ -132,8 +137,9 @@ const handlerPlayers = [
         number: 23,
         position: "HANDLER",
         role: "",
-        bio: "身長：172cm　/　体重：68kg　/　生年月日：1999/1/1　/　出身大学：慶応義塾大学",
-        representativeCareer: [],
+        bio: "身長：168cm　/　体重：63kg　/　生年月日：1999/11/06　/　出身大学：慶応義塾大学",
+        representativeCareer: ["2023年　WFDFアジア・オセアニアアルティメット＆ガッツ選手権大会 オープン部門",
+            "2024年　WFDFアジア・オセアニアビーチアルティメット選手権大会 オープン部門"],
         playerImage: "images/players/handler/player_23_thumb1.jpg",
         qnaImages: [
             "images/players/handler/player_23_thumb1.jpg",
@@ -141,17 +147,17 @@ const handlerPlayers = [
             "images/players/handler/player_23_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "エンジニア" },
+            { q: "ニックネーム", a: "ぺい" },
+            { q: "MBTI", a: "ENFP" },
+            { q: "得意なプレー", a: "マンツーマンD＆ダッシュ" },
+            { q: "試合前ルーティン", a: "脱力ストレッチ" },
+            { q: "好きな食べ物", a: "チーズケーキ" },
+            { q: "好きな曲", a: "らしさ / Official髭男dism" },
+            { q: "趣味", a: "ChatGPTと遊ぶ" },
+            { q: "もしも生まれ変わったら何になりたい", a: "深海魚" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "精一杯がんばります！NomadicTribeをよろしくお願いします！" }
         ]
     },
     {
@@ -248,7 +254,7 @@ const handlerPlayers = [
         number: 55,
         position: "HANDLER",
         role: "",
-        bio: "身長：173cm　/　体重：69kg　/　生年月日：1999/1/1　/　出身大学：同志社大学",
+        bio: "身長：173cm　/　体重：63kg　/　生年月日：2001/07/08　/　出身大学：同志社大学",
         representativeCareer: [],
         playerImage: "images/players/handler/player_55_thumb1.jpg",
         qnaImages: [
@@ -257,17 +263,17 @@ const handlerPlayers = [
             "images/players/handler/player_55_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "田中" },
+            { q: "MBTI", a: "ESTJ" },
+            { q: "得意なプレー", a: "サイドスロー" },
+            { q: "試合前ルーティン", a: "戦術確認" },
+            { q: "好きな食べ物", a: "寿司" },
+            { q: "好きな曲", a: "サカナクション / アイデンティティ" },
+            { q: "趣味", a: "フットサル" },
+            { q: "もしも生まれ変わったら何になりたい", a: "センスのある人" },
+            { q: "インスタグラムアカウント", a: "@no_takuto0708" },
+            { q: "ひとことコメント", a: "Nomadic Tribeの応援お願いします！" }
         ]
     },
     {
@@ -277,8 +283,8 @@ const handlerPlayers = [
         number: 80,
         position: "HANDLER",
         role: "",
-        bio: "身長：172cm　/　体重：68kg　/　生年月日：1999/1/1　/　出身大学：慶応義塾大学",
-        representativeCareer: [],
+        bio: "身長：179cm　/　体重：75kg　/　生年月日：1998/12/09　/　出身大学：慶応義塾大学",
+        representativeCareer: ["2016年　世界ジュニア選手権大会　オープン部門"],
         playerImage: "images/players/handler/player_80_thumb1.jpg",
         qnaImages: [
             "images/players/handler/player_80_thumb1.jpg",
@@ -286,17 +292,17 @@ const handlerPlayers = [
             "images/players/handler/player_80_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "SE" },
+            { q: "ニックネーム", a: "はま" },
+            { q: "MBTI", a: "INTP" },
+            { q: "得意なプレー", a: "シュート" },
+            { q: "試合前ルーティン", a: "ストレッチ" },
+            { q: "好きな食べ物", a: "ポテト" },
+            { q: "好きな曲", a: "藤井風 / 何なんw" },
+            { q: "趣味", a: "ドライブ" },
+            { q: "もしも生まれ変わったら何になりたい", a: "人間" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "頑張ります！" }
         ]
     },
     {
@@ -306,7 +312,7 @@ const handlerPlayers = [
         number: 83,
         position: "HANDLER",
         role: "",
-        bio: "身長：173cm　/　体重：69kg　/　生年月日：1999/1/1　/　出身大学：同志社大学",
+        bio: "身長：171cm　/　体重：55kg　/　生年月日：2000/10/25　/　出身大学：同志社大学",
         representativeCareer: [],
         playerImage: "images/players/handler/player_83_thumb1.jpg",
         qnaImages: [
@@ -315,17 +321,17 @@ const handlerPlayers = [
             "images/players/handler/player_83_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "SE" },
+            { q: "ニックネーム", a: "イトウ" },
+            { q: "MBTI", a: "INFJ" },
+            { q: "得意なプレー", a: "DF" },
+            { q: "試合前ルーティン", a: "そんなものなくても頑張れるタイプです" },
+            { q: "好きな食べ物", a: "中華料理" },
+            { q: "好きな曲", a: "サカナクション / セントレイ" },
+            { q: "趣味", a: "カップ麺食べ比べ" },
+            { q: "もしも生まれ変わったら何になりたい", a: "鳥" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "敵でも味方でも仲良くしてください" }
         ]
     }
 ];
