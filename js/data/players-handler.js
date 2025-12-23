@@ -220,7 +220,7 @@ const handlerPlayers = [
     },
     {
         id: 37,
-        name: "陸 慶",
+        name: "隥 慶",
         nameEn: "Kei Sako",
         number: 37,
         position: "HANDLER",
