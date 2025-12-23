@@ -49,8 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const li = document.createElement('li');
         li.className = 'news-item';
         
-        // 画像のパス（存在しない場合はプレースホルダー）
-        const imageSrc = news.image || 'https://placehold.co/150x150/E60012/ffffff?text=LOGO';
+        // 画像のパス（存在しない場合はロゴを使用）
+        const fallbackLogo = 'images/NomadicTribeLogo.png';
+        const imageSrc = news.image && news.image.trim() !== '' ? news.image : fallbackLogo;
         
         // リンクの決定：news.linkがあればそれを使用、なければ詳細ページに遷移
         let newsLink = `news-detail.html?id=${news.id}`;
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // リンクで囲む
         const contentHTML = `
             <div class="news-image">
-                <img src="${imageSrc}" alt="${news.title}" onerror="this.src='https://placehold.co/150x150/E60012/ffffff?text=LOGO'; this.onerror=null;">
+                <img src="${imageSrc}" alt="${news.title}" onerror="this.src='images/NomadicTribeLogo.png'; this.onerror=null;">
             </div>
             <div class="news-content">
                 <div class="news-header">

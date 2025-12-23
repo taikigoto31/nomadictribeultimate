@@ -87,7 +87,7 @@ const handlerPlayers = [
             "images/players/handler/player_13_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "会社員" },
+            { q: "職業", a: "重工メーカー" },
             { q: "ニックネーム", a: "たくみ、たっくん" },
             { q: "MBTI", a: "ENTJ" },
             { q: "得意なプレー", a: "勝負所のダイブD" },
@@ -225,8 +225,9 @@ const handlerPlayers = [
         number: 37,
         position: "HANDLER",
         role: "",
-        bio: "身長：180cm　/　体重：75kg　/　生年月日：1999/1/1　/　出身大学：早稲田大学",
-        representativeCareer: [],
+        bio: "身長：183cm　/　体重：70kg　/　生年月日：2000/06/25　/　出身大学：早稲田大学",
+        representativeCareer: ["2023年　WFDF世界U-24アルティメット選手権大会　オープン部門",
+            "2024年　WFDFアジア・オセアニアビーチアルティメット選手権大会　オープン部門"],
         playerImage: "images/players/handler/player_37_thumb1.jpg",
         qnaImages: [
             "images/players/handler/player_37_thumb1.jpg",
@@ -234,17 +235,17 @@ const handlerPlayers = [
             "images/players/handler/player_37_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "会社員" },
+            { q: "ニックネーム", a: "サコッシュ、さこっピー" },
+            { q: "MBTI", a: "ENTJ" },
+            { q: "得意なプレー", a: "投げること" },
+            { q: "試合前ルーティン", a: "ソンナモノナイヨ" },
+            { q: "好きな食べ物", a: "まぜそば" },
+            { q: "好きな曲", a: "doppelgänger / Creepy Nuts" },
+            { q: "趣味", a: "サウナ" },
+            { q: "もしも生まれ変わったら何になりたい", a: "ボディビルダー" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "まだまだやるよ〜" }
         ]
     },
     {

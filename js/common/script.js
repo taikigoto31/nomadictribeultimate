@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 2. HTML要素を取得
     const mainImage = document.getElementById("mainHeroImage");
+    const mainLink = document.getElementById("heroMainLink");
     const prevImage = document.getElementById("prevHeroImage");
     const nextImage = document.getElementById("nextHeroImage");
     const thumbnailsContainer = document.getElementById("heroThumbnails");
@@ -20,10 +21,33 @@ document.addEventListener("DOMContentLoaded", function() {
     // 3. ギャラリーがページに存在する場合のみ実行
     if (mainImage && prevImage && nextImage && thumbnailsContainer && sliderContainer && numImages > 0) {
         
-        // 4. 画像を更新する関数
+        // 4. メインリンクの状態を更新
+        // index 0: All Japan (news id=3)
+        // index 1: AOUC2025  (news id=2)
+        // index 2: リンクなし
+        function setMainLink(selectedIndex) {
+            if (!mainLink) return;
+            const linkMap = {
+                0: "news-detail.html?id=3",
+                1: "news-detail.html?id=2"
+            };
+            const targetHref = linkMap[selectedIndex];
+            if (targetHref) {
+                mainLink.href = targetHref;
+                mainLink.style.pointerEvents = "auto";
+                mainLink.setAttribute("aria-disabled", "false");
+            } else {
+                mainLink.removeAttribute("href");
+                mainLink.style.pointerEvents = "none";
+                mainLink.setAttribute("aria-disabled", "true");
+            }
+        }
+
+        // 5. 画像を更新する関数
         function updateImages(selectedIndex) {
             // (A) メイン画像を設定
             mainImage.src = galleryImages[selectedIndex];
+            setMainLink(selectedIndex);
 
             // (B) 前の画像を設定 (インデックスが-1になったら最後の画像へループ)
             const prevIndex = (selectedIndex - 1 + numImages) % numImages;
@@ -63,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (thumbnailsContainer && thumbnailsContainer.querySelectorAll('img')[0]) {
             thumbnailsContainer.querySelectorAll('img')[0].classList.add("active-thumb");
         }
+        setMainLink(currentIndex);
 
         // 7. 自動で画像を切り替える機能（8秒ごと）
         let autoSlideInterval = setInterval(function() {
