@@ -370,35 +370,35 @@ const deepPlayers = [
             { q: "ひとことコメント", a: "まだまだ進化し続けるNomadicTribeをご注目ください！" }
         ]
     },
-    {
-        id: 47,
-        name: "尾崎 聡大",
-        nameEn: "Sodai Ozaki",
-        number: 47,
-        position: "DEEP",
-        role: "",
-        bio: "身長：176cm　/　体重：71kg　/　生年月日：1999/1/1　/　出身大学：同志社大学",
-        representativeCareer: [],
-        playerImage: "images/players/deep/player_47_thumb1.jpg",
-        qnaImages: [
-            "images/players/deep/player_47_thumb1.jpg",
-            "images/players/deep/player_47_thumb2.jpg",
-            "images/players/deep/player_47_thumb3.jpg"
-        ],
-        qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
-        ]
-    },
+    // {
+    //     id: 47,
+    //     name: "尾崎 聡大",
+    //     nameEn: "Sodai Ozaki",
+    //     number: 47,
+    //     position: "DEEP",
+    //     role: "",
+    //     bio: "身長：176cm　/　体重：71kg　/　生年月日：1999/1/1　/　出身大学：同志社大学",
+    //     representativeCareer: [],
+    //     playerImage: "images/players/deep/player_47_thumb1.jpg",
+    //     qnaImages: [
+    //         "images/players/deep/player_47_thumb1.jpg",
+    //         "images/players/deep/player_47_thumb2.jpg",
+    //         "images/players/deep/player_47_thumb3.jpg"
+    //     ],
+    //     qna: [
+    //         { q: "職業", a: "ー" },
+    //         { q: "ニックネーム", a: "ー" },
+    //         { q: "MBTI", a: "ー" },
+    //         { q: "得意なプレー", a: "ー" },
+    //         { q: "試合前ルーティン", a: "ー" },
+    //         { q: "好きな食べ物", a: "ー" },
+    //         { q: "好きな曲", a: "ー" },
+    //         { q: "趣味", a: "ー" },
+    //         { q: "もしも生まれ変わったら何になりたい", a: "ー" },
+    //         { q: "インスタグラムアカウント", a: "ー" },
+    //         { q: "ひとことコメント", a: "ー" }
+    //     ]
+    // },
     {
         id: 64,
         name: "石黒 陽晴",
@@ -406,8 +406,9 @@ const deepPlayers = [
         number: 64,
         position: "DEEP",
         role: "",
-        bio: "身長：189cm　/　体重：86kg　/　生年月日：1999/1/1　/　出身大学：早稲田大学",
-        representativeCareer: [],
+        bio: "身長：178cm　/　体重：66kg　/　生年月日：2002/03/23　/　出身大学：早稲田大学",
+        representativeCareer: ["2025年　WFDF 世界U24アルティメット選手権大会　オープン部門",
+            "2025年　WFDF世界ビーチアルティメット選手権大会 ミックス部門"],
         playerImage: "images/players/deep/player_64_thumb1.jpg",
         qnaImages: [
             "images/players/deep/player_64_thumb1.jpg",
@@ -415,17 +416,17 @@ const deepPlayers = [
             "images/players/deep/player_64_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
+            { q: "職業", a: "大学5年目" },
+            { q: "ニックネーム", a: "よせし" },
+            { q: "MBTI", a: "ISTP" },
+            { q: "得意なプレー", a: "サイドシュート" },
+            { q: "試合前ルーティン", a: "特になし" },
+            { q: "好きな食べ物", a: "メキシコ料理" },
+            { q: "好きな曲", a: "リリック / TOKIO" },
+            { q: "趣味", a: "麻雀" },
+            { q: "もしも生まれ変わったら何になりたい", a: "アメリカの農家、牧場" },
+            { q: "インスタグラムアカウント", a: "" },
+            { q: "ひとことコメント", a: "Nomadic Tribeをよろしくお願い申し上げます。" }
         ]
     },
     {
