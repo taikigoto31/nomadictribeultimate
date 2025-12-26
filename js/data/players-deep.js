@@ -93,7 +93,7 @@ const deepPlayers = [
             "images/players/deep/player_4_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "人材エージェント" },
+            { q: "職業", a: "人材エージェント・Youtuber" },
             { q: "ニックネーム", a: "タク" },
             { q: "MBTI", a: "ESFP" },
             { q: "得意なプレー", a: "サイドシュート・シュートレシーブ" },

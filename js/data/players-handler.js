@@ -334,6 +334,35 @@ const handlerPlayers = [
             { q: "インスタグラムアカウント", a: "" },
             { q: "ひとことコメント", a: "敵でも味方でも仲良くしてください" }
         ]
-    }
+    },
+    // {
+    //     id: XX,
+    //     name: "岡野 吉紘",
+    //     nameEn: "Yoshihiro Okano",
+    //     number: XX,
+    //     position: "HANDLER",
+    //     role: "",
+    //     bio: "身長：175cm　/　体重：63kg　/　生年月日：2003/02/21　/　出身大学：関西学院大学",
+    //     representativeCareer: [],
+    //     playerImage: "images/players/handler/player_XX_thumb1.jpg",
+    //     qnaImages: [
+    //         "images/players/handler/player_XX_thumb1.jpg",
+    //         "images/players/handler/player_XX_thumb2.jpg",
+    //         "images/players/handler/player_XX_thumb3.jpg"
+    //     ],
+    //     qna: [
+    //         { q: "職業", a: "生命保険営業" },
+    //         { q: "ニックネーム", a: "よし" },
+    //         { q: "MBTI", a: "ENFJ" },
+    //         { q: "得意なプレー", a: "投げること" },
+    //         { q: "試合前ルーティン", a: "朝カレー" },
+    //         { q: "好きな食べ物", a: "中華料理" },
+    //         { q: "好きな曲", a: "兵、走る / B'z" },
+    //         { q: "趣味", a: "飲み会" },
+    //         { q: "もしも生まれ変わったら何になりたい", a: "筋肉ムキムキ" },
+    //         { q: "インスタグラムアカウント", a: "@yoshiyoshi_0221" },
+    //         { q: "ひとことコメント", a: "新入り頑張ります！" }
+    //     ]
+    // }
 ];
 

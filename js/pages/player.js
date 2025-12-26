@@ -322,6 +322,13 @@ document.addEventListener("DOMContentLoaded", function() {
         if (isInstagramAccount(item) && hasValidAnswer(item.a)) {
             return createInstagramLink(item.a);
         }
+        
+        // 職業の項目で「Youtuber」をYouTubeリンクに変換
+        if (item.q === "職業" && hasValidAnswer(item.a)) {
+            const youtubeUrl = "https://www.youtube.com/@%E6%9C%AC%E5%90%8D%E6%8B%93";
+            return item.a.replace(/Youtuber/g, `<a href="${youtubeUrl}" target="_blank" rel="noopener noreferrer" class="youtube-link">Youtuber</a>`);
+        }
+        
         return item.a;
     }
 

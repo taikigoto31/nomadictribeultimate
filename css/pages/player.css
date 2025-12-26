@@ -248,6 +248,18 @@
     text-decoration: underline;
 }
 
+.qna-table td .youtube-link {
+    color: #0066cc; /* 青色 */
+    text-decoration: underline; /* 常に下線を表示 */
+    font-weight: 600;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.qna-table td .youtube-link:hover {
+    color: #0052a3; /* ホバー時はより濃い青色 */
+    text-decoration: underline;
+}
+
 /* 戻るボタン */
 .back-to-list-btn {
     display: inline-block;
