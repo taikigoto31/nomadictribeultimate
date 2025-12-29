@@ -205,16 +205,17 @@
 /* STAFFカード用: 画像サイズを他ポジションと同程度に調整しつつレイアウト調整 */
 .team-category#staff .player-card {
     max-width: 260px;          /* カードの最大幅を制限して、大きくなりすぎないようにする */
+    margin: 0 auto;            /* カードを中央揃え */
 }
 
 /* STAFFグリッド: 2人など少人数でもカード同士の間隔が広がりすぎないように中央寄せ＋幅制限 */
 .team-category#staff .player-grid {
-    justify-items: start;      /* 左寄せ */
-    justify-content: flex-start; /* 左寄せ */
-    gap: 16px;                 /* STAFF だけ少し狭めの隙間 */
-    max-width: 600px;          /* グリッド全体の横幅を制限 */
-    margin-left: 0;
-    margin-right: auto;
+    justify-items: center;     /* 中央揃え */
+    justify-content: center;   /* 中央揃え */
+    gap: 20px;                 /* カード間の間隔を統一 */
+    max-width: 900px;          /* グリッド全体の横幅を拡大 */
+    margin: 0 auto;            /* グリッド全体を中央揃え */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* グリッド列を統一 */
 }
 
 
@@ -265,6 +266,14 @@
     /* ★追加★ モバイルではカテゴリの左右パディングを減らす */
     .team-category {
         padding: 20px 15px;
+    }
+
+    /* モバイルでもスタッフグリッドを中央揃えに */
+    .team-category#staff .player-grid {
+        justify-items: center;
+        justify-content: center;
+        gap: 15px;
+        max-width: 100%;
     }
 }
 

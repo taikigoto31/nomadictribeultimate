@@ -10,8 +10,8 @@ const staffPlayers = [
         nameEn: "Hiroki Onishi",
         number: "",
         position: "STAFF",
-        role: "Coach",
-        bio: "身長：175cm　/　体重：70kg　/　生年月日：ー　/　出身大学：早稲田大学",
+        role: "Head Coach",
+        bio: "生年月日：1993/09/24　/　出身大学：早稲田大学",
         representativeCareer: [],
         playerImage: "images/players/staff/staff_1_thumb1.jpg",
         qnaImages: [
@@ -20,8 +20,17 @@ const staffPlayers = [
             "images/players/staff/staff_1_thumb3.jpg"
         ],
         qna: [
-            { q: "役職", a: "監督" },
-            { q: "出身大学", a: "早稲田大学" }
+            { q: "職業", a: "ITコンサルタント" },
+            { q: "ニックネーム", a: "おっしゃー" },
+            { q: "MBTI", a: "INTP" },
+            { q: "得意なプレー", a: "ノマのみんなの成長を見て下さい" },
+            { q: "試合前ルーティン", a: "丸い円陣" },
+            { q: "好きな食べ物", a: "クビになったバイト先のハンバーグ" },
+            { q: "好きな曲", a: "フジファブリック / 夜明けのBEAT" },
+            { q: "趣味", a: "ゴルフ" },
+            { q: "もしも生まれ変わったら何になりたい", a: "家族仲のいい上流階級" },
+            { q: "インスタグラムアカウント", a: "@orient_hari_56" },
+            { q: "ひとことコメント", a: "Nomadic tribeは最高のチームです！！" }
         ]
     },
     {

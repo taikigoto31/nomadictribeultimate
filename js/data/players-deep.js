@@ -245,7 +245,7 @@ const deepPlayers = [
             { q: "ニックネーム", a: "けんたろう" },
             { q: "MBTI", a: "ー" },
             { q: "得意なプレー", a: "気が利くレシーブ" },
-            { q: "試合前ルーティン", a: "ルーティンを作らないこと" },
+            { q: "試合前ルーティン", a: "お浄め塩スプレー" },
             { q: "好きな食べ物", a: "富士そば" },
             { q: "好きな曲", a: "はちゃめちゃわちゃライフ！ / FRUITS ZIPPER" },
             { q: "趣味", a: "料理" },
@@ -357,7 +357,7 @@ const deepPlayers = [
             "images/players/deep/player_44_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "SE" },
+            { q: "職業", a: "ITコンサルタント" },
             { q: "ニックネーム", a: "ごっち" },
             { q: "MBTI", a: "ISTP" },
             { q: "得意なプレー", a: "勝負強さ" },
@@ -370,35 +370,35 @@ const deepPlayers = [
             { q: "ひとことコメント", a: "まだまだ進化し続けるNomadicTribeをご注目ください！" }
         ]
     },
-    // {
-    //     id: 47,
-    //     name: "尾崎 聡大",
-    //     nameEn: "Sodai Ozaki",
-    //     number: 47,
-    //     position: "DEEP",
-    //     role: "",
-    //     bio: "身長：176cm　/　体重：71kg　/　生年月日：1999/1/1　/　出身大学：同志社大学",
-    //     representativeCareer: [],
-    //     playerImage: "images/players/deep/player_47_thumb1.jpg",
-    //     qnaImages: [
-    //         "images/players/deep/player_47_thumb1.jpg",
-    //         "images/players/deep/player_47_thumb2.jpg",
-    //         "images/players/deep/player_47_thumb3.jpg"
-    //     ],
-    //     qna: [
-    //         { q: "職業", a: "ー" },
-    //         { q: "ニックネーム", a: "ー" },
-    //         { q: "MBTI", a: "ー" },
-    //         { q: "得意なプレー", a: "ー" },
-    //         { q: "試合前ルーティン", a: "ー" },
-    //         { q: "好きな食べ物", a: "ー" },
-    //         { q: "好きな曲", a: "ー" },
-    //         { q: "趣味", a: "ー" },
-    //         { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-    //         { q: "インスタグラムアカウント", a: "ー" },
-    //         { q: "ひとことコメント", a: "ー" }
-    //     ]
-    // },
+    {
+        id: 47,
+        name: "尾崎 聡大",
+        nameEn: "Sodai Ozaki",
+        number: 47,
+        position: "DEEP",
+        role: "",
+        bio: "身長：180cm　/　体重：74kg　/　生年月日：2000/07/19　/　出身大学：同志社大学",
+        representativeCareer: ["2023年　WFDF世界U-24アルティメット選手権大会　オープン部門"],
+        playerImage: "images/players/deep/player_47_thumb1.jpg",
+        qnaImages: [
+            "images/players/deep/player_47_thumb1.jpg",
+            "images/players/deep/player_47_thumb2.jpg",
+            "images/players/deep/player_47_thumb3.jpg"
+        ],
+        qna: [
+            { q: "職業", a: "営業" },
+            { q: "ニックネーム", a: "おざき、Ozzie" },
+            { q: "MBTI", a: "ESFP" },
+            { q: "得意なプレー", a: "お笑い" },
+            { q: "試合前ルーティン", a: "佐山聡の動画を見る" },
+            { q: "好きな食べ物", a: "お米" },
+            { q: "好きな曲", a: "Sorrows / King Gnu" },
+            { q: "趣味", a: "ゴルフ、料理" },
+            { q: "もしも生まれ変わったら何になりたい", a: "馬" },
+            { q: "インスタグラムアカウント", a: "@sodai_0719" },
+            { q: "ひとことコメント", a: "NomadicTribeを応援すること、これも技術のうち。" }
+        ]
+    },
     {
         id: 64,
         name: "石黒 陽晴",
@@ -483,7 +483,7 @@ const deepPlayers = [
             { q: "好きな曲", a: "SHEESH / These \r\n Days / All Too Well(10minute version)" },
             { q: "趣味", a: "映画鑑賞　KPOP" },
             { q: "もしも生まれ変わったら何になりたい", a: "猫" },
-            { q: "インスタグラムアカウント", a: "@takaichi_sanae" },
+            { q: "インスタグラムアカウント", a: "" },
             { q: "ひとことコメント", a: "がんばります。" }
         ]
     },
