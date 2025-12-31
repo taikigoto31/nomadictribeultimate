@@ -113,7 +113,7 @@ const deepPlayers = [
     {
         id: 5,
         name: "小林 史",
-        nameEn: "Fuhito Kobayasi",
+        nameEn: "Fuhito Kobayashi",
         number: 5,
         position: "DEEP",
         role: "",
@@ -436,7 +436,7 @@ const deepPlayers = [
     {
         id: 67,
         name: "Riley Wood",
-        nameEn: "Riley Wood",
+        nameEn: "ライリー ウッド",
         number: 67,
         position: "DEEP",
         role: "",
@@ -491,34 +491,34 @@ const deepPlayers = [
             { q: "ひとことコメント", a: "がんばります。" }
         ]
     },
-    {
-        id: 88,
-        name: "高橋 翼",
-        nameEn: "Tsubasa Takahashi",
-        number: 88,
-        position: "DEEP",
-        role: "",
-        bio: "身長：189cm　/　体重：86kg　/　生年月日：1999/1/1　/　出身大学：早稲田大学",
-        representativeCareer: [],
-        playerImage: "images/players/deep/player_88_thumb1.jpg",
-        qnaImages: [
-            "images/players/deep/player_88_thumb1.jpg",
-            "images/players/deep/player_88_thumb2.jpg",
-            "images/players/deep/player_88_thumb3.jpg"
-        ],
-        qna: [
-            { q: "職業", a: "ー" },
-            { q: "ニックネーム", a: "ー" },
-            { q: "MBTI", a: "ー" },
-            { q: "得意なプレー", a: "ー" },
-            { q: "試合前ルーティン", a: "ー" },
-            { q: "好きな食べ物", a: "ー" },
-            { q: "好きな曲", a: "ー" },
-            { q: "趣味", a: "ー" },
-            { q: "もしも生まれ変わったら何になりたい", a: "ー" },
-            { q: "インスタグラムアカウント", a: "ー" },
-            { q: "ひとことコメント", a: "ー" }
-        ]
-    }
+    // {
+    //     id: 88,
+    //     name: "高橋 翼",
+    //     nameEn: "Tsubasa Takahashi",
+    //     number: 88,
+    //     position: "DEEP",
+    //     role: "",
+    //     bio: "身長：189cm　/　体重：86kg　/　生年月日：1999/1/1　/　出身大学：早稲田大学",
+    //     representativeCareer: [],
+    //     playerImage: "images/players/deep/player_88_thumb1.jpg",
+    //     qnaImages: [
+    //         "images/players/deep/player_88_thumb1.jpg",
+    //         "images/players/deep/player_88_thumb2.jpg",
+    //         "images/players/deep/player_88_thumb3.jpg"
+    //     ],
+    //     qna: [
+    //         { q: "職業", a: "ー" },
+    //         { q: "ニックネーム", a: "ー" },
+    //         { q: "MBTI", a: "ー" },
+    //         { q: "得意なプレー", a: "ー" },
+    //         { q: "試合前ルーティン", a: "ー" },
+    //         { q: "好きな食べ物", a: "ー" },
+    //         { q: "好きな曲", a: "ー" },
+    //         { q: "趣味", a: "ー" },
+    //         { q: "もしも生まれ変わったら何になりたい", a: "ー" },
+    //         { q: "インスタグラムアカウント", a: "ー" },
+    //         { q: "ひとことコメント", a: "ー" }
+    //     ]
+    // }
 ];
 
