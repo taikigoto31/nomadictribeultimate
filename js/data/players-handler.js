@@ -58,7 +58,7 @@ const handlerPlayers = [
             "images/players/handler/player_9_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "住友生命保険相互会社" },
+            { q: "職業", a: "金融業" },
             { q: "ニックネーム", a: "団長" },
             { q: "MBTI", a: "ENFP" },
             { q: "得意なプレー", a: "走ること" },
@@ -163,7 +163,7 @@ const handlerPlayers = [
     {
         id: 24,
         name: "山田 和俊",
-        nameEn: "Kazutoshi Yama",
+        nameEn: "Kazutoshi Yamada",
         number: 24,
         position: "HANDLER",
         role: "",
