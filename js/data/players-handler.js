@@ -280,7 +280,7 @@ const handlerPlayers = [
     {
         id: 80,
         name: "浜島 哲史",
-        nameEn: "Tetsuhumi Hame",
+        nameEn: "Tetsuhumi Hamajima",
         number: 80,
         position: "HANDLER",
         role: "",
