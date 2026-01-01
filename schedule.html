@@ -58,7 +58,15 @@
             
             <!-- 年月フィルター -->
             <div class="schedule-filter">
-                <span class="year" id="schedule-year">2025</span>
+                <div class="year-selector">
+                    <button class="year-nav-btn" id="year-prev" aria-label="前年">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="year" id="schedule-year">2025</span>
+                    <button class="year-nav-btn" id="year-next" aria-label="次年">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
                 <div class="months" id="schedule-months">
                     <a href="#" data-month="1">01</a>
                     <a href="#" data-month="2">02</a>

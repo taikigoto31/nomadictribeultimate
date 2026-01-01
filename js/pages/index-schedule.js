@@ -67,10 +67,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const allMatches = [];
         const currentYear = new Date().getFullYear();
 
-        // 現在の年と次の年のデータを取得
-        const years = [currentYear, currentYear + 1];
+        // 利用可能な全ての年のデータを取得（現在の年から過去に遡る）
+        // まず利用可能な年を取得
+        const availableYears = [];
+        for (const year in scheduleData) {
+            if (scheduleData.hasOwnProperty(year)) {
+                availableYears.push(parseInt(year, 10));
+            }
+        }
+        // 新しい年から古い年の順にソート
+        availableYears.sort((a, b) => b - a);
         
-        years.forEach(year => {
+        // 各年のデータを取得
+        availableYears.forEach(year => {
             if (scheduleData[year]) {
                 for (let month = 1; month <= 12; month++) {
                     if (scheduleData[year][month] && scheduleData[year][month].length > 0) {

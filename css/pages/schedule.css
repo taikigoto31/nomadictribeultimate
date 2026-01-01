@@ -54,10 +54,43 @@
     border-bottom: 3px solid var(--accent-color);
 }
 
+.schedule-filter .year-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .schedule-filter .year {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--main-color);
+    min-width: 60px;
+    text-align: center;
+}
+
+.schedule-filter .year-nav-btn {
+    background: none;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.schedule-filter .year-nav-btn:hover:not(:disabled) {
+    background-color: var(--main-color);
+    color: var(--white);
+}
+
+.schedule-filter .year-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .schedule-filter .months {
@@ -276,6 +309,12 @@
     .schedule-filter {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .schedule-filter .year-selector {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
     }
 
     .schedule-item {
