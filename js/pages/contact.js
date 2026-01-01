@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const emailBody = createEmailBody(formValues);
             
             // メールアドレスを取得（設定ファイルから）
-            const recipientEmail = typeof contactConfig !== 'undefined' ? contactConfig.email : 'taikigoto.31@gmail.com';
+            const recipientEmail = typeof contactConfig !== 'undefined' ? contactConfig.email : 'nomadictribe2013@gmail.com';
             const subject = typeof contactConfig !== 'undefined' ? 
                 contactConfig.subjectPrefix + formValues.type : 
                 'Nomadic Tribe Ultimate お問い合わせ: ' + formValues.type;

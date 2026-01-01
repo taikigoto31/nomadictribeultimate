@@ -3,7 +3,7 @@
 
 const contactConfig = {
     // 送信先メールアドレス
-    email: "taikigoto.31@gmail.com",
+    email: "nomadictribe2013@gmail.com",
     
     // メールの件名（プレフィックス）
     subjectPrefix: "Nomadic Tribe Ultimate お問い合わせ: ",
