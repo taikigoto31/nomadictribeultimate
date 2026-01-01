@@ -30,3 +30,8 @@ if (typeof staffPlayers !== 'undefined') {
     }));
     playersData.push(...adjustedStaffPlayers);
 }
+
+// windowオブジェクトにも設定（isDataAvailable関数で検出可能にするため）
+if (typeof window !== 'undefined') {
+    window.playersData = playersData;
+}

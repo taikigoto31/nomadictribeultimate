@@ -3,12 +3,12 @@
 // ============================================
 
 document.addEventListener("DOMContentLoaded", function() {
-    // 定数定義
-    const PLACEHOLDER_IMAGE_MAIN = 'https://placehold.co/800x600/cccccc/666666?text=No+Image';
-    const PLACEHOLDER_IMAGE_THUMB = 'https://placehold.co/100x75/cccccc/666666?text=No+Image';
-    const INSTAGRAM_BASE_URL = 'https://www.instagram.com/';
-    const INSTAGRAM_QUESTION_KEY = "インスタグラムアカウント";
-    const EMPTY_ANSWER = "ー";
+    // 定数は js/common/utils.js の CONSTANTS から取得
+    const PLACEHOLDER_IMAGE_MAIN = typeof CONSTANTS !== 'undefined' ? CONSTANTS.PLACEHOLDER_IMAGE_MAIN : 'https://placehold.co/800x600/cccccc/666666?text=No+Image';
+    const PLACEHOLDER_IMAGE_THUMB = typeof CONSTANTS !== 'undefined' ? CONSTANTS.PLACEHOLDER_IMAGE_THUMB : 'https://placehold.co/100x75/cccccc/666666?text=No+Image';
+    const INSTAGRAM_BASE_URL = typeof CONSTANTS !== 'undefined' ? CONSTANTS.INSTAGRAM_BASE_URL : 'https://www.instagram.com/';
+    const INSTAGRAM_QUESTION_KEY = typeof CONSTANTS !== 'undefined' ? CONSTANTS.INSTAGRAM_QUESTION_KEY : "インスタグラムアカウント";
+    const EMPTY_ANSWER = typeof CONSTANTS !== 'undefined' ? CONSTANTS.EMPTY_ANSWER : "ー";
 
     // URLから選手IDを取得
     const playerId = getPlayerIdFromURL();
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
      * @returns {boolean} 利用可能な場合true
      */
     function isPlayersDataAvailable() {
-        return typeof playersData !== 'undefined';
+        return isDataAvailable('playersData');
     }
 
     /**

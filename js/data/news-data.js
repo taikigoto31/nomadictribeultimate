@@ -3,6 +3,7 @@
 // ============================================
 // お知らせを簡単に編集できます
 
+// グローバルスコープとwindowオブジェクトの両方で利用可能にする
 const newsData = [
     {
         id: 3,
@@ -79,4 +80,9 @@ const newsData = [
     </div>`
     }
 ];
+
+// windowオブジェクトにも設定（isDataAvailable関数で検出可能にするため）
+if (typeof window !== 'undefined') {
+    window.newsData = newsData;
+}
 
