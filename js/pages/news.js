@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     // データが存在するか確認
-    if (typeof newsData === 'undefined') {
+    if (!isDataAvailable('newsData')) {
         console.error("お知らせデータが見つかりません");
         return;
     }
@@ -22,60 +22,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // ID順でソート（降順：大きいIDが先、新しいお知らせが上）
-        const sortedNews = [...newsData].sort((a, b) => {
-            return b.id - a.id;
-        });
+        const sortedNews = sortNewsById(newsData);
 
         // お知らせがない場合
         if (sortedNews.length === 0) {
-            newsList.innerHTML = '<li class="news-item"><p class="news-description">お知らせはありません</p></li>';
+            displayEmptyMessage('お知らせはありません', newsList, 'news-item');
             return;
         }
 
         // お知らせリストを表示
         newsList.innerHTML = '';
         sortedNews.forEach(news => {
-            const newsItem = createNewsItem(news);
+            const newsItem = createNewsItemElement(news, {
+                baseUrl: 'news-detail.html'
+            });
             newsList.appendChild(newsItem);
         });
-    }
-
-    /**
-     * お知らせ項目のHTML要素を作成
-     * @param {Object} news - お知らせデータ
-     * @returns {HTMLElement} お知らせ項目の要素
-     */
-    function createNewsItem(news) {
-        const li = document.createElement('li');
-        li.className = 'news-item';
-        
-        // 画像のパス（存在しない場合はロゴを使用）
-        const fallbackLogo = 'images/NomadicTribeLogo.png';
-        const imageSrc = news.image && news.image.trim() !== '' ? news.image : fallbackLogo;
-        
-        // リンクの決定：news.linkがあればそれを使用、なければ詳細ページに遷移
-        let newsLink = `news-detail.html?id=${news.id}`;
-        if (news.link && news.link.trim() !== '') {
-            newsLink = news.link;
-        }
-        
-        // リンクで囲む
-        const contentHTML = `
-            <div class="news-image">
-                <img src="${imageSrc}" alt="${news.title}" onerror="this.src='images/NomadicTribeLogo.png'; this.onerror=null;">
-            </div>
-            <div class="news-content">
-                <div class="news-header">
-                    <span class="news-date">${news.date}</span>
-                    <span class="news-category">${news.category}</span>
-                </div>
-                <p class="news-description">${news.title}</p>
-            </div>
-        `;
-        
-        li.innerHTML = `<a href="${newsLink}" class="news-link">${contentHTML}</a>`;
-
-        return li;
     }
 });
 

@@ -3,6 +3,7 @@
 // ============================================
 // 各月の試合データを簡単に編集できます
 
+// グローバルスコープとwindowオブジェクトの両方で利用可能にする
 const scheduleData = {
     2025: {
         1: [
@@ -554,4 +555,9 @@ const scheduleData = {
         ]
     }
 };
+
+// windowオブジェクトにも設定（isDataAvailable関数で検出可能にするため）
+if (typeof window !== 'undefined') {
+    window.scheduleData = scheduleData;
+}
 

@@ -4,7 +4,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     // データが存在するか確認
-    if (typeof scheduleData === 'undefined') {
+    if (!isDataAvailable('scheduleData')) {
         console.error("試合データが見つかりません");
         return;
     }
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return a.id - b.id;
             }
             // idがない場合は日付でソート（昇順）
-            return compareMatchDates(a.date, b.date);
+            return compareDates(a.date, b.date);
         });
 
         // 試合データを表示
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /**
-     * 試合項目のHTML要素を作成
+     * 試合項目のHTML要素を作成（スケジュールページ用）
      * @param {Object} match - 試合データ
      * @returns {HTMLElement} 試合項目の要素
      */
@@ -284,50 +284,22 @@ document.addEventListener("DOMContentLoaded", function() {
             `;
         }
 
+        const venueHTML = match.venue ? `<span class="schedule-venue">${match.venue}</span>` : '';
+
         li.innerHTML = `
             <div class="schedule-date">
-                <span class="day">${match.date}</span>
-                <span class="weekday">${match.weekday}</span>
+                <span class="day">${match.date || ''}</span>
+                <span class="weekday">${match.weekday || ''}</span>
             </div>
             <div class="schedule-info">
                 ${tournamentHTML}
-                <span class="schedule-opponent">${match.opponent}</span>
-                <span class="schedule-venue">${match.venue}</span>
+                <span class="schedule-opponent">${match.opponent || ''}</span>
+                ${venueHTML}
             </div>
             ${resultHTML}
         `;
 
         return li;
-    }
-
-    /**
-     * 結果テキストを取得
-     * @param {string} result - 結果（"win", "loss", "draw"）
-     * @returns {string} 結果テキスト
-     */
-    function getResultText(result) {
-        const resultMap = {
-            'win': 'WIN',
-            'loss': 'LOSS',
-            'draw': 'DRAW'
-        };
-        return resultMap[result] || '';
-    }
-
-    /**
-     * 試合の日付を比較（MM.DD形式）
-     * @param {string} date1 - 日付1（MM.DD形式）
-     * @param {string} date2 - 日付2（MM.DD形式）
-     * @returns {number} 比較結果（-1, 0, 1）
-     */
-    function compareMatchDates(date1, date2) {
-        const [month1, day1] = date1.split('.').map(Number);
-        const [month2, day2] = date2.split('.').map(Number);
-        
-        if (month1 !== month2) {
-            return month1 - month2;
-        }
-        return day1 - day2;
     }
 });
 
