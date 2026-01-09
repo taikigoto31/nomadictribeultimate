@@ -24,12 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
         // 4. メインリンクの状態を更新
         // index 0: All Japan (news id=3)
         // index 1: AOUC2025  (news id=2)
-        // index 2: リンクなし
+        // index 2: WUCC2026ページ
         function setMainLink(selectedIndex) {
             if (!mainLink) return;
             const linkMap = {
                 0: "news-detail.html?id=3",
-                1: "news-detail.html?id=2"
+                1: "news-detail.html?id=2",
+                2: "wucc.html"
             };
             const targetHref = linkMap[selectedIndex];
             if (targetHref) {
@@ -95,10 +96,13 @@ document.addEventListener("DOMContentLoaded", function() {
             updateImages(currentIndex);
         }, 8000); // 8000ミリ秒 = 8秒
 
-        // 8. サムネイルクリック時に自動切り替えをリセット（デスクトップのみ）
+        // 8. サムネイルクリック/タップ時に自動切り替えをリセット（デスクトップ・モバイル共通）
         if (thumbnailsContainer) {
             thumbnailsContainer.querySelectorAll('img').forEach((thumb, index) => {
-                thumb.addEventListener("click", function() {
+                // クリックとタッチの両方に対応
+                const handleThumbSelect = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     currentIndex = index;
                     updateImages(currentIndex);
                     // 自動切り替えをリセット
@@ -107,7 +111,9 @@ document.addEventListener("DOMContentLoaded", function() {
                         currentIndex = (currentIndex + 1) % numImages;
                         updateImages(currentIndex);
                     }, 8000);
-                });
+                };
+                thumb.addEventListener("click", handleThumbSelect);
+                thumb.addEventListener("touchend", handleThumbSelect, { passive: false });
             });
         }
 
@@ -115,11 +121,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const centerImageContainer = document.querySelector('.hero-center-image-container');
         if (centerImageContainer) {
             let touchStartX = 0;
+            let touchStartY = 0;
             let touchEndX = 0;
+            let touchEndY = 0;
             let isSwiping = false;
+            let touchStartTime = 0;
 
             centerImageContainer.addEventListener('touchstart', function(e) {
                 touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+                touchStartTime = Date.now();
                 isSwiping = false;
             }, { passive: true });
 
@@ -128,32 +139,55 @@ document.addEventListener("DOMContentLoaded", function() {
             }, { passive: true });
 
             centerImageContainer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                const touchDuration = Date.now() - touchStartTime;
+                const swipeThreshold = 50; // スワイプ判定の最小距離（px）
+                const tapThreshold = 10; // タップ判定の最大距離（px）
+                const tapDuration = 300; // タップ判定の最大時間（ms）
+
+                // タップ判定（スワイプでない場合、リンクをクリック）
+                if (!isSwiping && 
+                    Math.abs(touchEndX - touchStartX) < tapThreshold && 
+                    Math.abs(touchEndY - touchStartY) < tapThreshold &&
+                    touchDuration < tapDuration) {
+                    // リンクのクリックイベントを発火
+                    if (mainLink && mainLink.href && mainLink.href !== '#') {
+                        window.location.href = mainLink.href;
+                        return;
+                    }
+                }
+
+                // スワイプ判定
                 if (!isSwiping) return;
                 
-                touchEndX = e.changedTouches[0].screenX;
-                const swipeThreshold = 50; // スワイプ判定の最小距離（px）
+                const horizontalSwipe = Math.abs(touchEndX - touchStartX);
+                const verticalSwipe = Math.abs(touchEndY - touchStartY);
 
-                // 左にスワイプ（次の画像）
-                if (touchStartX - touchEndX > swipeThreshold) {
-                    currentIndex = (currentIndex + 1) % numImages;
-                    updateImages(currentIndex);
-                    // 自動切り替えをリセット
-                    clearInterval(autoSlideInterval);
-                    autoSlideInterval = setInterval(function() {
+                // 横方向のスワイプのみ処理（縦方向のスクロールと区別）
+                if (horizontalSwipe > verticalSwipe && horizontalSwipe > swipeThreshold) {
+                    // 左にスワイプ（次の画像）
+                    if (touchStartX - touchEndX > swipeThreshold) {
                         currentIndex = (currentIndex + 1) % numImages;
                         updateImages(currentIndex);
-                    }, 8000);
-                }
-                // 右にスワイプ（前の画像）
-                else if (touchEndX - touchStartX > swipeThreshold) {
-                    currentIndex = (currentIndex - 1 + numImages) % numImages;
-                    updateImages(currentIndex);
-                    // 自動切り替えをリセット
-                    clearInterval(autoSlideInterval);
-                    autoSlideInterval = setInterval(function() {
-                        currentIndex = (currentIndex + 1) % numImages;
+                        // 自動切り替えをリセット
+                        clearInterval(autoSlideInterval);
+                        autoSlideInterval = setInterval(function() {
+                            currentIndex = (currentIndex + 1) % numImages;
+                            updateImages(currentIndex);
+                        }, 8000);
+                    }
+                    // 右にスワイプ（前の画像）
+                    else if (touchEndX - touchStartX > swipeThreshold) {
+                        currentIndex = (currentIndex - 1 + numImages) % numImages;
                         updateImages(currentIndex);
-                    }, 8000);
+                        // 自動切り替えをリセット
+                        clearInterval(autoSlideInterval);
+                        autoSlideInterval = setInterval(function() {
+                            currentIndex = (currentIndex + 1) % numImages;
+                            updateImages(currentIndex);
+                        }, 8000);
+                    }
                 }
             }, { passive: true });
         }

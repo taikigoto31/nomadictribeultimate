@@ -279,7 +279,7 @@ img {
 /* ======== ヒーローセクション (連動ギャラリー) ======== */
 .hero-fixed {
     background-color: var(--main-color); /* 背景色 */
-    padding-bottom: 30px; /* 下部サムネイルとの間隔 */
+    padding-bottom: 10px; /* 下部サムネイルとの間隔 */
     overflow: hidden; /* 左右の画像がはみ出た場合を考慮 */
 }
 
@@ -287,7 +287,7 @@ img {
 .hero-main-area {
     max-width: 2000px; /* 表示エリアの最大幅 */
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 5px 0;
     overflow: hidden; /* はみ出た部分を隠す */
 }
 
@@ -309,7 +309,7 @@ img {
 #mainHeroImage {
     width: 100%;
     height: auto;
-    max-height: 560px; /* 少し大きめに表示 */
+    max-height: 700px; /* 少し大きめに表示 */
     object-fit: contain;
     display: block;
     border-radius: var(--radius-lg);

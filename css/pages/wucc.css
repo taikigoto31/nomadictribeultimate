@@ -1,0 +1,238 @@
+/* ======== WUCCページ専用スタイル ======== */
+
+/* ヒーローイメージ */
+.wucc-hero {
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    background-image: url('../../images/header/club-hero.jpg'); /* 背景画像（必要に応じて変更） */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.wucc-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景画像の上に半透明の黒いオーバーレイ */
+    z-index: 1;
+}
+
+.wucc-hero-title,
+.wucc-hero-subtitle {
+    position: relative;
+    z-index: 2;
+}
+
+.wucc-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.wucc-hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* メインコンテンツエリア */
+.wucc-page {
+    background-color: var(--white);
+    padding: 30px 20px;
+}
+
+/* セクション */
+.wucc-section {
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 40px;
+}
+
+.wucc-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* 意気込みセクション */
+.wucc-message-content {
+    min-height: 200px;
+    padding: 20px;
+    background-color: var(--light-bg);
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--border-color);
+}
+
+/* カウントダウンセクション */
+.countdown-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 25px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.countdown-target {
+    font-size: 1.2rem;
+    color: var(--dark-text);
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+/* グッズ販売セクション */
+.goods-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.coming-soon-box {
+    display: inline-block;
+    padding: 60px 40px;
+    background-color: var(--light-bg);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border-color);
+    max-width: 500px;
+}
+
+.coming-soon-box i {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.coming-soon-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.coming-soon-description {
+    font-size: 1rem;
+    color: var(--light-text);
+    margin-top: 10px;
+}
+
+/* オフィシャルサイトセクション */
+.official-site-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.official-site-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 36px;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.official-site-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--accent-hover), var(--accent-color));
+}
+
+.official-site-link i {
+    font-size: 1rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .wucc-hero-title {
+        font-size: 2rem;
+    }
+
+    .wucc-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .countdown-display {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 20px 15px;
+    }
+
+    .countdown-value {
+        font-size: 2.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+
+    .coming-soon-box {
+        padding: 40px 20px;
+    }
+
+    .coming-soon-box i {
+        font-size: 3rem;
+    }
+
+    .coming-soon-text {
+        font-size: 1.5rem;
+    }
+
+    .official-site-link {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+}
+
