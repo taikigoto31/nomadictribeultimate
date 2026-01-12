@@ -20,8 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const thumbnailsContainer = document.getElementById("heroThumbnails");
     const sliderContainer = document.querySelector(".hero-slider-container");
 
+    // メインリンクが取得できているか確認
+    if (!mainLink) {
+        console.error('heroMainLink要素が見つかりません');
+    }
+
     // 3. ギャラリーがページに存在する場合のみ実行
-    if (mainImage && prevImage && nextImage && thumbnailsContainer && sliderContainer && numImages > 0) {
+    if (mainImage && mainLink && prevImage && prevLink && nextImage && nextLink && thumbnailsContainer && sliderContainer && numImages > 0) {
         
         // 4. リンクマップの定義
         // index 0: All Japan (news id=3)
@@ -39,7 +44,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 6. リンクを設定する関数
         function setLink(linkElement, index) {
-            if (!linkElement) return;
+            if (!linkElement) {
+                console.warn('リンク要素が見つかりません');
+                return;
+            }
             const targetHref = linkMap[index];
             if (targetHref) {
                 linkElement.href = targetHref;
