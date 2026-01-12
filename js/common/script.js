@@ -55,6 +55,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 linkElement.href = targetHref;
                 linkElement.style.pointerEvents = "auto";
                 linkElement.setAttribute("aria-disabled", "false");
+                // デバッグ用（本番環境では削除可能）
+                if (linkElement === mainLink) {
+                    console.log(`メインリンクを更新: index=${index}, href=${targetHref}`);
+                }
             } else {
                 linkElement.removeAttribute("href");
                 linkElement.style.pointerEvents = "none";
@@ -64,17 +68,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 7. すべてのリンクを更新する関数
         function setAllLinks(selectedIndex) {
-            setLink(mainLink, selectedIndex);
+            // メインリンクを現在表示されている画像に対応するリンクに設定
+            if (mainLink) {
+                setLink(mainLink, selectedIndex);
+            }
             // 前の画像のリンク（selectedIndex - 1）
             const prevIndex = (selectedIndex - 1 + numImages) % numImages;
-            setLink(prevLink, prevIndex);
+            if (prevLink) {
+                setLink(prevLink, prevIndex);
+            }
             // 次の画像のリンク（selectedIndex + 1）
             const nextIndex = (selectedIndex + 1) % numImages;
-            setLink(nextLink, nextIndex);
+            if (nextLink) {
+                setLink(nextLink, nextIndex);
+            }
         }
 
         // 8. 画像を更新する関数
         function updateImages(selectedIndex) {
+            // currentIndexを更新（画像とリンクの同期を保つ）
+            currentIndex = selectedIndex;
+            
             // (A) メイン画像を設定
             if (mainImage) {
                 mainImage.src = galleryImages[selectedIndex];
@@ -93,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // (D) すべてのリンクを更新（画像が切り替わるたびにリンクも更新）
+            // 画像の更新後にリンクを更新することで、確実に同期させる
             setAllLinks(selectedIndex);
 
             // (E) サムネイルのアクティブクラスを更新
@@ -277,13 +292,24 @@ document.addEventListener("DOMContentLoaded", function() {
                     return currentImgSrc.includes(fileName);
                 });
                 if (currentIndexFromSrc >= 0) {
+                    // currentIndexも更新
+                    currentIndex = currentIndexFromSrc;
                     setAllLinks(currentIndexFromSrc);
+                    console.log(`ページ読み込み完了: リンクを再設定 index=${currentIndexFromSrc}`);
                 } else {
                     // 見つからない場合は初期化
+                    console.log('画像が見つからないため初期化を実行');
                     initializeGallery();
                 }
             }
         });
+        
+        // 17. メインリンクのクリックイベントを監視（デバッグ用）
+        if (mainLink) {
+            mainLink.addEventListener('click', function(e) {
+                console.log(`メインリンククリック: currentIndex=${currentIndex}, href=${this.href}`);
+            });
+        }
     }
 
     // ======== テキスト選択時に下線を追加 ========
