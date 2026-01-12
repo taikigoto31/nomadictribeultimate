@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // (D) すべてのリンクを更新（画像が切り替わるたびにリンクも更新）
+            // 画像のsrc変更後にリンクを更新（画像読み込みを待たずに即座に更新）
             setAllLinks(selectedIndex);
 
             // (E) サムネイルのアクティブクラスを更新
@@ -269,46 +270,81 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
         
-        // 16. ページ読み込み完了時にもリンクを確実に設定
+        // 16. 画像からインデックスを取得するヘルパー関数（ローカルとリリース環境の両方に対応）
+        function getIndexFromImageSrc(imageSrc) {
+            if (!imageSrc) return -1;
+            // 完全なURLから相対パスを抽出（GitHub Pages対応）
+            let relativePath = imageSrc;
+            try {
+                // URLオブジェクトが使える場合は、パス名を取得
+                if (imageSrc.startsWith('http://') || imageSrc.startsWith('https://')) {
+                    const url = new URL(imageSrc);
+                    relativePath = url.pathname;
+                    // 先頭のスラッシュを削除
+                    if (relativePath.startsWith('/')) {
+                        relativePath = relativePath.substring(1);
+                    }
+                } else if (imageSrc.startsWith('/')) {
+                    // 絶対パスの場合（先頭のスラッシュを削除）
+                    relativePath = imageSrc.substring(1);
+                }
+            } catch (e) {
+                // URL解析に失敗した場合は、元のsrcを使用
+            }
+            
+            // ファイル名で検索
+            return galleryImages.findIndex(src => {
+                const fileName = src.split('/').pop();
+                // 相対パスまたはファイル名で一致するか確認
+                return relativePath.endsWith(fileName) || 
+                       relativePath.endsWith('/' + fileName) ||
+                       relativePath.includes('/' + fileName) ||
+                       imageSrc.endsWith(fileName);
+            });
+        }
+
+        // 17. ページ読み込み完了時にもリンクを確実に設定
         window.addEventListener('load', function() {
             // 念のため、リンクを再設定
             if (mainLink && mainImage) {
-                const currentImgSrc = mainImage.src;
-                const currentIndexFromSrc = galleryImages.findIndex(src => {
-                    const fileName = src.split('/').pop();
-                    return currentImgSrc.includes(fileName);
-                });
+                const currentIndexFromSrc = getIndexFromImageSrc(mainImage.src);
                 if (currentIndexFromSrc >= 0) {
                     currentIndex = currentIndexFromSrc;
                     setAllLinks(currentIndexFromSrc);
                 } else {
+                    // 見つからない場合は初期化
                     initializeGallery();
                 }
             }
         });
         
-        // 17. メインリンクのクリック時にリンクを再確認（確実に正しいリンクに遷移するため）
+        // 18. メインリンクのクリック時にリンクを再確認（確実に正しいリンクに遷移するため）
         if (mainLink) {
             mainLink.addEventListener('click', function(e) {
                 // クリック時に現在の画像からインデックスを取得してリンクを再設定
+                let targetIndex = currentIndex; // デフォルトはcurrentIndex
+                
                 if (mainImage) {
-                    const currentImgSrc = mainImage.src;
-                    const currentIndexFromSrc = galleryImages.findIndex(src => {
-                        const fileName = src.split('/').pop();
-                        return currentImgSrc.includes(fileName);
-                    });
+                    const currentIndexFromSrc = getIndexFromImageSrc(mainImage.src);
                     if (currentIndexFromSrc >= 0) {
-                        const correctHref = linkMap[currentIndexFromSrc];
-                        // リンクが正しくない場合は修正
-                        if (this.href !== correctHref && this.getAttribute("href") !== correctHref) {
-                            this.setAttribute("href", correctHref);
-                            this.href = correctHref;
-                            // リンクを修正した場合は、遷移を一度キャンセルして再設定
-                            e.preventDefault();
-                            window.location.href = correctHref;
-                            return false;
-                        }
+                        targetIndex = currentIndexFromSrc;
                     }
+                }
+                
+                // 正しいリンクを取得
+                const correctHref = linkMap[targetIndex];
+                if (!correctHref) return;
+                
+                // 現在のhrefを取得（相対URLで比較）
+                const currentHref = this.getAttribute("href");
+                
+                // リンクが正しくない場合は修正
+                if (currentHref !== correctHref) {
+                    // 遷移を一度キャンセルして正しいリンクに遷移
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.location.href = correctHref;
+                    return false;
                 }
             });
         }
