@@ -14,41 +14,55 @@ document.addEventListener("DOMContentLoaded", function() {
     const mainImage = document.getElementById("mainHeroImage");
     const mainLink = document.getElementById("heroMainLink");
     const prevImage = document.getElementById("prevHeroImage");
+    const prevLink = document.getElementById("heroPrevLink");
     const nextImage = document.getElementById("nextHeroImage");
+    const nextLink = document.getElementById("heroNextLink");
     const thumbnailsContainer = document.getElementById("heroThumbnails");
     const sliderContainer = document.querySelector(".hero-slider-container");
 
     // 3. ギャラリーがページに存在する場合のみ実行
     if (mainImage && prevImage && nextImage && thumbnailsContainer && sliderContainer && numImages > 0) {
         
-        // 4. メインリンクの状態を更新
+        // 4. リンクマップの定義
         // index 0: All Japan (news id=3)
         // index 1: AOUC2025  (news id=2)
         // index 2: WUCC2026ページ
-        function setMainLink(selectedIndex) {
-            if (!mainLink) return;
-            const linkMap = {
-                0: "news-detail.html?id=3",
-                1: "news-detail.html?id=2",
-                2: "wucc.html"
-            };
-            const targetHref = linkMap[selectedIndex];
+        const linkMap = {
+            0: "news-detail.html?id=3",
+            1: "news-detail.html?id=2",
+            2: "wucc.html"
+        };
+
+        // 5. リンクを設定する関数
+        function setLink(linkElement, index) {
+            if (!linkElement) return;
+            const targetHref = linkMap[index];
             if (targetHref) {
-                mainLink.href = targetHref;
-                mainLink.style.pointerEvents = "auto";
-                mainLink.setAttribute("aria-disabled", "false");
+                linkElement.href = targetHref;
+                linkElement.style.pointerEvents = "auto";
+                linkElement.setAttribute("aria-disabled", "false");
             } else {
-                mainLink.removeAttribute("href");
-                mainLink.style.pointerEvents = "none";
-                mainLink.setAttribute("aria-disabled", "true");
+                linkElement.removeAttribute("href");
+                linkElement.style.pointerEvents = "none";
+                linkElement.setAttribute("aria-disabled", "true");
             }
         }
 
-        // 5. 画像を更新する関数
+        // 6. すべてのリンクを更新する関数
+        function setAllLinks(selectedIndex) {
+            setLink(mainLink, selectedIndex);
+            // 前の画像のリンク（selectedIndex - 1）
+            const prevIndex = (selectedIndex - 1 + numImages) % numImages;
+            setLink(prevLink, prevIndex);
+            // 次の画像のリンク（selectedIndex + 1）
+            const nextIndex = (selectedIndex + 1) % numImages;
+            setLink(nextLink, nextIndex);
+        }
+
+        // 7. 画像を更新する関数
         function updateImages(selectedIndex) {
             // (A) メイン画像を設定
             mainImage.src = galleryImages[selectedIndex];
-            setMainLink(selectedIndex);
 
             // (B) 前の画像を設定 (インデックスが-1になったら最後の画像へループ)
             const prevIndex = (selectedIndex - 1 + numImages) % numImages;
@@ -58,7 +72,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const nextIndex = (selectedIndex + 1) % numImages;
             nextImage.src = galleryImages[nextIndex];
 
-            // (D) サムネイルのアクティブクラスを更新
+            // (D) すべてのリンクを更新
+            setAllLinks(selectedIndex);
+
+            // (E) サムネイルのアクティブクラスを更新
             if (thumbnailsContainer) {
                 thumbnailsContainer.querySelectorAll('img').forEach((thumb, idx) => {
                     if (idx === selectedIndex) {
@@ -70,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // 5. サムネイルを自動生成してコンテナに追加
+        // 8. サムネイルを自動生成してコンテナに追加
         if (thumbnailsContainer) {
             galleryImages.forEach((src, index) => {
                 const thumb = document.createElement("img");
@@ -80,7 +97,36 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        // 6. 初期画像を設定 (0番目の画像で初期化)
+        // 9. 左右の画像をクリックした時の処理
+        if (prevLink) {
+            prevLink.addEventListener("click", function(e) {
+                e.preventDefault();
+                currentIndex = (currentIndex - 1 + numImages) % numImages;
+                updateImages(currentIndex);
+                // 自動切り替えをリセット
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(function() {
+                    currentIndex = (currentIndex + 1) % numImages;
+                    updateImages(currentIndex);
+                }, 8000);
+            });
+        }
+
+        if (nextLink) {
+            nextLink.addEventListener("click", function(e) {
+                e.preventDefault();
+                currentIndex = (currentIndex + 1) % numImages;
+                updateImages(currentIndex);
+                // 自動切り替えをリセット
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(function() {
+                    currentIndex = (currentIndex + 1) % numImages;
+                    updateImages(currentIndex);
+                }, 8000);
+            });
+        }
+
+        // 10. 初期画像を設定 (0番目の画像で初期化)
         let currentIndex = 0;
         mainImage.src = galleryImages[0];
         prevImage.src = galleryImages[(0 - 1 + numImages) % numImages];
@@ -88,15 +134,15 @@ document.addEventListener("DOMContentLoaded", function() {
         if (thumbnailsContainer && thumbnailsContainer.querySelectorAll('img')[0]) {
             thumbnailsContainer.querySelectorAll('img')[0].classList.add("active-thumb");
         }
-        setMainLink(currentIndex);
+        setAllLinks(currentIndex);
 
-        // 7. 自動で画像を切り替える機能（8秒ごと）
+        // 11. 自動で画像を切り替える機能（8秒ごと）
         let autoSlideInterval = setInterval(function() {
             currentIndex = (currentIndex + 1) % numImages;
             updateImages(currentIndex);
         }, 8000); // 8000ミリ秒 = 8秒
 
-        // 8. サムネイルクリック/タップ時に自動切り替えをリセット（デスクトップ・モバイル共通）
+        // 12. サムネイルクリック/タップ時に自動切り替えをリセット（デスクトップ・モバイル共通）
         if (thumbnailsContainer) {
             thumbnailsContainer.querySelectorAll('img').forEach((thumb, index) => {
                 // クリックとタッチの両方に対応
