@@ -50,6 +50,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             const targetHref = linkMap[index];
             if (targetHref) {
+                // href属性を確実に設定（setAttributeも使用）
+                linkElement.setAttribute("href", targetHref);
                 linkElement.href = targetHref;
                 linkElement.style.pointerEvents = "auto";
                 linkElement.setAttribute("aria-disabled", "false");
@@ -74,17 +76,23 @@ document.addEventListener("DOMContentLoaded", function() {
         // 8. 画像を更新する関数
         function updateImages(selectedIndex) {
             // (A) メイン画像を設定
-            mainImage.src = galleryImages[selectedIndex];
+            if (mainImage) {
+                mainImage.src = galleryImages[selectedIndex];
+            }
 
             // (B) 前の画像を設定 (インデックスが-1になったら最後の画像へループ)
             const prevIndex = (selectedIndex - 1 + numImages) % numImages;
-            prevImage.src = galleryImages[prevIndex];
+            if (prevImage) {
+                prevImage.src = galleryImages[prevIndex];
+            }
 
             // (C) 次の画像を設定 (インデックスが配列長を超えたら最初の画像へループ)
             const nextIndex = (selectedIndex + 1) % numImages;
-            nextImage.src = galleryImages[nextIndex];
+            if (nextImage) {
+                nextImage.src = galleryImages[nextIndex];
+            }
 
-            // (D) すべてのリンクを更新
+            // (D) すべてのリンクを更新（画像が切り替わるたびにリンクも更新）
             setAllLinks(selectedIndex);
 
             // (E) サムネイルのアクティブクラスを更新
@@ -251,7 +259,29 @@ document.addEventListener("DOMContentLoaded", function() {
         window.addEventListener('pageshow', function(event) {
             // ページがキャッシュから復元された時（戻るボタンで戻った時）
             if (event.persisted) {
-                initializeGallery();
+                // 少し遅延させてから初期化（DOMが完全に復元されるのを待つ）
+                setTimeout(function() {
+                    initializeGallery();
+                }, 100);
+            }
+        });
+        
+        // 16. ページ読み込み完了時にもリンクを確実に設定
+        window.addEventListener('load', function() {
+            // 念のため、リンクを再設定
+            if (mainLink && mainImage) {
+                // 現在のインデックスを取得してリンクを再設定
+                const currentImgSrc = mainImage.src;
+                const currentIndexFromSrc = galleryImages.findIndex(src => {
+                    const fileName = src.split('/').pop();
+                    return currentImgSrc.includes(fileName);
+                });
+                if (currentIndexFromSrc >= 0) {
+                    setAllLinks(currentIndexFromSrc);
+                } else {
+                    // 見つからない場合は初期化
+                    initializeGallery();
+                }
             }
         });
     }
