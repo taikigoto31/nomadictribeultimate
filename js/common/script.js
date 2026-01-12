@@ -20,10 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const thumbnailsContainer = document.getElementById("heroThumbnails");
     const sliderContainer = document.querySelector(".hero-slider-container");
 
-    // メインリンクが取得できているか確認
-    if (!mainLink) {
-        console.error('heroMainLink要素が見つかりません');
-    }
 
     // 3. ギャラリーがページに存在する場合のみ実行
     if (mainImage && mainLink && prevImage && prevLink && nextImage && nextLink && thumbnailsContainer && sliderContainer && numImages > 0) {
@@ -44,26 +40,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // 6. リンクを設定する関数
         function setLink(linkElement, index) {
-            if (!linkElement) {
-                console.warn('リンク要素が見つかりません');
-                return;
-            }
+            if (!linkElement) return;
             const targetHref = linkMap[index];
             if (targetHref) {
-                // href属性を確実に設定（複数の方法で設定）
-                linkElement.removeAttribute("href"); // 一度削除してから設定
                 linkElement.setAttribute("href", targetHref);
                 linkElement.href = targetHref;
-                // 確実に設定されているか確認
-                if (linkElement.getAttribute("href") !== targetHref) {
-                    linkElement.setAttribute("href", targetHref);
-                }
                 linkElement.style.pointerEvents = "auto";
                 linkElement.setAttribute("aria-disabled", "false");
-                // デバッグ用（本番環境では削除可能）
-                if (linkElement === mainLink) {
-                    console.log(`メインリンクを更新: index=${index}, href=${targetHref}, 実際のhref=${linkElement.href}`);
-                }
             } else {
                 linkElement.removeAttribute("href");
                 linkElement.style.pointerEvents = "none";
@@ -115,13 +98,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // (D) すべてのリンクを更新（画像が切り替わるたびにリンクも更新）
-            // 画像の更新後にリンクを更新することで、確実に同期させる
-            // 少し遅延させてからリンクを更新（画像読み込みを待つ）
-            setTimeout(function() {
-                setAllLinks(selectedIndex);
-            }, 0);
-            
-            // 念のため、即座にもリンクを更新
             setAllLinks(selectedIndex);
 
             // (E) サムネイルのアクティブクラスを更新
@@ -248,26 +224,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 const tapThreshold = 10; // タップ判定の最大距離（px）
                 const tapDuration = 300; // タップ判定の最大時間（ms）
 
-                // タップ判定（スワイプでない場合、リンクをクリック）
-                if (!isSwiping && 
-                    Math.abs(touchEndX - touchStartX) < tapThreshold && 
-                    Math.abs(touchEndY - touchStartY) < tapThreshold &&
-                    touchDuration < tapDuration) {
-                    // リンクのクリックイベントを発火
-                    if (mainLink && mainLink.href && mainLink.href !== '#') {
-                        window.location.href = mainLink.href;
-                        return;
-                    }
-                }
-
-                // スワイプ判定
-                if (!isSwiping) return;
-                
                 const horizontalSwipe = Math.abs(touchEndX - touchStartX);
                 const verticalSwipe = Math.abs(touchEndY - touchStartY);
 
-                // 横方向のスワイプのみ処理（縦方向のスクロールと区別）
-                if (horizontalSwipe > verticalSwipe && horizontalSwipe > swipeThreshold) {
+                // スワイプ判定（横方向のスワイプのみ処理）
+                if (isSwiping && horizontalSwipe > verticalSwipe && horizontalSwipe > swipeThreshold) {
                     // 左にスワイプ（次の画像）
                     if (touchStartX - touchEndX > swipeThreshold) {
                         currentIndex = (currentIndex + 1) % numImages;
@@ -279,6 +240,19 @@ document.addEventListener("DOMContentLoaded", function() {
                         currentIndex = (currentIndex - 1 + numImages) % numImages;
                         updateImages(currentIndex);
                         startAutoSlide();
+                    }
+                    return;
+                }
+
+                // タップ判定（スワイプでない場合、リンクをクリック）
+                if (!isSwiping && 
+                    horizontalSwipe < tapThreshold && 
+                    verticalSwipe < tapThreshold &&
+                    touchDuration < tapDuration) {
+                    // リンクのクリックイベントを発火
+                    if (mainLink && mainLink.href && mainLink.href !== '#' && mainLink.href !== window.location.href) {
+                        window.location.href = mainLink.href;
+                        return;
                     }
                 }
             }, { passive: true });
@@ -299,26 +273,21 @@ document.addEventListener("DOMContentLoaded", function() {
         window.addEventListener('load', function() {
             // 念のため、リンクを再設定
             if (mainLink && mainImage) {
-                // 現在のインデックスを取得してリンクを再設定
                 const currentImgSrc = mainImage.src;
                 const currentIndexFromSrc = galleryImages.findIndex(src => {
                     const fileName = src.split('/').pop();
                     return currentImgSrc.includes(fileName);
                 });
                 if (currentIndexFromSrc >= 0) {
-                    // currentIndexも更新
                     currentIndex = currentIndexFromSrc;
                     setAllLinks(currentIndexFromSrc);
-                    console.log(`ページ読み込み完了: リンクを再設定 index=${currentIndexFromSrc}`);
                 } else {
-                    // 見つからない場合は初期化
-                    console.log('画像が見つからないため初期化を実行');
                     initializeGallery();
                 }
             }
         });
         
-        // 17. メインリンクのクリックイベントで、クリック時にリンクを再確認・更新
+        // 17. メインリンクのクリック時にリンクを再確認（確実に正しいリンクに遷移するため）
         if (mainLink) {
             mainLink.addEventListener('click', function(e) {
                 // クリック時に現在の画像からインデックスを取得してリンクを再設定
@@ -328,13 +297,19 @@ document.addEventListener("DOMContentLoaded", function() {
                         const fileName = src.split('/').pop();
                         return currentImgSrc.includes(fileName);
                     });
-                    if (currentIndexFromSrc >= 0 && currentIndexFromSrc !== currentIndex) {
-                        console.log(`リンクの不一致を検出: currentIndex=${currentIndex}, 実際の画像index=${currentIndexFromSrc}`);
-                        currentIndex = currentIndexFromSrc;
-                        setAllLinks(currentIndexFromSrc);
+                    if (currentIndexFromSrc >= 0) {
+                        const correctHref = linkMap[currentIndexFromSrc];
+                        // リンクが正しくない場合は修正
+                        if (this.href !== correctHref && this.getAttribute("href") !== correctHref) {
+                            this.setAttribute("href", correctHref);
+                            this.href = correctHref;
+                            // リンクを修正した場合は、遷移を一度キャンセルして再設定
+                            e.preventDefault();
+                            window.location.href = correctHref;
+                            return false;
+                        }
                     }
                 }
-                console.log(`メインリンククリック: currentIndex=${currentIndex}, href=${this.href}`);
             });
         }
     }
