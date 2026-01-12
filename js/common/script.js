@@ -72,15 +72,18 @@ document.addEventListener("DOMContentLoaded", function() {
             if (mainLink) {
                 setLink(mainLink, selectedIndex);
             }
-            // 前の画像のリンク（selectedIndex - 1）
-            const prevIndex = (selectedIndex - 1 + numImages) % numImages;
+            // 左右の画像はクリックできないようにする
             if (prevLink) {
-                setLink(prevLink, prevIndex);
+                prevLink.removeAttribute("href");
+                prevLink.style.pointerEvents = "none";
+                prevLink.style.cursor = "default";
+                prevLink.setAttribute("aria-disabled", "true");
             }
-            // 次の画像のリンク（selectedIndex + 1）
-            const nextIndex = (selectedIndex + 1) % numImages;
             if (nextLink) {
-                setLink(nextLink, nextIndex);
+                nextLink.removeAttribute("href");
+                nextLink.style.pointerEvents = "none";
+                nextLink.style.cursor = "default";
+                nextLink.setAttribute("aria-disabled", "true");
             }
         }
 
