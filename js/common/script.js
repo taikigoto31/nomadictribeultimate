@@ -38,19 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
         let currentIndex = 0;
         let autoSlideInterval = null;
 
-        // 6. リンクを設定する関数
+        // 6. リンクを設定する関数（シンプルで確実に）
         function setLink(linkElement, index) {
             if (!linkElement) return;
             const targetHref = linkMap[index];
             if (targetHref) {
-                linkElement.setAttribute("href", targetHref);
+                // 確実にリンクを設定
                 linkElement.href = targetHref;
+                linkElement.setAttribute("href", targetHref);
                 linkElement.style.pointerEvents = "auto";
-                linkElement.setAttribute("aria-disabled", "false");
             } else {
                 linkElement.removeAttribute("href");
                 linkElement.style.pointerEvents = "none";
-                linkElement.setAttribute("aria-disabled", "true");
             }
         }
 
@@ -270,82 +269,21 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
         
-        // 16. 画像からインデックスを取得するヘルパー関数（ローカルとリリース環境の両方に対応）
-        function getIndexFromImageSrc(imageSrc) {
-            if (!imageSrc) return -1;
-            // 完全なURLから相対パスを抽出（GitHub Pages対応）
-            let relativePath = imageSrc;
-            try {
-                // URLオブジェクトが使える場合は、パス名を取得
-                if (imageSrc.startsWith('http://') || imageSrc.startsWith('https://')) {
-                    const url = new URL(imageSrc);
-                    relativePath = url.pathname;
-                    // 先頭のスラッシュを削除
-                    if (relativePath.startsWith('/')) {
-                        relativePath = relativePath.substring(1);
-                    }
-                } else if (imageSrc.startsWith('/')) {
-                    // 絶対パスの場合（先頭のスラッシュを削除）
-                    relativePath = imageSrc.substring(1);
-                }
-            } catch (e) {
-                // URL解析に失敗した場合は、元のsrcを使用
-            }
-            
-            // ファイル名で検索
-            return galleryImages.findIndex(src => {
-                const fileName = src.split('/').pop();
-                // 相対パスまたはファイル名で一致するか確認
-                return relativePath.endsWith(fileName) || 
-                       relativePath.endsWith('/' + fileName) ||
-                       relativePath.includes('/' + fileName) ||
-                       imageSrc.endsWith(fileName);
-            });
-        }
-
-        // 17. ページ読み込み完了時にもリンクを確実に設定
-        window.addEventListener('load', function() {
-            // 念のため、リンクを再設定
-            if (mainLink && mainImage) {
-                const currentIndexFromSrc = getIndexFromImageSrc(mainImage.src);
-                if (currentIndexFromSrc >= 0) {
-                    currentIndex = currentIndexFromSrc;
-                    setAllLinks(currentIndexFromSrc);
-                } else {
-                    // 見つからない場合は初期化
-                    initializeGallery();
-                }
-            }
-        });
-        
-        // 18. メインリンクのクリック時にリンクを再確認（確実に正しいリンクに遷移するため）
+        // 16. メインリンクのクリック時（currentIndexから直接リンクを取得して遷移）
         if (mainLink) {
             mainLink.addEventListener('click', function(e) {
-                // クリック時に現在の画像からインデックスを取得してリンクを再設定
-                let targetIndex = currentIndex; // デフォルトはcurrentIndex
-                
-                if (mainImage) {
-                    const currentIndexFromSrc = getIndexFromImageSrc(mainImage.src);
-                    if (currentIndexFromSrc >= 0) {
-                        targetIndex = currentIndexFromSrc;
-                    }
-                }
-                
-                // 正しいリンクを取得
-                const correctHref = linkMap[targetIndex];
-                if (!correctHref) return;
-                
-                // 現在のhrefを取得（相対URLで比較）
-                const currentHref = this.getAttribute("href");
-                
-                // リンクが正しくない場合は修正
-                if (currentHref !== correctHref) {
-                    // 遷移を一度キャンセルして正しいリンクに遷移
+                // currentIndexを唯一の真実の源として使用
+                const correctHref = linkMap[currentIndex];
+                if (!correctHref) {
                     e.preventDefault();
-                    e.stopPropagation();
-                    window.location.href = correctHref;
                     return false;
                 }
+                
+                // 確実に正しいリンクに遷移（currentIndexから直接取得）
+                e.preventDefault();
+                e.stopPropagation();
+                window.location.href = correctHref;
+                return false;
             });
         }
     }
