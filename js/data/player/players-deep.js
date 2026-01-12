@@ -97,7 +97,7 @@ const deepPlayers = [
             "images/players/deep/player_4_thumb3.jpg"
         ],
         qna: [
-            { q: "職業", a: "人材エージェント・Youtuber" },
+            { q: "職業", a: "人材エージェント" },
             { q: "ニックネーム", a: "タク" },
             { q: "MBTI", a: "ESFP" },
             { q: "得意なプレー", a: "サイドシュート・シュートレシーブ" },
@@ -370,7 +370,7 @@ const deepPlayers = [
             { q: "好きな曲", a: "欲望に満ちた青年団 / ONE OK ROCK" },
             { q: "趣味", a: "サウナ・HP作り" },
             { q: "もしも生まれ変わったら何になりたい", a: "鷹" },
-            { q: "インスタグラムアカウント", a: "@ikiat015" },
+            { q: "インスタグラムアカウント", a: "@taikigoto_ultimate44" },
             { q: "ひとことコメント", a: "まだまだ進化し続けるNomadicTribeをご注目ください！" }
         ]
     },
