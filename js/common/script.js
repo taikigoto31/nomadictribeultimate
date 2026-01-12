@@ -50,14 +50,19 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             const targetHref = linkMap[index];
             if (targetHref) {
-                // href属性を確実に設定（setAttributeも使用）
+                // href属性を確実に設定（複数の方法で設定）
+                linkElement.removeAttribute("href"); // 一度削除してから設定
                 linkElement.setAttribute("href", targetHref);
                 linkElement.href = targetHref;
+                // 確実に設定されているか確認
+                if (linkElement.getAttribute("href") !== targetHref) {
+                    linkElement.setAttribute("href", targetHref);
+                }
                 linkElement.style.pointerEvents = "auto";
                 linkElement.setAttribute("aria-disabled", "false");
                 // デバッグ用（本番環境では削除可能）
                 if (linkElement === mainLink) {
-                    console.log(`メインリンクを更新: index=${index}, href=${targetHref}`);
+                    console.log(`メインリンクを更新: index=${index}, href=${targetHref}, 実際のhref=${linkElement.href}`);
                 }
             } else {
                 linkElement.removeAttribute("href");
@@ -111,6 +116,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // (D) すべてのリンクを更新（画像が切り替わるたびにリンクも更新）
             // 画像の更新後にリンクを更新することで、確実に同期させる
+            // 少し遅延させてからリンクを更新（画像読み込みを待つ）
+            setTimeout(function() {
+                setAllLinks(selectedIndex);
+            }, 0);
+            
+            // 念のため、即座にもリンクを更新
             setAllLinks(selectedIndex);
 
             // (E) サムネイルのアクティブクラスを更新
@@ -307,9 +318,22 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
         
-        // 17. メインリンクのクリックイベントを監視（デバッグ用）
+        // 17. メインリンクのクリックイベントで、クリック時にリンクを再確認・更新
         if (mainLink) {
             mainLink.addEventListener('click', function(e) {
+                // クリック時に現在の画像からインデックスを取得してリンクを再設定
+                if (mainImage) {
+                    const currentImgSrc = mainImage.src;
+                    const currentIndexFromSrc = galleryImages.findIndex(src => {
+                        const fileName = src.split('/').pop();
+                        return currentImgSrc.includes(fileName);
+                    });
+                    if (currentIndexFromSrc >= 0 && currentIndexFromSrc !== currentIndex) {
+                        console.log(`リンクの不一致を検出: currentIndex=${currentIndex}, 実際の画像index=${currentIndexFromSrc}`);
+                        currentIndex = currentIndexFromSrc;
+                        setAllLinks(currentIndexFromSrc);
+                    }
+                }
                 console.log(`メインリンククリック: currentIndex=${currentIndex}, href=${this.href}`);
             });
         }
