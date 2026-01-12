@@ -33,7 +33,11 @@ document.addEventListener("DOMContentLoaded", function() {
             2: "wucc.html"
         };
 
-        // 5. リンクを設定する関数
+        // 5. 変数の宣言（スコープを適切に管理）
+        let currentIndex = 0;
+        let autoSlideInterval = null;
+
+        // 6. リンクを設定する関数
         function setLink(linkElement, index) {
             if (!linkElement) return;
             const targetHref = linkMap[index];
@@ -48,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // 6. すべてのリンクを更新する関数
+        // 7. すべてのリンクを更新する関数
         function setAllLinks(selectedIndex) {
             setLink(mainLink, selectedIndex);
             // 前の画像のリンク（selectedIndex - 1）
@@ -59,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
             setLink(nextLink, nextIndex);
         }
 
-        // 7. 画像を更新する関数
+        // 8. 画像を更新する関数
         function updateImages(selectedIndex) {
             // (A) メイン画像を設定
             mainImage.src = galleryImages[selectedIndex];
@@ -87,8 +91,35 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // 8. サムネイルを自動生成してコンテナに追加
-        if (thumbnailsContainer) {
+        // 9. 自動スライドを開始する関数
+        function startAutoSlide() {
+            // 既存のタイマーをクリア
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+            }
+            autoSlideInterval = setInterval(function() {
+                currentIndex = (currentIndex + 1) % numImages;
+                updateImages(currentIndex);
+            }, 3000); 
+        }
+
+        // 10. 初期化関数
+        function initializeGallery() {
+            // 既存のタイマーをクリア
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+            }
+            
+            // 初期画像を設定 (0番目の画像で初期化)
+            currentIndex = 0;
+            updateImages(currentIndex);
+            
+            // 自動スライドを開始
+            startAutoSlide();
+        }
+
+        // 11. サムネイルを自動生成してコンテナに追加（初回のみ）
+        if (thumbnailsContainer && thumbnailsContainer.children.length === 0) {
             galleryImages.forEach((src, index) => {
                 const thumb = document.createElement("img");
                 thumb.src = src;
@@ -97,71 +128,51 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        // 9. 左右の画像をクリックした時の処理
-        if (prevLink) {
-            prevLink.addEventListener("click", function(e) {
-                e.preventDefault();
-                currentIndex = (currentIndex - 1 + numImages) % numImages;
-                updateImages(currentIndex);
-                // 自動切り替えをリセット
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(function() {
-                    currentIndex = (currentIndex + 1) % numImages;
-                    updateImages(currentIndex);
-                }, 8000);
+        // 12. 左右の画像をクリックした時はリンクに遷移（画像切り替えはしない）
+        // 左右の画像は既にリンクが設定されているので、そのまま遷移する
+        // 特別な処理は不要
+
+        // 13. サムネイルクリック/タップ時に押した画像を真ん中に表示
+        function setupThumbnailEvents() {
+            if (!thumbnailsContainer) return;
+            
+            // 既存のイベントリスナーを削除（重複防止）
+            const thumbs = thumbnailsContainer.querySelectorAll('img');
+            thumbs.forEach((thumb) => {
+                const newThumb = thumb.cloneNode(true);
+                thumb.parentNode.replaceChild(newThumb, thumb);
             });
-        }
-
-        if (nextLink) {
-            nextLink.addEventListener("click", function(e) {
-                e.preventDefault();
-                currentIndex = (currentIndex + 1) % numImages;
-                updateImages(currentIndex);
-                // 自動切り替えをリセット
-                clearInterval(autoSlideInterval);
-                autoSlideInterval = setInterval(function() {
-                    currentIndex = (currentIndex + 1) % numImages;
-                    updateImages(currentIndex);
-                }, 8000);
-            });
-        }
-
-        // 10. 初期画像を設定 (0番目の画像で初期化)
-        let currentIndex = 0;
-        mainImage.src = galleryImages[0];
-        prevImage.src = galleryImages[(0 - 1 + numImages) % numImages];
-        nextImage.src = galleryImages[(0 + 1) % numImages];
-        if (thumbnailsContainer && thumbnailsContainer.querySelectorAll('img')[0]) {
-            thumbnailsContainer.querySelectorAll('img')[0].classList.add("active-thumb");
-        }
-        setAllLinks(currentIndex);
-
-        // 11. 自動で画像を切り替える機能（8秒ごと）
-        let autoSlideInterval = setInterval(function() {
-            currentIndex = (currentIndex + 1) % numImages;
-            updateImages(currentIndex);
-        }, 8000); // 8000ミリ秒 = 8秒
-
-        // 12. サムネイルクリック/タップ時に自動切り替えをリセット（デスクトップ・モバイル共通）
-        if (thumbnailsContainer) {
-            thumbnailsContainer.querySelectorAll('img').forEach((thumb, index) => {
+            
+            // 新しい要素にイベントリスナーを追加
+            const updatedThumbs = thumbnailsContainer.querySelectorAll('img');
+            updatedThumbs.forEach((thumb, index) => {
                 // クリックとタッチの両方に対応
                 const handleThumbSelect = function(e) {
                     e.preventDefault();
                     e.stopPropagation();
+                    
+                    // 同じ画像をクリックした場合は何もしない
+                    if (index === currentIndex) {
+                        return;
+                    }
+                    
+                    // 押した画像を真ん中に表示
                     currentIndex = index;
                     updateImages(currentIndex);
-                    // 自動切り替えをリセット
-                    clearInterval(autoSlideInterval);
-                    autoSlideInterval = setInterval(function() {
-                        currentIndex = (currentIndex + 1) % numImages;
-                        updateImages(currentIndex);
-                    }, 8000);
+                    
+                    // 自動スライドをリセット
+                    startAutoSlide();
                 };
                 thumb.addEventListener("click", handleThumbSelect);
                 thumb.addEventListener("touchend", handleThumbSelect, { passive: false });
             });
         }
+        
+        // サムネイルイベントを設定
+        setupThumbnailEvents();
+
+        // 14. 初期化を実行
+        initializeGallery();
 
         // 9. モバイルでのスワイプ機能
         const centerImageContainer = document.querySelector('.hero-center-image-container');
@@ -216,27 +227,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (touchStartX - touchEndX > swipeThreshold) {
                         currentIndex = (currentIndex + 1) % numImages;
                         updateImages(currentIndex);
-                        // 自動切り替えをリセット
-                        clearInterval(autoSlideInterval);
-                        autoSlideInterval = setInterval(function() {
-                            currentIndex = (currentIndex + 1) % numImages;
-                            updateImages(currentIndex);
-                        }, 8000);
+                        startAutoSlide();
                     }
                     // 右にスワイプ（前の画像）
                     else if (touchEndX - touchStartX > swipeThreshold) {
                         currentIndex = (currentIndex - 1 + numImages) % numImages;
                         updateImages(currentIndex);
-                        // 自動切り替えをリセット
-                        clearInterval(autoSlideInterval);
-                        autoSlideInterval = setInterval(function() {
-                            currentIndex = (currentIndex + 1) % numImages;
-                            updateImages(currentIndex);
-                        }, 8000);
+                        startAutoSlide();
                     }
                 }
             }, { passive: true });
         }
+
+        // 15. ブラウザの戻るボタンで戻った時も初期化を実行
+        window.addEventListener('pageshow', function(event) {
+            // ページがキャッシュから復元された時（戻るボタンで戻った時）
+            if (event.persisted) {
+                initializeGallery();
+            }
+        });
     }
 
     // ======== テキスト選択時に下線を追加 ========
