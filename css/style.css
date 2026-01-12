@@ -109,6 +109,25 @@ img {
 }
 
 /* ======== ヘッダー ======== */
+/* ヘッダープレースホルダー：初期表示時に高さを確保 */
+#header-placeholder {
+    min-height: 100px; /* ヘッダーの高さを確保（読み込み前でもレイアウトが崩れない） */
+    display: block;
+}
+
+#header-placeholder:not(.header-loaded) {
+    /* ヘッダーが読み込まれる前は背景色で枠を表示 */
+    background-color: rgba(17, 17, 17, 0.98);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#header-placeholder.header-loaded {
+    /* ヘッダーが読み込まれたら通常表示 */
+    min-height: auto;
+}
+
 .header {
     background-color: var(--main-color);
     color: var(--white);
