@@ -3,34 +3,43 @@
 // ============================================
 
 document.addEventListener("DOMContentLoaded", function() {
-    // データが存在するか確認
-    if (typeof newsData === 'undefined') {
-        console.error("お知らせデータが見つかりません");
-        return;
+    const ready = typeof window !== 'undefined' ? window.newsDataReady : null;
+    const start = () => {
+        // データが存在するか確認
+        if (typeof newsData === 'undefined') {
+            console.error("お知らせデータが見つかりません");
+            return;
+        }
+
+        // URLパラメータからIDを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const newsId = parseInt(urlParams.get('id'), 10);
+
+        if (!newsId || isNaN(newsId)) {
+            displayError("お知らせIDが指定されていません");
+            return;
+        }
+
+        // お知らせデータを取得
+        const news = newsData.find(item => item.id === newsId);
+
+        if (!news) {
+            displayError("お知らせが見つかりません");
+            return;
+        }
+
+        // ページタイトルを更新
+        document.title = `${news.title} - NEWS - Nomadic Tribe Ultimate`;
+
+        // お知らせ詳細を表示
+        displayNewsDetail(news);
+    };
+
+    if (ready && typeof ready.then === 'function') {
+        ready.then(start);
+    } else {
+        start();
     }
-
-    // URLパラメータからIDを取得
-    const urlParams = new URLSearchParams(window.location.search);
-    const newsId = parseInt(urlParams.get('id'), 10);
-
-    if (!newsId || isNaN(newsId)) {
-        displayError("お知らせIDが指定されていません");
-        return;
-    }
-
-    // お知らせデータを取得
-    const news = newsData.find(item => item.id === newsId);
-
-    if (!news) {
-        displayError("お知らせが見つかりません");
-        return;
-    }
-
-    // ページタイトルを更新
-    document.title = `${news.title} - NEWS - Nomadic Tribe Ultimate`;
-
-    // お知らせ詳細を表示
-    displayNewsDetail(news);
 
     /**
      * お知らせ詳細を表示

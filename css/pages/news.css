@@ -48,6 +48,30 @@
     padding: 20px 20px;
 }
 
+/* カテゴリーフィルター */
+.news-filter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 20px;
+    flex-wrap: wrap;
+}
+
+.news-filter label {
+    font-size: 0.95rem;
+    color: var(--dark-text);
+    font-weight: 600;
+}
+
+.news-filter select {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--white);
+    color: var(--dark-text);
+}
+
 /* お知らせリスト */
 .news-list {
     list-style: none;
@@ -157,6 +181,10 @@
     }
 
     .news-list .news-header {
+        justify-content: center;
+    }
+
+    .news-filter {
         justify-content: center;
     }
 }
