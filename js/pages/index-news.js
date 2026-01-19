@@ -3,17 +3,26 @@
 // ============================================
 
 document.addEventListener("DOMContentLoaded", function() {
-    // データが存在するか確認
-    if (!isDataAvailable('newsData')) {
-        console.error("お知らせデータが見つかりません");
-        return;
+    const ready = typeof window !== 'undefined' ? window.newsDataReady : null;
+    const start = () => {
+        // データが存在するか確認
+        if (!isDataAvailable('newsData')) {
+            console.error("お知らせデータが見つかりません");
+            return;
+        }
+
+        // 直近3件のお知らせを表示
+        displayRecentNews();
+    };
+
+    if (ready && typeof ready.then === 'function') {
+        ready.then(start);
+    } else {
+        start();
     }
 
-    // 直近4件のお知らせを表示
-    displayRecentNews();
-
     /**
-     * 直近4件のお知らせを表示
+     * 直近3件のお知らせを表示
      */
     function displayRecentNews() {
         const newsList = document.getElementById('recent-news-list');
@@ -24,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // ID順でソート（降順：大きいIDが先、新しいお知らせが上）
         const sortedNews = sortNewsById(newsData);
 
-        // 直近4件を取得
-        const recentNews = sortedNews.slice(0, 4);
+        // 直近3件を取得
+        const recentNews = sortedNews.slice(0, 3);
 
         // お知らせがない場合
         if (recentNews.length === 0) {
