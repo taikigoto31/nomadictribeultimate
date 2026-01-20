@@ -176,6 +176,32 @@
     z-index: 1; /* リンクが確実にクリックできるように */
 }
 
+.player-card-link.is-birthday .player-card {
+    border-color: #f2b705;
+    box-shadow: 0 6px 20px rgba(242, 183, 5, 0.25);
+    background: linear-gradient(180deg, #fff8e1 0%, #ffffff 60%);
+}
+
+.player-card-link.is-birthday .player-name {
+    color: #d17a00;
+}
+
+.birthday-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #9a5a00;
+    background-color: #fff3c4;
+    border: 1px solid #f2b705;
+    border-radius: 999px;
+    padding: 2px 8px;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
 .player-card {
     border: 1px solid var(--border-color);
     border-radius: 8px;
@@ -183,6 +209,7 @@
     overflow: hidden; /* 画像の角丸を有効にするため */
     transition: box-shadow 0.3s, transform 0.3s;
     height: 100%; /* グリッドの高さを揃える */
+    position: relative;
 }
 
 .player-card-link:hover .player-card {
@@ -219,6 +246,7 @@
 .player-info {
     padding: 15px;
     text-align: left;
+    position: relative;
 }
 
 .player-number {

@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const galleryImages = [
         "images/top/top1.jpg",  // 1枚目
         "images/top/top2.jpg",  // 2枚目
-        "images/top/top3.jpg"   // 3枚目
+        "images/top/top3.jpg",  // 3枚目
+        "images/top/top4.png"   // 4枚目
     ];
     const numImages = galleryImages.length;
 
@@ -28,10 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // index 0: All Japan (news id=3)
         // index 1: AOUC2025  (news id=2)
         // index 2: WUCC2026ページ
+        // index 3: Nomacup Xmas (news id=4)
         const linkMap = {
-            0: "news-detail.html?id=3",
-            1: "news-detail.html?id=2",
-            2: "wucc.html"
+            0: "news-detail.html?id=2",
+            1: "news-detail.html?id=1",
+            2: "wucc.html",
+            3: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/"
         };
 
         // 5. 変数の宣言（スコープを適切に管理）
