@@ -50,7 +50,9 @@ nomadictribeultimate/
 │   │   ├── players-deep.js   # DEEPポジション選手データ
 │   │   ├── players-handler.js # HANDLERポジション選手データ
 │   │   ├── players-staff.js  # スタッフデータ
-│   │   └── schedule-data.js  # 試合スケジュールデータ
+│   │   └── schedule/         # 試合スケジュールデータ
+│   │       ├── schedule-data-2025.js # 試合スケジュールデータ（2025）
+│   │       └── schedule-data-2026.js # 試合スケジュールデータ（2026）
 │   │
 │   └── pages/                # ページ別スクリプト
 │       ├── contact.js        # お問い合わせページ
@@ -94,7 +96,7 @@ nomadictribeultimate/
 
 ### 動的コンテンツ
 - **お知らせ**: `js/data/news-data.js`で管理
-- **試合スケジュール**: `js/data/schedule-data.js`で管理
+- **試合スケジュール**: `js/data/schedule/`配下で管理
 - **選手情報**: `js/data/players-*.js`で管理
 
 ### お問い合わせフォーム
@@ -119,7 +121,7 @@ nomadictribeultimate/
 ```
 
 ### 試合スケジュールの追加
-`js/data/schedule-data.js`に新しい試合情報を追加してください。
+`js/data/schedule/`配下の該当年ファイル（例: `schedule-data-2025.js`）に新しい試合情報を追加してください。
 
 ```javascript
 scheduleData[2025][1].push({

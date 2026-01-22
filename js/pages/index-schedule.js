@@ -8,43 +8,55 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("試合データが見つかりません");
         return;
     }
+    const scheduleData = window.scheduleData;
 
-    // 直近4試合を取得して表示
-    displayRecentMatches();
+    // 過去2試合と今後の試合を取得して表示
+    displayTopMatches();
 
     /**
      * 直近4試合を表示
      */
-    function displayRecentMatches() {
+    function displayTopMatches() {
         const matchesList = document.getElementById('recent-matches-list');
         if (!matchesList) {
             return;
         }
 
-        // 全試合データを取得してソート
+        // 全試合データを取得して整理
         const allMatches = getAllMatches();
-        
-        // 試合データをソート（新しい順）
-        const sortedMatches = sortMatchesByDate(allMatches);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
 
-        // 直近4試合を取得（試合結果がある試合のみ、日付が新しい順）
-        const recentMatches = sortedMatches
-            .filter(match => match.score && match.result) // 試合結果がある試合のみ
-            .slice(0, 4);
+        const pastMatches = allMatches
+            .filter(match => match.score && match.result)
+            .sort((a, b) => getMatchDate(b) - getMatchDate(a))
+            .slice(0, 2);
 
-        // 試合がない場合
-        if (recentMatches.length === 0) {
-            displayErrorMessage('試合結果はありません', matchesList);
+        const futureMatches = allMatches
+            .filter(match => isUpcomingMatch(match, today))
+            .sort((a, b) => getMatchDate(a) - getMatchDate(b))
+            .slice(0, 2);
+
+        const displayMatches = [...pastMatches, ...futureMatches];
+
+        if (displayMatches.length === 0) {
+            displayErrorMessage('試合情報はありません', matchesList);
             return;
         }
 
-        // 試合リストを表示
         matchesList.innerHTML = '';
-        recentMatches.forEach(match => {
+        displayMatches.forEach(match => {
             const matchItem = createMatchItemElement(match, {
                 showWeekday: true,
                 showYoutube: true
             });
+            if (isUpcomingMatch(match, today)) {
+                matchItem.classList.add('is-next-match');
+                const infoElement = matchItem.querySelector('.schedule-info');
+                if (infoElement) {
+                    infoElement.insertAdjacentHTML('afterbegin', '<span class="schedule-badge next-match">NEXT MATCH</span>');
+                }
+            }
             matchesList.appendChild(matchItem);
         });
     }
@@ -55,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function getAllMatches() {
         const allMatches = [];
-        const currentYear = new Date().getFullYear();
 
         // 利用可能な全ての年のデータを取得（現在の年から過去に遡る）
         // まず利用可能な年を取得
@@ -86,6 +97,28 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         return allMatches;
+    }
+
+    /**
+     * 試合の日付をDateに変換
+     * @param {Object} match - 試合データ
+     * @returns {Date}
+     */
+    function getMatchDate(match) {
+        const dateParts = (match.date || '').split('.');
+        const month = match.month || parseInt(dateParts[0] || '1', 10);
+        const day = parseInt(dateParts[1] || '1', 10);
+        return new Date(match.year, month - 1, day);
+    }
+
+    /**
+     * 未来の試合か判定
+     * @param {Object} match - 試合データ
+     * @param {Date} today - 当日0時
+     * @returns {boolean}
+     */
+    function isUpcomingMatch(match, today) {
+        return (!match.score || !match.result) && getMatchDate(match) >= today;
     }
 
 });

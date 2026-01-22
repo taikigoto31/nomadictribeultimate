@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("試合データが見つかりません");
         return;
     }
+    const scheduleData = window.scheduleData;
 
-    // 最後に試合があった月を取得
-    const { year, month } = getLastMatchMonth();
+    // 現在日時から一番近い試合の月を取得
+    const { year, month } = getNearestMatchMonth();
     let currentYear = year;
     let currentMonth = month;
 
@@ -63,31 +64,63 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /**
-     * 最後に試合があった月を取得
+     * 現在日時から一番近い試合の月を取得
      * @returns {Object} {year: number, month: number}
      */
-    function getLastMatchMonth() {
+    function getNearestMatchMonth() {
         const currentDate = new Date();
-        let currentYear = currentDate.getFullYear();
-        let lastYear = currentYear;
-        let lastMonth = 0;
+        currentDate.setHours(0, 0, 0, 0);
+        let nearest = null;
 
-        // 現在の年から過去に遡って、試合がある最後の月を探す
-        // 2026年まで考慮する
-        for (let year = currentYear + 1; year >= currentYear - 1; year--) {
-            if (scheduleData[year]) {
-                for (let month = 12; month >= 1; month--) {
-                    if (scheduleData[year][month] && scheduleData[year][month].length > 0) {
-                        lastYear = year;
-                        lastMonth = month;
-                        return { year: lastYear, month: lastMonth };
+        const years = Object.keys(scheduleData || {}).map(year => parseInt(year, 10));
+        years.forEach(year => {
+            if (!scheduleData[year]) return;
+            for (let month = 1; month <= 12; month++) {
+                const monthData = scheduleData[year][month] || [];
+                monthData.forEach(match => {
+                    const matchDate = getMatchDateFromData(match, year, month);
+                    if (!matchDate) return;
+                    const diff = Math.abs(matchDate - currentDate);
+                    if (!nearest) {
+                        nearest = { year, month, date: matchDate, diff };
+                        return;
                     }
-                }
+                    if (diff < nearest.diff) {
+                        nearest = { year, month, date: matchDate, diff };
+                        return;
+                    }
+                    // 同じ距離なら未来の試合を優先
+                    if (diff === nearest.diff && matchDate >= currentDate && nearest.date < currentDate) {
+                        nearest = { year, month, date: matchDate, diff };
+                    }
+                });
             }
+        });
+
+        if (nearest) {
+            return { year: nearest.year, month: nearest.month };
         }
 
-        // 試合が見つからない場合は現在の月を返す
-        return { year: currentYear, month: currentDate.getMonth() + 1 };
+        return { year: currentDate.getFullYear(), month: currentDate.getMonth() + 1 };
+    }
+
+    /**
+     * 試合データからDateを生成
+     * @param {Object} match - 試合データ
+     * @param {number} year - 年
+     * @param {number} month - 月
+     * @returns {Date|null}
+     */
+    function getMatchDateFromData(match, year, month) {
+        if (!match || !match.date) {
+            return null;
+        }
+        const dateParts = match.date.split('.');
+        const day = parseInt(dateParts[1], 10);
+        if (Number.isNaN(day)) {
+            return null;
+        }
+        return new Date(year, month - 1, day);
     }
 
     /**
