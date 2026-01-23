@@ -171,18 +171,18 @@ scheduleData["2026"] = {
             }
         ],
         4: [
-            // {
-            //     id: 13,
-            //     date: "04.12",
-            //     weekday: "SAT",
-            //     tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
-            //     tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/15713?lang=jp",
-            //     youtubeUrl: "",
-            //     opponent: "vs GONA",
-            //     venue: "大阪府堺市／J-GREEN堺",
-            //     score: "13-8",
-            //     result: ""
-            // },
+            {
+                id: 13,
+                date: "04.11",
+                weekday: "SAT",
+                tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
+                // tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/15713?lang=jp",
+                youtubeUrl: "",
+                opponent: "",
+                venue: "大阪府堺市／J-GREEN堺",
+                score: "",
+                result: ""
+            },
             // {
             //     id: 14,
             //     date: "04.12",
@@ -233,18 +233,30 @@ scheduleData["2026"] = {
             // }
         ],
         5: [
-            // {
-            //     id: 18,
-            //     date: "05.17",
-            //     weekday: "SAT",
-            //     tournament: "文部科学大臣杯第50回全日本アルティメット選手権大会　選抜予選",
-            //     tournamentUrl: "https://www.jfda.or.jp/2026/03/12/2026alljapan-ultimate-main/",
-            //     youtubeUrl: "",
-            //     opponent: "vs 大阪スピリッツ",
-            //     venue: "静岡県御殿場市 時之栖スポーツセンター（うさぎ島グラウンド）",
-            //     score: "7-10",
-            //     result: "loss"
-            // },
+            {
+                id: 18,
+                date: "05.1",
+                weekday: "FRI",
+                tournament: "Tom's Tourney 2026",
+                tournamentUrl: "https://www.tomstourney.be/",
+                youtubeUrl: "",
+                opponent: "",
+                venue: "Bruges, Belgium",
+                score: "",
+                result: ""
+            },
+            {
+                id: 18,
+                date: "05.16",
+                weekday: "SAT",
+                tournament: "文部科学大臣杯第50回全日本アルティメット選手権大会　選抜予選",
+                // tournamentUrl: "https://www.jfda.or.jp/2026/03/12/2026alljapan-ultimate-main/",
+                youtubeUrl: "",
+                opponent: "",
+                venue: "静岡県御殿場市 時之栖スポーツセンター（うさぎ島グラウンド）",
+                score: "",
+                result: ""
+            },
             // {
             //     id: 19,
             //     date: "05.17",
@@ -371,6 +383,18 @@ scheduleData["2026"] = {
             // }
         ],
         8: [
+            {
+                id: 27,
+                date: "08.15",
+                weekday: "SAT",
+                tournament: "WUCC2026",
+                tournamentUrl: "",
+                youtubeUrl: "",
+                opponent: "",
+                venue: "Limerick, Ireland",
+                score: "",
+                result: ""
+            },
         ],
         9: [
             // {

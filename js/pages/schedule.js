@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function() {
             resultHTML = `
                 <div class="schedule-result">
                     ${youtubeIcon}
-                    <span class="schedule-score">-</span>
+                    <span class="schedule-score"></span>
                     <span class="result-tag upcoming">UPCOMING</span>
                 </div>
             `;
