@@ -18,9 +18,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 <ul>
                     <li><a href="club.html">クラブ概要</a></li>
                 </ul>
-                <h3>チーム情報</h3>
+                <h3>選手・スタッフ</h3>
                 <ul>
                     <li><a href="team.html">選手/スタッフ</a></li>
+                </ul>
+                <h3>グッズ</h3>
+                <ul>
+                    <li><a href="goods.html">公式グッズ</a></li>
                 </ul>
             </div>
             <div class="footer-column">

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOODS - Nomadic Tribe Ultimate</title>
+    
+    <!-- OGP (Open Graph Protocol) メタタグ -->
+    <meta property="og:site_name" content="Nomadic Tribe Ultimate" />
+    <meta property="og:title" content="GOODS - Nomadic Tribe Ultimate" />
+    <meta property="og:description" content="Nomadic Tribe Ultimate の公式グッズをご紹介します。" />
+    <meta property="og:url" content="https://nomadictribeultimate.com/goods" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://nomadictribeultimate.com/images/ogp_main.jpg" />
+    <meta property="og:locale" content="ja_JP" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GOODS - Nomadic Tribe Ultimate" />
+    <meta name="twitter:description" content="Nomadic Tribe Ultimate の公式グッズをご紹介します。" />
+    <meta name="twitter:image" content="https://nomadictribeultimate.com/images/ogp_main.jpg" />
+    
+    <!-- スパム対策のためのメタタグ -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="description" content="Nomadic Tribe Ultimate の公式グッズをご紹介します。" />
+    
+    <!-- Font Awesome (アイコン用) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" href="images/NomadicTribeLogo.png">
+    <link rel="apple-touch-icon" href="images/NomadicTribeLogo.png">
+    
+    <!-- 共通head設定（URLから.htmlを削除など） -->
+    <script src="js/common/head.js"></script>
+    
+    <!-- 共通CSSの読み込み -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- グッズページ専用CSSの読み込み -->
+    <link rel="stylesheet" href="css/pages/goods.css">
+</head>
+<body>
+
+    <!-- ======== ヘッダー (共通部品) ======== -->
+    <div id="header-placeholder"></div>
+    <script src="js/common/header.js"></script>
+
+    <!-- ======== メインコンテンツ (グッズ) ======== -->
+    <main>
+        <div class="goods-hero">
+            <h2 class="goods-hero-title">GOODS</h2>
+            <p class="goods-hero-subtitle">公式グッズ</p>
+        </div>
+
+        <section class="goods-page wrapper page-main-content">
+            <!-- 商品一覧 -->
+            <div class="goods-section">
+                <h3 class="section-main-title">PRODUCT LIST</h3>
+                <p class="section-sub-title">商品一覧</p>
+                <div class="goods-grid" id="goods-grid">
+                    <!-- JSで商品カードが生成されます -->
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- 商品詳細モーダル -->
+    <div class="goods-modal" id="goods-modal" aria-hidden="true">
+        <div class="goods-modal-overlay" data-modal-close></div>
+        <div class="goods-modal-content" role="dialog" aria-modal="true">
+            <button class="goods-modal-close" type="button" data-modal-close aria-label="閉じる">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="goods-modal-body">
+                <div class="goods-modal-gallery">
+                    <div class="goods-modal-main">
+                        <img id="goods-modal-main-image" src="" alt="">
+                    </div>
+                    <div class="goods-modal-thumbs" id="goods-modal-thumbs"></div>
+                </div>
+                <div class="goods-modal-info">
+                    <h4 class="goods-modal-title" id="goods-modal-title"></h4>
+                    <p class="goods-modal-price" id="goods-modal-price"></p>
+                    <p class="goods-modal-description" id="goods-modal-description"></p>
+                    <div class="goods-modal-size" id="goods-modal-size"></div>
+                    <a class="goods-modal-button" id="goods-modal-order" href="#" target="_blank" rel="noopener noreferrer">
+                        Googleフォームで注文する
+                    </a>
+                    <p class="goods-modal-note">※Googleフォームへ遷移します</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== フッター (共通部品) ======== -->
+    <div id="footer-placeholder"></div>
+    <script src="js/common/footer.js"></script>
+
+    <!-- 共通JavaScriptの読み込み -->
+    <script src="js/common/utils.js"></script>
+    <script src="js/common/script.js"></script>
+    
+    <!-- ======== このページ専用のJavaScript ======== -->
+    <script src="js/data/goods-data.js"></script>
+    <script src="js/pages/goods.js"></script>
+</body>
+</html>

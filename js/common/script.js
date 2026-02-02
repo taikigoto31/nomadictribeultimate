@@ -307,7 +307,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const range = selection.getRangeAt(0);
         const container = range.commonAncestorContainer;
 
-        // ヘッダーまたはチーム情報ページ内で選択されているか確認
+        // ヘッダーまたは選手・スタッフページ内で選択されているか確認
         const header = document.querySelector('.header');
         const teamPage = document.querySelector('.team-page');
         const teamCategory = document.querySelector('.team-category');
