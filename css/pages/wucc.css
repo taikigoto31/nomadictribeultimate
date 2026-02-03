@@ -123,42 +123,6 @@
     margin-top: 20px;
 }
 
-/* グッズ販売セクション */
-.goods-section {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.coming-soon-box {
-    display: inline-block;
-    padding: 60px 40px;
-    background-color: var(--light-bg);
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--border-color);
-    max-width: 500px;
-}
-
-.coming-soon-box i {
-    font-size: 4rem;
-    color: var(--accent-color);
-    margin-bottom: 20px;
-    display: block;
-}
-
-.coming-soon-text {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-}
-
-.coming-soon-description {
-    font-size: 1rem;
-    color: var(--light-text);
-    margin-top: 10px;
-}
-
 /* オフィシャルサイトセクション */
 .official-site-section {
     text-align: center;

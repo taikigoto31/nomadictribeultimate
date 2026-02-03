@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         profileContainer.innerHTML = `
             <div class="breadcrumb">
-                <a href="index.html">ホーム</a> &gt; <a href="team.html">チーム情報</a>
+                <a href="index.html">ホーム</a> &gt; <a href="team.html">選手・スタッフ</a>
             </div>
             <h2>選手が見つかりません</h2>
             <p>指定されたIDの選手は存在しないか、削除された可能性があります。</p>

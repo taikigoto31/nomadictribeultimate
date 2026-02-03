@@ -33,7 +33,8 @@
                 <li><a href="wucc.html">WUCC2026</a></li>
                 <li><a href="news.html">ニュース</a></li>
                 <li><a href="club.html">クラブ概要</a></li>
-                <li><a href="team.html">チーム情報</a></li>
+                <li><a href="team.html">選手・スタッフ</a></li>
+                <li><a href="goods.html">グッズ</a></li>
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
@@ -128,7 +129,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li><a href="wucc.html">WUCC2026</a></li>
                 <li><a href="news.html">ニュース</a></li>
                 <li><a href="club.html">クラブ概要</a></li>
-                <li><a href="team.html">チーム情報</a></li>
+                <li><a href="team.html">選手・スタッフ</a></li>
+                <li><a href="goods.html">グッズ</a></li>
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>

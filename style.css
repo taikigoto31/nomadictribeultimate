@@ -28,7 +28,7 @@ body {
     color: var(--white);
 }
 
-/* チーム情報ページ内のテキスト選択 */
+/* 選手・スタッフページ内のテキスト選択 */
 .team-page ::selection,
 .team-category ::selection,
 .player-card ::selection {

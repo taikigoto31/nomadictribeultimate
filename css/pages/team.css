@@ -104,6 +104,33 @@
     border-bottom: none;
 }
 
+.team-sort-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px 0;
+    flex-wrap: wrap;
+}
+
+.team-sort-tab {
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    color: var(--dark-text);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.team-sort-tab.is-active,
+.team-sort-tab:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-color: var(--accent-color);
+}
+
 .team-nav-list {
     display: flex;
     justify-content: center;
@@ -128,10 +155,11 @@
     opacity: 1;
 }
 
-/* メインコンテンツエリア (★修正★) */
+/* 共通カードサイズ */
 .team-page {
-    /* background-color: var(--white); */ /* <-- wrapperの外側は背景色(light-bg)にするため削除 */
-    /* .wrapper クラス自体に padding: 40px 20px; が適用されます */
+    --card-min-width: 220px;
+    --card-gap: 14px;
+    --card-max-width: 260px;
 }
 
 /* カテゴリ (★修正★) */
@@ -151,7 +179,7 @@
 .category-title {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--main-color);
+    color: var(--dark-text);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 25px;
@@ -162,8 +190,35 @@
 /* 選手グリッド */
 .player-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, minmax(0, var(--card-max-width)));
+    gap: var(--card-gap);
+    justify-items: start;
+    justify-content: start;
+}
+
+.team-sort-content {
+    margin-bottom: 30px;
+}
+
+.team-sort-group {
+    margin-bottom: 24px;
+}
+
+.team-sort-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin: 10px 0 12px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+.team-sort-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, var(--card-max-width)));
+    gap: var(--card-gap);
+    justify-items: start;
+    justify-content: start;
 }
 
 /* 選手カード (リンク) */
@@ -174,24 +229,26 @@
     cursor: pointer; /* ポインターカーソルを表示 */
     position: relative; /* リンクが確実に機能するように */
     z-index: 1; /* リンクが確実にクリックできるように */
+    width: 100%;
+    max-width: var(--card-max-width);
 }
 
 .player-card-link.is-birthday .player-card {
     border-color: #f2b705;
-    box-shadow: 0 6px 20px rgba(242, 183, 5, 0.25);
-    background: linear-gradient(180deg, #fff8e1 0%, #ffffff 60%);
+    box-shadow: 0 6px 20px rgba(242, 183, 5, 0.2);
+    background: linear-gradient(180deg, rgba(242, 183, 5, 0.16) 0%, rgba(255, 255, 255, 0.04) 60%);
 }
 
 .player-card-link.is-birthday .player-name {
-    color: #d17a00;
+    color: #f5d26a;
 }
 
 .birthday-badge {
     display: inline-block;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #9a5a00;
-    background-color: #fff3c4;
+    color: #f5d26a;
+    background-color: rgba(242, 183, 5, 0.16);
     border: 1px solid #f2b705;
     border-radius: 999px;
     padding: 2px 8px;
@@ -205,68 +262,78 @@
 .player-card {
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    background-color: #fafafa;
+    background-color: var(--surface-bg);
     overflow: hidden; /* 画像の角丸を有効にするため */
     transition: box-shadow 0.3s, transform 0.3s;
     height: 100%; /* グリッドの高さを揃える */
     position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
 }
 
 .player-card-link:hover .player-card {
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-lg);
     transform: translateY(-5px);
+}
+
+.player-image {
+    width: 100%;
 }
 
 .player-image img {
     width: 100%;
     height: auto;
     display: block;
-    background-color: #ddd; /* プレースホルダー背景 */
-    aspect-ratio: 3 / 4; /* 画像の縦横比を 3:4 に固定 */
+    background-color: rgba(255, 255, 255, 0.08); /* プレースホルダー背景 */
+    aspect-ratio: 16 / 9;
     object-fit: cover; /* 比率を保ったままトリミング */
 }
 
 /* STAFFカード用: 画像サイズを他ポジションと同程度に調整しつつレイアウト調整 */
 .team-category#staff .player-card {
-    max-width: 260px;          /* カードの最大幅を制限して、大きくなりすぎないようにする */
-    margin: 0 auto;            /* カードを中央揃え */
+    max-width: var(--card-max-width);
+    margin: 0;
 }
 
 /* STAFFグリッド: 2人など少人数でもカード同士の間隔が広がりすぎないように中央寄せ＋幅制限 */
 .team-category#staff .player-grid {
-    justify-items: center;     /* 中央揃え */
-    justify-content: center;   /* 中央揃え */
-    gap: 20px;                 /* カード間の間隔を統一 */
-    max-width: 900px;          /* グリッド全体の横幅を拡大 */
-    margin: 0 auto;            /* グリッド全体を中央揃え */
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* グリッド列を統一 */
+    justify-items: start;
+    justify-content: start;
+    gap: var(--card-gap);      /* カード間の間隔を統一 */
+    max-width: none;
+    margin: 0;
+    grid-template-columns: repeat(4, minmax(0, var(--card-max-width))); /* グリッド列を統一 */
 }
 
 
 .player-info {
-    padding: 15px;
+    padding: 10px 12px 12px;
     text-align: left;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .player-number {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--accent-color);
 }
 
 .player-name {
     display: block;
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--dark-text);
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 .player-position {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--light-text);
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 
@@ -276,8 +343,29 @@
         font-size: 1.5rem;
     }
 
+    .team-page {
+        --card-min-width: 180px;
+    }
+
     .player-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .team-sort-grid {
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .team-sort-tab {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .player-image img {
+        aspect-ratio: 16 / 9;
     }
     
     .team-nav-list {

@@ -47,7 +47,7 @@
     <div id="header-placeholder"></div>
     <script src="js/common/header.js"></script>
 
-    <!-- ======== メインコンテンツ (チーム情報) ======== -->
+    <!-- ======== メインコンテンツ (選手・スタッフ) ======== -->
     <main>
         <div class="page-hero">
             <h2 class="page-hero-title">PLAYER & STAFF</h2>
@@ -63,7 +63,7 @@
             </ul>
         </nav>
 
-        <!-- ======== チーム情報 ======== -->
+        <!-- ======== 選手・スタッフ ======== -->
         <section class="team-page wrapper page-main-content">
             
             <!-- HANDLER -->

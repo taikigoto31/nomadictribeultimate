@@ -10,7 +10,8 @@ nomadictribeultimate/
 ├── schedule.html            # 試合スケジュール
 ├── news.html                # お知らせ一覧
 ├── news-detail.html          # お知らせ詳細
-├── team.html                # チーム情報
+├── team.html                # 選手・スタッフ
+├── goods.html               # グッズ
 ├── player.html               # 選手詳細
 ├── club.html                 # クラブ概要
 ├── partner.html              # パートナー
@@ -46,6 +47,7 @@ nomadictribeultimate/
 │   ├── data/                 # データファイル
 │   │   ├── contact-config.js # お問い合わせ設定
 │   │   ├── news-data.js      # お知らせデータ
+│   │   ├── goods-data.js     # グッズデータ
 │   │   ├── player.js         # 選手データ（統合ファイル）
 │   │   ├── players-deep.js   # DEEPポジション選手データ
 │   │   ├── players-handler.js # HANDLERポジション選手データ
@@ -56,13 +58,14 @@ nomadictribeultimate/
 │   │
 │   └── pages/                # ページ別スクリプト
 │       ├── contact.js        # お問い合わせページ
+│       ├── goods.js          # グッズページ
 │       ├── index-news.js      # メインページのお知らせ表示
 │       ├── index-schedule.js  # メインページの試合スケジュール表示
 │       ├── news.js            # お知らせ一覧ページ
 │       ├── news-detail.js     # お知らせ詳細ページ
 │       ├── player.js          # 選手詳細ページ
 │       ├── schedule.js        # 試合スケジュールページ
-│       └── team.js            # チーム情報ページ
+│       └── team.js            # 選手・スタッフページ
 │
 └── images/                    # 画像ファイル
     ├── header/                # ヘッダー用画像

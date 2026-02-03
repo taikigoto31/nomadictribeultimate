@@ -1,6 +1,6 @@
 /* ======== 選手個人ページ専用スタイル ======== */
 
-/* ヒーローイメージ (チーム情報ページと同じスタイル) */
+/* ヒーローイメージ (選手・スタッフページと同じスタイル) */
 .page-hero { 
     background-image: url('../../images/header/team-hero.jpg'); /* チームページ用の背景画像 */
     background-color: var(--main-color);

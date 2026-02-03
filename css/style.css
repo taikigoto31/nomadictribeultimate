@@ -28,7 +28,7 @@ body {
     color: var(--white);
 }
 
-/* チーム情報ページ内のテキスト選択 */
+/* 選手・スタッフページ内のテキスト選択 */
 .team-page ::selection,
 .team-category ::selection,
 .player-card ::selection {
@@ -140,7 +140,7 @@ img {
 }
 
 .header-top {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 18px 20px;
     display: flex;
@@ -223,7 +223,7 @@ img {
 }
 
 .header-bottom {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 10px 20px;
     text-align: center;
@@ -233,7 +233,7 @@ img {
     display: flex;
     justify-content: center; /* 中央寄せ */
     flex-wrap: wrap; /* 狭い画面で折り返す */
-    gap: 25px; /* リンク間のスペース */
+    gap: 20px; /* リンク間のスペース */
 }
 
 .nav-links li a {
@@ -590,6 +590,26 @@ img {
     .match-schedule .schedule-result {
         text-align: center;
         justify-content: center;
+    }
+}
+
+/* ======== レスポンシブ対応 (タブレット) ======== */
+@media (max-width: 1200px) {
+    .header-top {
+        padding: 16px 16px;
+    }
+
+    .header-bottom {
+        padding: 8px 12px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links li a {
+        font-size: 0.95rem;
+        padding: 6px 10px;
     }
 }
 
