@@ -104,6 +104,33 @@
     border-bottom: none;
 }
 
+.team-sort-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px 0;
+    flex-wrap: wrap;
+}
+
+.team-sort-tab {
+    border: 1px solid var(--border-color);
+    background-color: var(--white);
+    color: var(--dark-text);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.team-sort-tab.is-active,
+.team-sort-tab:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-color: var(--accent-color);
+}
+
 .team-nav-list {
     display: flex;
     justify-content: center;
@@ -126,6 +153,13 @@
 .team-nav-list a:hover {
     color: var(--accent-color);
     opacity: 1;
+}
+
+/* 共通カードサイズ */
+.team-page {
+    --card-min-width: 220px;
+    --card-gap: 14px;
+    --card-max-width: 260px;
 }
 
 /* カテゴリ (★修正★) */
@@ -156,8 +190,35 @@
 /* 選手グリッド */
 .player-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(4, minmax(0, var(--card-max-width)));
+    gap: var(--card-gap);
+    justify-items: start;
+    justify-content: start;
+}
+
+.team-sort-content {
+    margin-bottom: 30px;
+}
+
+.team-sort-group {
+    margin-bottom: 24px;
+}
+
+.team-sort-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin: 10px 0 12px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+.team-sort-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, var(--card-max-width)));
+    gap: var(--card-gap);
+    justify-items: start;
+    justify-content: start;
 }
 
 /* 選手カード (リンク) */
@@ -168,6 +229,8 @@
     cursor: pointer; /* ポインターカーソルを表示 */
     position: relative; /* リンクが確実に機能するように */
     z-index: 1; /* リンクが確実にクリックできるように */
+    width: 100%;
+    max-width: var(--card-max-width);
 }
 
 .player-card-link.is-birthday .player-card {
@@ -229,18 +292,18 @@
 
 /* STAFFカード用: 画像サイズを他ポジションと同程度に調整しつつレイアウト調整 */
 .team-category#staff .player-card {
-    max-width: 360px;          /* カードの最大幅を制限して、大きくなりすぎないようにする */
-    margin: 0 auto;            /* カードを中央揃え */
+    max-width: var(--card-max-width);
+    margin: 0;
 }
 
 /* STAFFグリッド: 2人など少人数でもカード同士の間隔が広がりすぎないように中央寄せ＋幅制限 */
 .team-category#staff .player-grid {
-    justify-items: center;     /* 中央揃え */
-    justify-content: center;   /* 中央揃え */
-    gap: 14px;                 /* カード間の間隔を統一 */
-    max-width: 980px;          /* グリッド全体の横幅を拡大 */
-    margin: 0 auto;            /* グリッド全体を中央揃え */
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* グリッド列を統一 */
+    justify-items: start;
+    justify-content: start;
+    gap: var(--card-gap);      /* カード間の間隔を統一 */
+    max-width: none;
+    margin: 0;
+    grid-template-columns: repeat(4, minmax(0, var(--card-max-width))); /* グリッド列を統一 */
 }
 
 
@@ -280,8 +343,25 @@
         font-size: 1.5rem;
     }
 
+    .team-page {
+        --card-min-width: 180px;
+    }
+
     .player-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .team-sort-grid {
+        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
+        justify-items: center;
+        justify-content: center;
+    }
+
+    .team-sort-tab {
+        font-size: 0.9rem;
+        padding: 6px 12px;
     }
 
     .player-image img {

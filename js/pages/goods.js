@@ -22,8 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
         ? CONSTANTS.PLACEHOLDER_IMAGE_MAIN
         : "https://placehold.co/800x600/cccccc/666666?text=No+Image";
 
+    const GOODS_ENABLED = false;
+
     if (goodsGrid) {
-        renderGoodsList(window.goodsData, goodsGrid);
+        if (GOODS_ENABLED) {
+            renderGoodsList(window.goodsData, goodsGrid);
+        } else {
+            renderComingSoon(goodsGrid);
+        }
     }
 
     if (modal) {
@@ -51,6 +57,15 @@ document.addEventListener("DOMContentLoaded", function() {
             });
             container.appendChild(card);
         });
+    }
+
+    function renderComingSoon(container) {
+        container.innerHTML = `
+            <div class="goods-coming-soon">
+                <p class="goods-coming-title">COMING SOON</p>
+                <p class="goods-coming-text">現在準備中です。</p>
+            </div>
+        `;
     }
 
 
