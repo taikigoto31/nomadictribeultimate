@@ -348,15 +348,15 @@
     }
 
     .player-grid {
-        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
-        justify-items: center;
-        justify-content: center;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-items: start;
+        justify-content: start;
     }
 
     .team-sort-grid {
-        grid-template-columns: repeat(auto-fit, minmax(var(--card-min-width), 1fr));
-        justify-items: center;
-        justify-content: center;
+        grid-template-columns: repeat(2, minmax(0, var(--card-max-width)));
+        justify-items: start;
+        justify-content: start;
     }
 
     .team-sort-tab {
@@ -383,10 +383,11 @@
 
     /* モバイルでもスタッフグリッドを中央揃えに */
     .team-category#staff .player-grid {
-        justify-items: center;
-        justify-content: center;
+        justify-items: start;
+        justify-content: start;
         gap: 15px;
         max-width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
