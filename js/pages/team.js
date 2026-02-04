@@ -97,7 +97,8 @@ document.addEventListener("DOMContentLoaded", function() {
         container.innerHTML = "";
 
         const players = groupedPlayers[position] || [];
-        const sortedPlayers = sortPlayers(players, sortKey);
+        const effectiveSortKey = position === "STAFF" && sortKey === "number" ? "id" : sortKey;
+        const sortedPlayers = sortPlayers(players, effectiveSortKey);
 
         sortedPlayers.forEach(player => {
             container.insertAdjacentHTML("beforeend", createPlayerCard(player));
@@ -144,8 +145,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="player-info">
                         ${birthdayBadge}
                         <span class="player-number">${player.number ? "#" + player.number : ""}</span>
-                        <span class="player-name">${player.name}</span>
                         <span class="player-position">${player.role || ""}</span>
+                        <span class="player-name">${player.name}</span>
                     </div>
                 </div>
             </a>
@@ -229,9 +230,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     return compareBirthYear(a, b) || compareName(a, b);
                 case "university":
                     return compareUniversity(a, b) || compareName(a, b);
+                case "id":
+                    return compareId(a, b) || compareName(a, b);
                 case "number":
                 default:
-                    return compareNumber(a, b) || compareName(a, b);
+                    return compareNumberWithStaff(a, b) || compareName(a, b);
             }
         });
         return list;
@@ -241,6 +244,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const aNum = parseNullableNumber(a.number);
         const bNum = parseNullableNumber(b.number);
         return compareNullableNumber(aNum, bNum);
+    }
+
+    function compareNumberWithStaff(a, b) {
+        const aIsStaff = a.position === "STAFF";
+        const bIsStaff = b.position === "STAFF";
+        if (aIsStaff && bIsStaff) {
+            return compareId(a, b);
+        }
+        return compareNumber(a, b);
     }
 
     function compareBirthYear(a, b) {
@@ -256,6 +268,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!aUni) return 1;
         if (!bUni) return -1;
         return aUni.localeCompare(bUni, "ja");
+    }
+
+    function compareId(a, b) {
+        const aId = parseNullableNumber(a.id);
+        const bId = parseNullableNumber(b.id);
+        return compareNullableNumber(aId, bId);
     }
 
     function compareName(a, b) {
