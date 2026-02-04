@@ -235,7 +235,7 @@ scheduleData["2026"] = {
         5: [
             {
                 id: 18,
-                date: "05.1",
+                date: "05.01",
                 weekday: "FRI",
                 tournament: "Tom's Tourney 2026",
                 tournamentUrl: "https://www.tomstourney.be/",
