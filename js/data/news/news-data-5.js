@@ -6,7 +6,7 @@
 // グローバルスコープとwindowオブジェクトの両方で利用可能にする
 const newsDataItem5 = {
     id: 5,
-    date: "2026.01.23",
+    date: "2026.02.06",
     category: "大会情報",
     title: "Tom's Tourney 2026 出場のお知らせ",
     image: "images/news/news_5.jpg",
