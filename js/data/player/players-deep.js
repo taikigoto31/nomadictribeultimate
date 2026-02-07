@@ -146,7 +146,7 @@ const deepPlayers = [
         number: 8,
         position: "DEEP",
         role: "",
-        bio: "身長：169cm　/　体重：61kg　/　生年月日：2002/02/08　/　出身大学：慶応義塾大学",
+        bio: "身長：169cm　/　体重：61kg　/　生年月日：2002/02/08　/　出身大学：慶應義塾大学",
         representativeCareer: [],
         playerImage: "images/players/deep/player_8_thumb1.jpg",
         qnaImages: [
@@ -175,7 +175,7 @@ const deepPlayers = [
         number: 11,
         position: "DEEP",
         role: "",
-        bio: "身長：168cm　/　体重：55kg　/　生年月日：2001/03/02　/　出身大学：慶応義塾大学",
+        bio: "身長：168cm　/　体重：55kg　/　生年月日：2001/03/02　/　出身大学：慶應義塾大学",
         representativeCareer: ["2023年　WFDF世界U-24アルティメット選手権大会　オープン部門",
             "2024年　WFDFアジア・オセアニアビーチアルティメット選手権大会 オープン部門",
             "2025年　WFDF世界ビーチアルティメット選手権大会 オープン部門"],
@@ -206,7 +206,7 @@ const deepPlayers = [
         number: 14,
         position: "DEEP",
         role: "",
-        bio: "身長：179cm　/　体重：67kg　/　生年月日：1997/06/10　/　出身大学：慶応義塾大学",
+        bio: "身長：179cm　/　体重：67kg　/　生年月日：1997/06/10　/　出身大学：慶應義塾大学",
         representativeCareer: [],
         playerImage: "images/players/deep/player_14_thumb1.jpg",
         qnaImages: [
@@ -469,7 +469,7 @@ const deepPlayers = [
         number: 87,
         position: "DEEP",
         role: "",
-        bio: "身長：173cm　/　体重：60kg　/　生年月日：1998/06/26　/　出身大学：慶応義塾大学",
+        bio: "身長：173cm　/　体重：60kg　/　生年月日：1998/06/26　/　出身大学：慶應義塾大学",
         representativeCareer: ["WFDF2024アジア・オセアニアビーチアルティメット選手権大会　オープン部門"],
         playerImage: "images/players/deep/player_87_thumb1.jpg",
         qnaImages: [
