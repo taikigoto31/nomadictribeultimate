@@ -44,7 +44,7 @@ const handlerPlayers = [
         number: 9,
         position: "HANDLER",
         role: "",
-        bio: "身長：175cm　/　体重：65kg　/　生年月日：1994/07/02　/　出身大学：慶応義塾大学",
+        bio: "身長：175cm　/　体重：65kg　/　生年月日：1994/07/02　/　出身大学：慶應義塾大学",
         representativeCareer: [
             "2015年　WFDFU23アルティメット選手権大会 ミックス部門",
             "2018年　WFDFU23アルティメット選手権大会 ミックス部門",
@@ -137,7 +137,7 @@ const handlerPlayers = [
         number: 23,
         position: "HANDLER",
         role: "",
-        bio: "身長：168cm　/　体重：63kg　/　生年月日：1999/11/06　/　出身大学：慶応義塾大学",
+        bio: "身長：168cm　/　体重：63kg　/　生年月日：1999/11/06　/　出身大学：慶應義塾大学",
         representativeCareer: ["2023年　WFDFアジア・オセアニアアルティメット＆ガッツ選手権大会 オープン部門",
             "2024年　WFDFアジア・オセアニアビーチアルティメット選手権大会 オープン部門"],
         playerImage: "images/players/handler/player_23_thumb1.jpg",
@@ -284,7 +284,7 @@ const handlerPlayers = [
         number: 80,
         position: "HANDLER",
         role: "",
-        bio: "身長：179cm　/　体重：75kg　/　生年月日：1998/12/09　/　出身大学：慶応義塾大学",
+        bio: "身長：179cm　/　体重：75kg　/　生年月日：1998/12/09　/　出身大学：慶應義塾大学",
         representativeCareer: ["2016年　世界ジュニア選手権大会　オープン部門"],
         playerImage: "images/players/handler/player_80_thumb1.jpg",
         qnaImages: [
