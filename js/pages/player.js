@@ -148,6 +148,14 @@ document.addEventListener("DOMContentLoaded", function() {
         mainImageEl.src = imageSrc;
         mainImageEl.alt = `${player.name} メイン写真`;
         mainImageEl.onerror = function() {
+            if (!this.dataset.fallbackTried) {
+                const fallback = swapImageExtension(imageSrc);
+                if (fallback && fallback !== imageSrc) {
+                    this.dataset.fallbackTried = "true";
+                    this.src = fallback;
+                    return;
+                }
+            }
             this.src = PLACEHOLDER_IMAGE_MAIN;
             this.onerror = null;
         };
@@ -195,6 +203,14 @@ document.addEventListener("DOMContentLoaded", function() {
         thumb.src = imgSrc;
         thumb.alt = `${playerName} サムネイル ${index + 1}`;
         thumb.onerror = function() {
+            if (!this.dataset.fallbackTried) {
+                const fallback = swapImageExtension(imgSrc);
+                if (fallback && fallback !== imgSrc) {
+                    this.dataset.fallbackTried = "true";
+                    this.src = fallback;
+                    return;
+                }
+            }
             // 読み込みに失敗したサムネイルは非表示にする
             const parent = this.parentElement;
             if (parent) {
@@ -204,6 +220,17 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
         return thumb;
+    }
+
+    function swapImageExtension(path) {
+        if (!path) return "";
+        if (path.toLowerCase().endsWith(".jpg")) {
+            return path.slice(0, -4) + ".png";
+        }
+        if (path.toLowerCase().endsWith(".png")) {
+            return path.slice(0, -4) + ".jpg";
+        }
+        return path;
     }
 
     /**
