@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         <img src="${player.playerImage}" 
                              alt="${player.name}" 
                              loading="lazy"
-                             onerror="this.closest('.player-card-link').remove();">
+                             onerror="handlePlayerImageError(this);">
                     </div>
                     <div class="player-info">
                         ${birthdayBadge}
@@ -151,6 +151,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </a>
         `;
+    }
+
+    window.handlePlayerImageError = function(img) {
+        const current = img.getAttribute("src") || "";
+        if (!img.dataset.fallbackTried) {
+            const fallback = swapImageExtension(current);
+            if (fallback && fallback !== current) {
+                img.dataset.fallbackTried = "true";
+                img.src = fallback;
+                return;
+            }
+        }
+        const link = img.closest(".player-card-link");
+        if (link) {
+            link.remove();
+        }
+    };
+
+    function swapImageExtension(path) {
+        if (!path) return "";
+        if (path.toLowerCase().endsWith(".jpg")) {
+            return path.slice(0, -4) + ".png";
+        }
+        if (path.toLowerCase().endsWith(".png")) {
+            return path.slice(0, -4) + ".jpg";
+        }
+        return path;
     }
 
     function groupPlayersByPosition(players) {

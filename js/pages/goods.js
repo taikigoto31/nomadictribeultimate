@@ -3,11 +3,6 @@
 // ============================================
 
 document.addEventListener("DOMContentLoaded", function() {
-    if (!isDataAvailable("goodsData")) {
-        console.error("グッズデータが見つかりません");
-        return;
-    }
-
     const goodsGrid = document.getElementById("goods-grid");
     const modal = document.getElementById("goods-modal");
     const modalMainImage = document.getElementById("goods-modal-main-image");
@@ -24,13 +19,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const GOODS_ENABLED = false;
 
-    if (goodsGrid) {
-        if (GOODS_ENABLED) {
-            renderGoodsList(window.goodsData, goodsGrid);
-        } else {
-            renderComingSoon(goodsGrid);
+    const goodsReady = typeof window !== "undefined" && window.goodsDataReady
+        ? window.goodsDataReady
+        : Promise.resolve();
+
+    goodsReady.then(() => {
+        if (!isDataAvailable("goodsData")) {
+            console.error("グッズデータが見つかりません");
+            return;
         }
-    }
+        if (goodsGrid) {
+            if (GOODS_ENABLED) {
+                renderGoodsList(window.goodsData, goodsGrid);
+            } else {
+                renderComingSoon(goodsGrid);
+            }
+        }
+    });
 
     if (modal) {
         setupModalClose(modal);
@@ -74,11 +79,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         modalTitle.textContent = item.name || "";
         modalPrice.textContent = item.price || "";
-        modalDescription.textContent = item.description || "";
+        modalDescription.innerHTML = formatDescription(item.description);
         modalOrder.href = item.orderUrl && item.orderUrl.trim() !== "" ? item.orderUrl : "#";
 
         renderGallery(item.images || []);
-        renderSizeChart(item.sizeChartType);
+        renderSizeChart(item.sizeChart);
 
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
@@ -108,8 +113,58 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    function renderSizeChart(type) {
-        const chart = window.SIZE_CHART && window.SIZE_CHART[type];
+    function formatDescription(text) {
+        const normalized = Array.isArray(text) ? text : String(text || "").split("\n");
+        const escapedLines = normalized.map(line => {
+            return String(line)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+        });
+
+        const blocks = [];
+        let listItems = [];
+
+        const flushList = () => {
+            if (listItems.length > 0) {
+                blocks.push(`<ul class="goods-desc-list">${listItems.join("")}</ul>`);
+                listItems = [];
+            }
+        };
+
+        escapedLines.forEach((line) => {
+            const trimmed = line.trim();
+            if (!trimmed) {
+                flushList();
+                return;
+            }
+
+            if (trimmed.startsWith("・")) {
+                listItems.push(`<li>${trimmed.slice(1).trim()}</li>`);
+                return;
+            }
+
+            if (/^⚠️/.test(trimmed)) {
+                flushList();
+                blocks.push(`<p class="goods-desc-attention">${trimmed}</p>`);
+                return;
+            }
+
+            if (/^[^a-zA-Z0-9].+$/u.test(trimmed) && !trimmed.includes("：") && trimmed.length <= 20) {
+                flushList();
+                blocks.push(`<p class="goods-desc-heading">${trimmed}</p>`);
+                return;
+            }
+
+            flushList();
+            blocks.push(`<p>${trimmed}</p>`);
+        });
+
+        flushList();
+        return blocks.join("");
+    }
+
+    function renderSizeChart(chart) {
         if (!chart) {
             modalSize.innerHTML = "";
             return;
