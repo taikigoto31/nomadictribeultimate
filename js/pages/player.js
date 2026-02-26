@@ -145,12 +145,13 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function setMainImage(mainImageEl, player) {
         const imageSrc = player.playerImage || PLACEHOLDER_IMAGE_MAIN;
+        delete mainImageEl.dataset.fallbackTried;
         mainImageEl.src = imageSrc;
         mainImageEl.alt = `${player.name} メイン写真`;
         mainImageEl.onerror = function() {
             if (!this.dataset.fallbackTried) {
-                const fallback = swapImageExtension(imageSrc);
-                if (fallback && fallback !== imageSrc) {
+                const fallback = swapImageExtension(this.src);
+                if (fallback && fallback !== this.src) {
                     this.dataset.fallbackTried = "true";
                     this.src = fallback;
                     return;
@@ -204,8 +205,8 @@ document.addEventListener("DOMContentLoaded", function() {
         thumb.alt = `${playerName} サムネイル ${index + 1}`;
         thumb.onerror = function() {
             if (!this.dataset.fallbackTried) {
-                const fallback = swapImageExtension(imgSrc);
-                if (fallback && fallback !== imgSrc) {
+                const fallback = swapImageExtension(this.src);
+                if (fallback && fallback !== this.src) {
                     this.dataset.fallbackTried = "true";
                     this.src = fallback;
                     return;
@@ -241,6 +242,7 @@ document.addEventListener("DOMContentLoaded", function() {
      * @param {string} imgSrc - 新しい画像ソース
      */
     function switchMainImage(mainImageEl, thumbnailsEl, clickedThumb, imgSrc) {
+        delete mainImageEl.dataset.fallbackTried;
         mainImageEl.src = imgSrc || PLACEHOLDER_IMAGE_MAIN;
         
         // すべてのサムネイルのアクティブ状態を解除
