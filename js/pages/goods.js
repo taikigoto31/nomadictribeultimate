@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         ? CONSTANTS.PLACEHOLDER_IMAGE_MAIN
         : "https://placehold.co/800x600/cccccc/666666?text=No+Image";
 
-    const GOODS_ENABLED = false;
+    const GOODS_ENABLED = true;
 
     const goodsReady = typeof window !== "undefined" && window.goodsDataReady
         ? window.goodsDataReady
@@ -41,6 +41,18 @@ document.addEventListener("DOMContentLoaded", function() {
         setupModalClose(modal);
     }
 
+    function escapeHTML(str) {
+        return String(str || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+    }
+
+    function renderPriceHTML(item) {
+        const deadline = item.deadline ? `<span class="goods-deadline">${escapeHTML(item.deadline)}</span>` : "";
+        return `<span>${escapeHTML(item.price)}</span>${deadline}`;
+    }
+
     function renderGoodsList(goods, container) {
         container.innerHTML = "";
         goods.forEach(item => {
@@ -54,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <div class="goods-card-body">
                     <h4 class="goods-card-title">${item.name}</h4>
-                    <p class="goods-card-price">${item.price}</p>
+                    <p class="goods-card-price">${renderPriceHTML(item)}</p>
                 </div>
             `;
             card.addEventListener("click", function() {
@@ -78,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!modal) return;
 
         modalTitle.textContent = item.name || "";
-        modalPrice.textContent = item.price || "";
+        modalPrice.innerHTML = renderPriceHTML(item);
         modalDescription.innerHTML = formatDescription(item.description);
         modalOrder.href = item.orderUrl && item.orderUrl.trim() !== "" ? item.orderUrl : "#";
 
@@ -96,18 +108,21 @@ document.addEventListener("DOMContentLoaded", function() {
         modalMainImage.alt = modalTitle.textContent || "";
 
         modalThumbs.innerHTML = "";
+        let activeThumb = null;
         imageList.forEach((src, index) => {
             const thumb = document.createElement("button");
             thumb.type = "button";
             thumb.className = "goods-thumb";
             if (index === 0) {
                 thumb.classList.add("is-active");
+                activeThumb = thumb;
             }
             thumb.innerHTML = `<img src="${src}" alt="${modalTitle.textContent} サムネイル ${index + 1}" onerror="this.src='${PLACEHOLDER_IMAGE}'; this.onerror=null;">`;
             thumb.addEventListener("click", function() {
                 modalMainImage.src = src || PLACEHOLDER_IMAGE;
-                modalThumbs.querySelectorAll(".goods-thumb").forEach(btn => btn.classList.remove("is-active"));
+                if (activeThumb) activeThumb.classList.remove("is-active");
                 thumb.classList.add("is-active");
+                activeThumb = thumb;
             });
             modalThumbs.appendChild(thumb);
         });
@@ -115,12 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function formatDescription(text) {
         const normalized = Array.isArray(text) ? text : String(text || "").split("\n");
-        const escapedLines = normalized.map(line => {
-            return String(line)
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;");
-        });
+        const escapedLines = normalized.map(line => escapeHTML(line));
 
         const blocks = [];
         let listItems = [];
