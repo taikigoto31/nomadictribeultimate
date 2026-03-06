@@ -100,6 +100,8 @@ document.addEventListener("DOMContentLoaded", function() {
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("modal-open");
+        const modalContent = modal.querySelector(".goods-modal-content");
+        if (modalContent) modalContent.scrollTop = 0;
     }
 
     function renderGallery(images) {
