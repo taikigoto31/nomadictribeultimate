@@ -142,9 +142,25 @@
 }
 
 .goods-card-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 0.9rem;
     color: var(--accent-color);
     font-weight: 700;
+}
+
+.goods-deadline {
+    color: var(--dark-text);
+    font-weight: 500;
+}
+
+.goods-card-price .goods-deadline {
+    font-size: 0.8rem;
+}
+
+.goods-modal-price .goods-deadline {
+    font-size: 0.9rem;
 }
 
 /* モーダル */
@@ -256,15 +272,19 @@
 }
 
 .goods-modal-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--accent-color);
 }
 
+
 .goods-modal-description {
     font-size: 0.95rem;
     color: var(--dark-text);
-    line-height: 1.85;
+    line-height: 1.6;
     background-color: var(--light-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
@@ -272,7 +292,7 @@
 }
 
 .goods-modal-description p {
-    margin: 0 0 10px;
+    margin: 0 0 4px;
 }
 
 .goods-modal-description p:last-child {
@@ -391,7 +411,61 @@ body.modal-open {
 @media (max-width: 600px) {
     .goods-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        max-width: 360px;
-        gap: 12px;
+        max-width: 100%;
+        gap: 10px;
+    }
+
+    .goods-card-price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .goods-card-price .goods-deadline {
+        font-size: 0.75rem;
+        color: var(--light-text);
+    }
+}
+
+@media (max-width: 480px) {
+    .goods-modal-content {
+        margin: 0;
+        padding: 16px;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 92vh;
+        overflow-y: auto;
+    }
+
+    .goods-modal-close {
+        font-size: 1.4rem;
+        padding: 8px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .goods-modal-title {
+        font-size: 1.1rem;
+        padding-right: 32px;
+    }
+
+    .goods-modal-price {
+        font-size: 1rem;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .goods-modal-button {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 1rem;
+    }
+
+    .goods-hero-title {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
     }
 }
