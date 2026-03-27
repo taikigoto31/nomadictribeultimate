@@ -166,81 +166,153 @@ scheduleData["2026"] = {
                 venue: "山梨県中巨摩郡昭和町／押原公園",
                 score: "6-11",
                 result: "loss"
-            }
-        ],
-        3: [
+            },
             {
-                id: 7,
+                id: 13,
                 date: "02.28",
                 weekday: "SAT",
                 tournament: "NomadicTribe Cup",
                 tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
                 youtubeUrl: "",
-                opponent: "",
+                opponent: "NomadicTribeノマ vs BeA",
                 venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
-                score: "",
-                result: ""
-            // },
-            // {
-            //     id: 8,
-            //     date: "02.28",
-            //     weekday: "SAT",
-            //     tournament: "NomadicTribe Cup",
-            //     tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
-            //     youtubeUrl: "",
-            //     opponent: "",
-            //     venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
-            //     score: "",
-            //     result: ""
-            // },
-            // {
-            //     id: 9,
-            //     date: "02.28",
-            //     weekday: "SAT",
-            //     tournament: "NomadicTribe Cup",
-            //     tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
-            //     youtubeUrl: "",
-            //     opponent: "",
-            //     venue: "",
-            //     score: "",
-            //     result: ""
-            // },
-            // {
-            //     id: 10,
-            //     date: "03.07",
-            //     weekday: "SAT",
-            //     tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
-            //     tournamentUrl: "http://www.clubjr.com/event_2026dreamcup_jp.html",
-            //     youtubeUrl: "",
-            //     opponent: "",
-            //     venue: "静岡県富士市／富士川緑地公園",
-            //     score: "",
-            //     result: ""
-            // },
-            // {
-            //     id: 11,
-            //     date: "03.07",
-            //     weekday: "SAT",
-            //     tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
-            //     tournamentUrl: "http://www.clubjr.com/event_2026dreamcup_jp.html",
-            //     youtubeUrl: "",
-            //     opponent: "",
-            //     venue: "静岡県富士市／富士川緑地公園",
-            //     score: "",
-            //     result: ""
-            // },
-            // {
-            //     id: 12,
-            //     date: "03.08",
-            //     weekday: "SUN",
-            //     tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
-            //     tournamentUrl: "http://www.clubjr.com/event_2026dreamcup_jp.html",
-            //     youtubeUrl: "",
-            //     opponent: "",
-            //     venue: "静岡県富士市／富士川緑地公園",
-            //     score: "",
-            //     result: ""
+                score: "8-2",
+                result: "win"
+            },
+            {
+                id: 14,
+                date: "02.28",
+                weekday: "SAT",
+                tournament: "NomadicTribe Cup",
+                tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
+                youtubeUrl: "",
+                opponent: "NomadicTribeノマ vs 文化シャッターバズバレッツ",
+                venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
+                score: "10-13",
+                result: "loss"
+            },
+            {
+                id: 15,
+                date: "02.28",
+                weekday: "SAT",
+                tournament: "NomadicTribe Cup",
+                tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
+                youtubeUrl: "",
+                opponent: "NomadicTribeノマ vs 上智大学フリークス",
+                venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
+                score: "13-7",
+                result: "win"
+            },
+            {
+                id: 16,
+                date: "02.28",
+                weekday: "SAT",
+                tournament: "NomadicTribe Cup",
+                tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
+                youtubeUrl: "",
+                opponent: "NomadicTribeトラ vs 慶應義塾大学ホワイトホーンズ",
+                venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
+                score: "10-7",
+                result: "win"
+            },
+            {
+                id: 17,
+                date: "02.28",
+                weekday: "SAT",
+                tournament: "NomadicTribe Cup",
+                tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
+                youtubeUrl: "",
+                opponent: "NomadicTribeトラ vs 上智大学フリークス",
+                venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
+                score: "11-9",
+                result: "win"
+            },
+            {
+                id: 18,
+                date: "02.28",
+                weekday: "SAT",
+                tournament: "NomadicTribe Cup",
+                tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
+                youtubeUrl: "",
+                opponent: "NomadicTribeトラ vs 文化シヤッターバズバレッツ",
+                venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
+                score: "9-13",
+                result: "loss"
             }
+        ],
+        3: [
+            {
+                id: 19,
+                date: "03.07",
+                weekday: "SAT",
+                tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
+                tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/16776?lang=jp",
+                youtubeUrl: "",
+                opponent: "NomadicTribe vs 学習院大学",
+                venue: "静岡県富士市／富士川緑地公園",
+                score: "19-0",
+                result: "win"
+            },
+            {
+                id: 20,
+                date: "03.07",
+                weekday: "SAT",
+                tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
+                tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/16776?lang=jp",
+                youtubeUrl: "",
+                opponent: "NomadicTribe vs Heat Haze",
+                venue: "静岡県富士市／富士川緑地公園",
+                score: "13-7",
+                result: "win"
+            },
+            {
+                id: 21,
+                date: "03.07",
+                weekday: "SAT",
+                tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
+                tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/16776?lang=jp",
+                youtubeUrl: "",
+                opponent: "NomadicTribe vs Pendants",
+                venue: "静岡県富士市／富士川緑地公園",
+                score: "12-6",
+                result: "win"
+            },
+            {
+                id: 22,
+                date: "03.08",
+                weekday: "SUN",
+                tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
+                tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/16776?lang=jp",
+                youtubeUrl: "",
+                opponent: "NomadicTribe vs Rascals",
+                venue: "静岡県富士市／富士川緑地公園",
+                score: "8-9",
+                result: "loss"
+            },
+            {
+                id: 23,
+                date: "03.08",
+                weekday: "SUN",
+                tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
+                tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/16776?lang=jp",
+                youtubeUrl: "",
+                opponent: "NomadicTribe vs ゲッカーズ",
+                venue: "静岡県富士市／富士川緑地公園",
+                score: "12-5",
+                result: "win"
+            },
+            {
+                id: 24,
+                date: "03.08",
+                weekday: "SUN",
+                tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
+                tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/16776?lang=jp",
+                youtubeUrl: "",
+                opponent: "NomadicTribe vs 2026WJUCオープン",
+                venue: "静岡県富士市／富士川緑地公園",
+                score: "12-9",
+                result: "win"
+            },
         ],
         4: [
             {
@@ -248,25 +320,25 @@ scheduleData["2026"] = {
                 date: "04.11",
                 weekday: "SAT",
                 tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
-                // tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/15713?lang=jp",
+                tournamentUrl: "https://score.clubjr.com/scview/493?lang=jp",
                 youtubeUrl: "",
                 opponent: "",
                 venue: "大阪府堺市／J-GREEN堺",
                 score: "",
                 result: ""
             },
-            // {
-            //     id: 14,
-            //     date: "04.12",
-            //     weekday: "SAT",
-            //     tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
-            //     tournamentUrl: "https://score.clubjr.com/pscore/scv_team/open/15713?lang=jp",
-            //     youtubeUrl: "",
-            //     opponent: "vs 國學院大學TRIUMPH",
-            //     venue: "大阪府堺市／J-GREEN堺",
-            //     score: "13-8",
-            //     result: ""
-            // },
+            {
+                id: 14,
+                date: "04.25",
+                weekday: "SAT",
+                tournament: "2026 JAPAN ULTIMATE SPRING CAMP",
+                tournamentUrl: "https://www.jfda.or.jp/2025/12/03/2026-japan-ultimate-spring-camp-main/",
+                youtubeUrl: "",
+                opponent: "",
+                venue: "茨城県神栖市",
+                score: "",
+                result: ""
+            },
             // {
             //     id: 15,
             //     date: "04.13",
@@ -318,7 +390,7 @@ scheduleData["2026"] = {
                 result: ""
             },
             {
-                id: 18,
+                id: 19,
                 date: "05.16",
                 weekday: "SAT",
                 tournament: "文部科学大臣杯第50回全日本アルティメット選手権大会　選抜予選",
