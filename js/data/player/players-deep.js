@@ -498,7 +498,7 @@ const deepPlayers = [
         number: 10,
         position: "DEEP",
         role: "",
-        bio: "身長：182cm　/　体重：75kg　/　生年月日：2026/04/16　/　出身大学：仙台大学",
+        bio: "身長：182cm　/　体重：75kg　/　生年月日：2001/04/16　/　出身大学：仙台大学",
         representativeCareer: [
             "2025年　WFDF世界ビーチアルティメット選手権大会　ミックス部門"
         ],
