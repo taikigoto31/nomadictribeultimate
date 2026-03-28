@@ -70,6 +70,14 @@ document.addEventListener("DOMContentLoaded", function() {
     function getNearestMatchMonth() {
         const currentDate = new Date();
         currentDate.setHours(0, 0, 0, 0);
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1;
+
+        // 現在の月に試合データがあれば、その月を優先
+        if (scheduleData[currentYear] && scheduleData[currentYear][currentMonth] && scheduleData[currentYear][currentMonth].length > 0) {
+            return { year: currentYear, month: currentMonth };
+        }
+
         let nearest = null;
 
         const years = Object.keys(scheduleData || {}).map(year => parseInt(year, 10));
@@ -101,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return { year: nearest.year, month: nearest.month };
         }
 
-        return { year: currentDate.getFullYear(), month: currentDate.getMonth() + 1 };
+        return { year: currentYear, month: currentMonth };
     }
 
     /**

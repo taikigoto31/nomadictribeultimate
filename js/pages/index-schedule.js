@@ -29,7 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const pastMatches = allMatches
             .filter(match => match.score && match.result)
-            .sort((a, b) => getMatchDate(b) - getMatchDate(a))
+            .sort((a, b) => {
+                const dateDiff = getMatchDate(b) - getMatchDate(a);
+                if (dateDiff !== 0) return dateDiff;
+                return (b.id || 0) - (a.id || 0);
+            })
             .slice(0, 2);
 
         const futureMatches = allMatches
