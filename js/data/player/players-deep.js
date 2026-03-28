@@ -491,6 +491,37 @@ const deepPlayers = [
             { q: "ひとことコメント", a: "がんばります。" }
         ]
     },
+    {
+        id: 10,
+        name: "登坂 彪央",
+        nameEn: "Takehiro Tosaka",
+        number: 10,
+        position: "DEEP",
+        role: "",
+        bio: "身長：182cm　/　体重：75kg　/　生年月日：2026/04/16　/　出身大学：仙台大学",
+        representativeCareer: [
+            "2025年　WFDF世界ビーチアルティメット選手権大会　ミックス部門"
+        ],
+        playerImage: "images/players/deep/player_10_thumb1.jpg",
+        qnaImages: [
+            "images/players/deep/player_10_thumb1.jpg",
+            "images/players/deep/player_10_thumb2.jpg",
+            "images/players/deep/player_10_thumb3.jpg"
+        ],
+        qna: [
+            { q: "職業", a: "車両ケミカル製品の営業" },
+            { q: "ニックネーム", a: "とさか" },
+            { q: "MBTI", a: "ENFP" },
+            { q: "得意なプレー", a: "サイドシュート、スルーザマーカー" },
+            { q: "試合前ルーティン", a: "何かしら食べる" },
+            { q: "好きな食べ物", a: "油そば、牛タン" },
+            { q: "好きな曲", a: "Let's Go / JAXSON GAMBLE" },
+            { q: "趣味", a: "ゴルフ、料理、食べること" },
+            { q: "もしも生まれ変わったら何になりたい", a: "海外のアルティメッター" },
+            { q: "インスタグラムアカウント", a: "@tosaka.lol" },
+            { q: "ひとことコメント", a: "宮城からNomadicTribeを盛り上げます！" }
+        ]
+    },
     // {
     //     id: 88,
     //     name: "高橋 翼",
