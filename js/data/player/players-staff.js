@@ -42,9 +42,9 @@ const staffPlayers = [
         role: "Trainer",
         bio: "生年月日：1997/08/29　/　出身大学：日本体育大学",
         representativeCareer: ["WFDF2024世界マスターズアルティメット選手権大会　オープン部門　トレーナー"],
-        playerImage: "images/players/staff/staff_2_thumb1.jpg",
+        playerImage: "images/players/staff/staff_2_thumb1.png",
         qnaImages: [
-            "images/players/staff/staff_2_thumb1.jpg",
+            "images/players/staff/staff_2_thumb1.png",
             "images/players/staff/staff_2_thumb2.jpg",
             "images/players/staff/staff_2_thumb3.jpg"
         ],
