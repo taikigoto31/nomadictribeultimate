@@ -90,6 +90,38 @@ const staffPlayers = [
             { q: "インスタグラムアカウント", a: "" },
             { q: "ひとことコメント", a: "マネージャーも楽しめるチームです！" }
         ]
+    },
+    {
+        id: 4,
+        name: "上原 海朱",
+        nameEn: "Miyuzu Uehara",
+        number: "",
+        position: "STAFF",
+        role: "Manager",
+        bio: "身長：157cm　/　生年月日：1999/02/25　/　出身大学：早稲田大学",
+        representativeCareer: [
+            "2018年　WFDF2018世界ジュニアアルティメット選手権大会　ウィメン部門",
+            "2019年　WFDF2019世界U24アルティメット選手権大会　ウィメン部門"
+        ],
+        playerImage: "images/players/staff/staff_4_thumb1.jpg",
+        qnaImages: [
+            "images/players/staff/staff_4_thumb1.jpg",
+            "images/players/staff/staff_4_thumb2.jpg",
+            "images/players/staff/staff_4_thumb3.jpg"
+        ],
+        qna: [
+            { q: "職業", a: "広告代理店" },
+            { q: "ニックネーム", a: "ずー、ずっぴー" },
+            { q: "MBTI", a: "ENFP" },
+            { q: "得意なプレー", a: "俊足！" },
+            { q: "試合前ルーティン", a: "怪我人たちと話す" },
+            { q: "好きな食べ物", a: "地鶏の炭火焼き、レバ刺し、いちご飴" },
+            { q: "好きな曲", a: "1001のバイオリン / THE BLUE HEARTS、Love wins all / IU" },
+            { q: "趣味", a: "ライブ参戦、Duolingo" },
+            { q: "もしも生まれ変わったら何になりたい", a: "ポムポムプリン" },
+            { q: "インスタグラムアカウント", a: "@zooo_ppy" },
+            { q: "ひとことコメント", a: "みんなが最高のパフォーマンスを発揮できるように、たくさん支えます！！" }
+        ]
     }
 ];
 
