@@ -1,4 +1,4 @@
-// STAFFポジションのスタッフデータ
+﻿// STAFFポジションのスタッフデータ
 // 画像パス: images/players/staff/staff_{id}.jpg (メイン画像)
 //          images/players/staff/staff_{id}_thumb1.jpg, thumb2.jpg, thumb3.jpg (Q&A用、最大3枚)
 // IDはスタッフごとに重複しないように設定してください (例: 1, 2, 3...)
@@ -42,9 +42,9 @@ const staffPlayers = [
         role: "Trainer",
         bio: "生年月日：1997/08/29　/　出身大学：日本体育大学",
         representativeCareer: ["WFDF2024世界マスターズアルティメット選手権大会　オープン部門　トレーナー"],
-        playerImage: "images/players/staff/staff_2_thumb1.png",
+        playerImage: "images/players/staff/staff_2_thumb1.jpg",
         qnaImages: [
-            "images/players/staff/staff_2_thumb1.png",
+            "images/players/staff/staff_2_thumb1.jpg",
             "images/players/staff/staff_2_thumb2.jpg",
             "images/players/staff/staff_2_thumb3.jpg"
         ],
