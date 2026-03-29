@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function() {
      */
     function createThumbnailImage(imgSrc, playerName, index) {
         const thumb = document.createElement("img");
+        thumb.loading = "lazy";
         thumb.src = imgSrc;
         thumb.alt = `${playerName} サムネイル ${index + 1}`;
         thumb.onerror = function() {
