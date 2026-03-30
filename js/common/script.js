@@ -146,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (thumbnailsContainer && thumbnailsContainer.children.length === 0) {
             galleryImages.forEach((src, index) => {
                 const thumb = document.createElement("img");
+                thumb.loading = "lazy";
                 thumb.src = src;
                 thumb.alt = `Thumbnail ${index + 1}`;
                 thumbnailsContainer.appendChild(thumb);
