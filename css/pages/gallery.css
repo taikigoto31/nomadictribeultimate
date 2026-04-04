@@ -1,0 +1,296 @@
+/* ======== フォトギャラリーページ専用スタイル ======== */
+
+/* ヒーロー */
+.gallery-hero {
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 20px;
+    background-image: url('../../images/header/news-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.gallery-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.gallery-hero-title,
+.gallery-hero-subtitle {
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.gallery-hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ページコンテンツ */
+.gallery-page {
+    background-color: var(--white);
+    padding: 40px 20px;
+}
+
+/* ======== 大会カードグリッド ======== */
+.gallery-tournament-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* 大会カード */
+.tournament-card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    background-color: var(--white);
+}
+
+.tournament-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tournament-card-cover {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background-color: var(--light-bg);
+}
+
+.tournament-card-cover-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+    font-size: 2rem;
+}
+
+.tournament-card-body {
+    padding: 16px;
+}
+
+.tournament-card-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin: 0 0 4px;
+}
+
+.tournament-card-meta {
+    font-size: 0.85rem;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ======== 写真グリッド（大会を開いたとき） ======== */
+.gallery-photos-section {
+    margin-top: 32px;
+}
+
+.gallery-photos-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.gallery-photos-back {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--dark-text);
+    transition: background-color var(--transition-fast);
+}
+
+.gallery-photos-back:hover {
+    background-color: var(--light-bg);
+}
+
+.gallery-photos-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin: 0;
+}
+
+.gallery-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.gallery-photo-item {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background-color: var(--light-bg);
+}
+
+.gallery-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-base);
+}
+
+.gallery-photo-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ======== データなし表示 ======== */
+.gallery-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--light-text);
+    grid-column: 1 / -1;
+}
+
+.gallery-empty i {
+    font-size: 3rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+/* ======== ライトボックス ======== */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+}
+
+.lightbox-caption {
+    color: var(--white);
+    font-size: 0.95rem;
+    margin: 0;
+    text-align: center;
+}
+
+.lightbox-counter {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: fixed;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 12px;
+    transition: opacity var(--transition-fast);
+    opacity: 0.8;
+    z-index: 1001;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    opacity: 1;
+}
+
+.lightbox-close {
+    top: 16px;
+    right: 20px;
+    font-size: 1.8rem;
+}
+
+.lightbox-prev {
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+}
+
+/* ======== レスポンシブ ======== */
+@media (max-width: 768px) {
+    .gallery-hero-title {
+        font-size: 2rem;
+    }
+
+    .gallery-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .gallery-tournament-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+    }
+
+    .gallery-photo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 8px;
+    }
+
+    .lightbox-prev {
+        left: 4px;
+    }
+
+    .lightbox-next {
+        right: 4px;
+    }
+}
