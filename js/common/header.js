@@ -34,10 +34,10 @@
                 <li><a href="news.html">ニュース</a></li>
                 <li><a href="club.html">クラブ概要</a></li>
                 <li><a href="team.html">選手・スタッフ</a></li>
-                <li><a href="gallery.html">フォトギャラリー</a></li>
                 <li><a href="goods.html">グッズ</a></li>
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
+                <li><a href="gallery.html">フォト</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
             </ul>
         </nav>
@@ -131,10 +131,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li><a href="news.html">ニュース</a></li>
                 <li><a href="club.html">クラブ概要</a></li>
                 <li><a href="team.html">選手・スタッフ</a></li>
-                <li><a href="gallery.html">フォトギャラリー</a></li>
                 <li><a href="goods.html">グッズ</a></li>
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
+                <li><a href="gallery.html">フォト</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
             </ul>
         </nav>
