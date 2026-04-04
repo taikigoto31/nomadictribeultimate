@@ -211,6 +211,29 @@
     color: var(--dark-text);
 }
 
+/* フォトギャラリーリンク */
+.news-gallery-link {
+    margin: 0 0 40px;
+}
+
+.news-gallery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background-color: var(--main-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color var(--transition-fast);
+}
+
+.news-gallery-btn:hover {
+    background-color: var(--accent-color);
+}
+
 /* ページナビゲーション */
 .news-navigation {
     display: flex;

@@ -192,7 +192,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // ----------------------------------------
-    // 起動
+    // 起動（URLパラメータ ?tournament=xxx で直接開く）
     // ----------------------------------------
-    renderTournaments();
+    const urlParams = new URLSearchParams(window.location.search);
+    const tournamentParam = urlParams.get("tournament");
+
+    if (tournamentParam && Array.isArray(galleryData)) {
+        const target = galleryData.find(item => item.tournament === tournamentParam);
+        if (target) {
+            openTournament(target, target.tournament);
+        } else {
+            renderTournaments();
+        }
+    } else {
+        renderTournaments();
+    }
 });
