@@ -15,6 +15,7 @@ const galleryData = [
         folder: "2026_koshu_open",
         cover: "",
         photos: [
+
         ]
     },
     {
