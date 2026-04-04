@@ -11,6 +11,7 @@ const newsDataItem8 = {
     title: "2026 CLUB Jr ULTIMATE DREAM CUP 5位",
     image: "images/NomadicTribeLogo.png",
     link: "",
+    galleryTournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
     content: `
     <p>3月7日（土）〜8日（日）の2日間にわたり、静岡県富士市の富士川緑地公園にて開催された「2026 CLUB Jr ULTIMATE DREAM CUP」に出場いたしました。<br>
     今シーズンはこれまで「ノマ」と「トラ」の2チーム編成で大会に参加してきましたが、今大会は満を辞してNomadic Tribeとしてワンチームで臨みました。<br>

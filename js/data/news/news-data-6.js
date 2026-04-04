@@ -11,6 +11,7 @@ const newsDataItem6 = {
     title: "2026ULTIMATE 甲州オープン IN山梨 優勝・準優勝",
     image: "images/NomadicTribeLogo.png",
     link: "",
+    galleryTournament: "2026 ULTIMATE 甲州オープン IN 山梨",
     content: `
     <p>2026年2月14日（土）〜15日（日）の2日間にわたり、山梨県で開催された「甲州オープン」に出場いたしました。<br>
     今大会、Nomadic Tribeからは「ノマ」と「トラ」の2チーム編成で出場。2026シーズンの初陣として、1月の始動から積み上げてきた練習の成果を試す重要な大会となりました。<br>

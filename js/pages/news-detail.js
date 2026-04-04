@@ -86,6 +86,14 @@ document.addEventListener("DOMContentLoaded", function() {
         // 本文が存在する場合は表示、ない場合はタイトルを表示
         const bodyContent = news.content || `<p>${news.title}の詳細情報です。</p>`;
 
+        const galleryLinkHTML = news.galleryTournament
+            ? `<div class="news-gallery-link">
+                   <a href="gallery.html?tournament=${encodeURIComponent(news.galleryTournament)}" class="news-gallery-btn">
+                       <i class="fas fa-images"></i> フォトを見る
+                   </a>
+               </div>`
+            : '';
+
         content.innerHTML = `
             <div class="news-detail-header">
                 <div class="news-detail-meta">
@@ -97,6 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="news-detail-body">
                 ${bodyContent}
             </div>
+            ${galleryLinkHTML}
         `;
     }
 

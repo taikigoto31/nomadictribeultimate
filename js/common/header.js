@@ -37,12 +37,13 @@
                 <li><a href="goods.html">グッズ</a></li>
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
+                <li><a href="gallery.html">フォト</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
             </ul>
         </nav>
     </header>
         `;
-        
+
         // ヘッダーが挿入された後、ハンバーガーメニューのイベントリスナーを設定
         setupHamburgerMenu();
         
@@ -133,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li><a href="goods.html">グッズ</a></li>
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
+                <li><a href="gallery.html">フォト</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
             </ul>
         </nav>

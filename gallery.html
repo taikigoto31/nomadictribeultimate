@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHOTO GALLERY - Nomadic Tribe Ultimate</title>
+
+    <!-- OGP -->
+    <meta property="og:site_name" content="Nomadic Tribe Ultimate" />
+    <meta property="og:title" content="PHOTO GALLERY - Nomadic Tribe Ultimate" />
+    <meta property="og:description" content="Nomadic Tribe Ultimate の大会フォトギャラリーです。" />
+    <meta property="og:url" content="https://nomadictribeultimate.com/gallery" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://nomadictribeultimate.com/images/ogp_main.jpg" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PHOTO GALLERY - Nomadic Tribe Ultimate" />
+    <meta name="twitter:description" content="Nomadic Tribe Ultimate の大会フォトギャラリーです。" />
+    <meta name="twitter:image" content="https://nomadictribeultimate.com/images/ogp_main.jpg" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Nomadic Tribe Ultimate の大会フォトギャラリーです。" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" href="images/NomadicTribeLogo.png">
+    <link rel="apple-touch-icon" href="images/NomadicTribeLogo.png">
+
+    <!-- 共通head設定 -->
+    <script src="js/common/head.js"></script>
+
+    <!-- Google Fonts (Coming Soon) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/gallery.css">
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <div id="header-placeholder"></div>
+    <script src="js/common/header.js"></script>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="gallery-hero">
+            <h2 class="gallery-hero-title">PHOTO GALLERY</h2>
+            <p class="gallery-hero-subtitle">フォトギャラリー</p>
+        </div>
+
+        <!-- ===== COMING SOON ===== -->
+        <section class="gallery-coming-soon">
+            <div class="coming-soon-inner">
+                <i class="fas fa-camera coming-soon-icon"></i>
+                <p class="coming-soon-label">COMING SOON</p>
+                <p class="coming-soon-text">フォトギャラリーは現在準備中です。<br>近日公開予定ですので、しばらくお待ちください。</p>
+            </div>
+        </section>
+        <!-- ===== /COMING SOON ===== -->
+
+        <!-- ===== 元のギャラリー（復元時はここのコメントを外す＆上のCOMING SOONを削除） =====
+        <section class="gallery-page wrapper">
+
+            <div class="gallery-tournament-grid" id="gallery-tournament-grid">
+            </div>
+
+        </section>
+        ===== /元のギャラリー ===== -->
+
+    </main>
+
+    <!-- ===== 元のライトボックス（復元時はここのコメントを外す） =====
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="写真拡大表示">
+        <button class="lightbox-close" id="lightbox-close" aria-label="閉じる"><i class="fas fa-times"></i></button>
+        <button class="lightbox-prev" id="lightbox-prev" aria-label="前の写真"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-next" id="lightbox-next" aria-label="次の写真"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+            <p class="lightbox-counter" id="lightbox-counter"></p>
+        </div>
+    </div>
+    ===== /元のライトボックス ===== -->
+
+    <!-- フッター -->
+    <div id="footer-placeholder"></div>
+    <script src="js/common/footer.js"></script>
+
+    <!-- 共通JS -->
+    <script src="js/common/utils.js"></script>
+    <script src="js/common/script.js"></script>
+
+    <!-- スケジュールデータ（大会名・日付の参照用） -->
+    <script src="js/data/schedule/schedule-data-2025.js"></script>
+    <script src="js/data/schedule/schedule-data-2026.js"></script>
+    <!-- ギャラリーデータ -->
+    <script src="js/data/gallery/gallery-data.js"></script>
+    <!-- ギャラリーJS -->
+    <script src="js/pages/gallery.js"></script>
+
+</body>
+</html>
