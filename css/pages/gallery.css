@@ -307,6 +307,46 @@
     transform: translateY(-50%);
 }
 
+/* ======== Coming Soon ======== */
+.gallery-coming-soon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    padding: 60px 20px;
+    background-color: var(--white);
+}
+
+.coming-soon-inner {
+    text-align: center;
+    color: var(--light-text);
+}
+
+.coming-soon-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 20px;
+    opacity: 0.35;
+}
+
+.coming-soon-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    letter-spacing: 10px;
+    color: var(--dark-text);
+    margin: 0 0 16px;
+    line-height: 1;
+}
+
+.coming-soon-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    line-height: 2;
+    margin: 0;
+}
+
 /* ======== レスポンシブ ======== */
 @media (max-width: 768px) {
     .gallery-hero-title {
