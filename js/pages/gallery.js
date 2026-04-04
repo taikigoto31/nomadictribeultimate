@@ -1,10 +1,13 @@
 // ============================================
 // フォトギャラリーページ
+//
+// 大会名・日付・URLは scheduleData から自動取得します。
+// gallery-data.js の tournament フィールドを scheduleData の tournament と一致させてください。
 // ============================================
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const tournamentGrid = document.getElementById("gallery-tournament-grid");
+    const tournamentGrid  = document.getElementById("gallery-tournament-grid");
     const lightbox        = document.getElementById("lightbox");
     const lightboxImg     = document.getElementById("lightbox-img");
     const lightboxCaption = document.getElementById("lightbox-caption");
@@ -13,12 +16,35 @@ document.addEventListener("DOMContentLoaded", function () {
     const lightboxPrev    = document.getElementById("lightbox-prev");
     const lightboxNext    = document.getElementById("lightbox-next");
 
-    // ライトボックス状態
     let currentPhotos = [];
     let currentIndex  = 0;
+    let currentFolder = "";
 
     // ----------------------------------------
-    // 初期表示：大会カード一覧
+    // scheduleData から大会の最初のエントリを取得
+    // ----------------------------------------
+    function lookupTournament(tournamentName) {
+        if (typeof scheduleData === "undefined") return null;
+
+        for (const year of Object.keys(scheduleData)) {
+            const months = scheduleData[year];
+            for (const month of Object.keys(months)) {
+                const entries = months[month];
+                if (!Array.isArray(entries)) continue;
+                const found = entries.find(e => e.tournament === tournamentName);
+                if (found) return { year, entry: found };
+            }
+        }
+        return null;
+    }
+
+    // "02.14" → "2026.02.14" のような表示用日付文字列を生成
+    function formatDate(year, dateStr) {
+        return year + "." + dateStr;
+    }
+
+    // ----------------------------------------
+    // 大会カード一覧
     // ----------------------------------------
     function renderTournaments() {
         tournamentGrid.innerHTML = "";
@@ -32,39 +58,39 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        galleryData.forEach(function (tournament) {
+        galleryData.forEach(function (item) {
+            const meta    = lookupTournament(item.tournament);
+            const name    = item.tournament;
+            const date    = meta ? formatDate(meta.year, meta.entry.date) : "";
+            const count   = Array.isArray(item.photos) ? item.photos.length : 0;
+
+            const coverSrc = item.cover
+                ? "images/gallery/" + item.folder + "/" + item.cover
+                : null;
+
+            const coverHTML = coverSrc
+                ? `<img class="tournament-card-cover" src="${coverSrc}" alt="${name} カバー写真" loading="lazy">`
+                : `<div class="tournament-card-cover-placeholder"><i class="fas fa-image"></i></div>`;
+
             const card = document.createElement("div");
             card.className = "tournament-card";
             card.setAttribute("role", "button");
             card.setAttribute("tabindex", "0");
-            card.setAttribute("aria-label", tournament.name + " の写真を見る");
-
-            const coverSrc = tournament.cover
-                ? "images/gallery/" + tournament.folder + "/" + tournament.cover
-                : null;
-
-            const coverHTML = coverSrc
-                ? `<img class="tournament-card-cover" src="${coverSrc}" alt="${tournament.name} カバー写真" loading="lazy">`
-                : `<div class="tournament-card-cover-placeholder"><i class="fas fa-image"></i></div>`;
-
-            const count = Array.isArray(tournament.photos) ? tournament.photos.length : 0;
+            card.setAttribute("aria-label", name + " の写真を見る");
 
             card.innerHTML = `
                 ${coverHTML}
                 <div class="tournament-card-body">
-                    <p class="tournament-card-name">${tournament.name}</p>
+                    <p class="tournament-card-name">${name}</p>
                     <div class="tournament-card-meta">
-                        <span>${tournament.date}</span>
-                        <span>&middot;</span>
+                        ${date ? `<span>${date}</span><span>&middot;</span>` : ""}
                         <span>${count}枚</span>
                     </div>
                 </div>`;
 
-            card.addEventListener("click", function () {
-                openTournament(tournament);
-            });
+            card.addEventListener("click", function () { openTournament(item, name); });
             card.addEventListener("keydown", function (e) {
-                if (e.key === "Enter" || e.key === " ") openTournament(tournament);
+                if (e.key === "Enter" || e.key === " ") openTournament(item, name);
             });
 
             tournamentGrid.appendChild(card);
@@ -72,25 +98,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ----------------------------------------
-    // 大会内の写真グリッド表示
+    // 写真グリッド（大会内）
     // ----------------------------------------
-    function openTournament(tournament) {
+    function openTournament(item, name) {
         tournamentGrid.innerHTML = "";
 
-        // 戻るボタン＋タイトル
         const header = document.createElement("div");
         header.className = "gallery-photos-header";
         header.innerHTML = `
             <button class="gallery-photos-back" id="gallery-back">
                 <i class="fas fa-arrow-left"></i> 一覧に戻る
             </button>
-            <h3 class="gallery-photos-title">${tournament.name}</h3>`;
+            <h3 class="gallery-photos-title">${name}</h3>`;
         tournamentGrid.appendChild(header);
 
         document.getElementById("gallery-back").addEventListener("click", renderTournaments);
 
-        // 写真グリッド
-        if (!Array.isArray(tournament.photos) || tournament.photos.length === 0) {
+        if (!Array.isArray(item.photos) || item.photos.length === 0) {
             const empty = document.createElement("div");
             empty.className = "gallery-empty";
             empty.innerHTML = `<i class="fas fa-images"></i><p>写真はまだありません。</p>`;
@@ -101,18 +125,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const grid = document.createElement("div");
         grid.className = "gallery-photo-grid";
 
-        tournament.photos.forEach(function (photo, index) {
-            const item = document.createElement("div");
-            item.className = "gallery-photo-item";
-
-            const src = "images/gallery/" + tournament.folder + "/" + photo.file;
-            item.innerHTML = `<img src="${src}" alt="${photo.caption || tournament.name + " " + (index + 1)}" loading="lazy">`;
-
-            item.addEventListener("click", function () {
-                openLightbox(tournament.photos, index, tournament.folder);
+        item.photos.forEach(function (photo, index) {
+            const cell = document.createElement("div");
+            cell.className = "gallery-photo-item";
+            const src = "images/gallery/" + item.folder + "/" + photo.file;
+            cell.innerHTML = `<img src="${src}" alt="${photo.caption || name + " " + (index + 1)}" loading="lazy">`;
+            cell.addEventListener("click", function () {
+                openLightbox(item.photos, index, item.folder);
             });
-
-            grid.appendChild(item);
+            grid.appendChild(cell);
         });
 
         tournamentGrid.appendChild(grid);
@@ -130,18 +151,15 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.style.overflow = "hidden";
     }
 
-    let currentFolder = "";
-
     function updateLightbox() {
         const photo = currentPhotos[currentIndex];
         const src   = "images/gallery/" + currentFolder + "/" + photo.file;
-        lightboxImg.src        = src;
-        lightboxImg.alt        = photo.caption || "";
-        lightboxCaption.textContent = photo.caption || "";
-        lightboxCounter.textContent = (currentIndex + 1) + " / " + currentPhotos.length;
-
-        lightboxPrev.style.display = currentPhotos.length <= 1 ? "none" : "";
-        lightboxNext.style.display = currentPhotos.length <= 1 ? "none" : "";
+        lightboxImg.src              = src;
+        lightboxImg.alt              = photo.caption || "";
+        lightboxCaption.textContent  = photo.caption || "";
+        lightboxCounter.textContent  = (currentIndex + 1) + " / " + currentPhotos.length;
+        lightboxPrev.style.display   = currentPhotos.length <= 1 ? "none" : "";
+        lightboxNext.style.display   = currentPhotos.length <= 1 ? "none" : "";
     }
 
     function closeLightbox() {
@@ -163,13 +181,9 @@ document.addEventListener("DOMContentLoaded", function () {
     lightboxClose.addEventListener("click", closeLightbox);
     lightboxPrev.addEventListener("click", showPrev);
     lightboxNext.addEventListener("click", showNext);
-
-    // 背景クリックで閉じる
     lightbox.addEventListener("click", function (e) {
         if (e.target === lightbox) closeLightbox();
     });
-
-    // キーボード操作
     document.addEventListener("keydown", function (e) {
         if (!lightbox.classList.contains("active")) return;
         if (e.key === "ArrowLeft")  showPrev();

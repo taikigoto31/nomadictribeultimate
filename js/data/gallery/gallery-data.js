@@ -1,30 +1,28 @@
 // ============================================
 // フォトギャラリー データ定義
 //
-// 【写真の追加方法】
-// 1. images/gallery/{大会名フォルダ}/ に写真を入れる
-// 2. 下記にトーナメントオブジェクトを追加する
-//    （または既存のトーナメントの photos 配列に追加する）
+// 【大会名・日付・URLについて】
+//   schedule-data-*.js の tournament フィールドが正式な大会名の情報源です。
+//   ここでは tournament に scheduleData の tournament 文字列と同じ値を書いてください。
+//   gallery.js が scheduleData から日付・URLを自動で引くので、
+//   大会名を変更したいときは schedule-data-*.js だけ直せばOKです。
 //
-// 【フォルダ命名規則の例】
-//   images/gallery/2025_nationals/
-//   images/gallery/2026_wucc/
+// 【写真の追加方法】
+//   1. images/gallery/{folder}/ に写真ファイルを入れる
+//   2. 下記の galleryData 配列にオブジェクトを追加する
+//
+// 【記入例】
+//   {
+//       tournament: "NomadicTribe Cup",   // schedule-data の tournament と完全一致
+//       folder: "2026_nomacup",           // images/gallery/ 以下のフォルダ名
+//       cover: "01.jpg",                  // 一覧サムネに使うファイル名
+//       photos: [
+//           { file: "01.jpg", caption: "" },
+//           { file: "02.jpg", caption: "" },
+//       ]
+//   },
 // ============================================
 
 const galleryData = [
-    // ----------------------------------------
-    // 大会ごとにオブジェクトを追加してください
-    // ----------------------------------------
-    // {
-    //     id: 1,
-    //     name: "全日本選手権2025",       // 大会名（表示用）
-    //     year: 2025,
-    //     date: "2025-10-12",            // 大会日程（表示用）
-    //     folder: "2025_nationals",       // images/gallery/ 以下のフォルダ名
-    //     cover: "01.jpg",               // サムネイルに使う代表写真ファイル名
-    //     photos: [
-    //         { file: "01.jpg", caption: "" },
-    //         { file: "02.jpg", caption: "" },
-    //     ]
-    // },
+    // ここに大会ごとのオブジェクトを追加してください
 ];
