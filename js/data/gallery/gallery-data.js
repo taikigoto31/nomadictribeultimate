@@ -25,6 +25,15 @@
 
 const galleryData = [
     {
+        tournament: "2026 ULTIMATE 甲州オープン IN 山梨",
+        folder: "2026_koshu_open",
+        cover: "",
+        photos: [
+            // 写真ファイルを images/gallery/2026_koshu_open/ に入れたら追加してください
+            // { file: "01.jpg", caption: "" },
+        ]
+    },
+    {
         tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
         folder: "2026_dreamcup",
         cover: "LINE_ALBUM_2026ドリーム_260404_1.jpg",
