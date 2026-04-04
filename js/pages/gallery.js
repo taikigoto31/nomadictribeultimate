@@ -105,13 +105,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function openTournament(item, name) {
         tournamentGrid.innerHTML = "";
 
+        const count = Array.isArray(item.photos) ? item.photos.length : 0;
         const header = document.createElement("div");
         header.className = "gallery-photos-header";
         header.innerHTML = `
             <button class="gallery-photos-back" id="gallery-back">
                 <i class="fas fa-arrow-left"></i> 一覧に戻る
             </button>
-            <h3 class="gallery-photos-title">${name}</h3>`;
+            <div class="gallery-photos-title-block">
+                <h3 class="gallery-photos-title">${name}</h3>
+                <span class="gallery-photos-count">${count}枚の写真</span>
+            </div>`;
         tournamentGrid.appendChild(header);
 
         document.getElementById("gallery-back").addEventListener("click", renderTournaments);
