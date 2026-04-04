@@ -1,0 +1,31 @@
+name: ギャラリーデータ自動生成
+
+on:
+  push:
+    paths:
+      - "images/gallery/**"
+      - "js/data/gallery/gallery-config.json"
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js セットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: gallery-data.js を生成
+        run: node scripts/generate-gallery.js
+
+      - name: 変更があればコミット・プッシュ
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add js/data/gallery/gallery-data.js
+          git diff --cached --quiet || git commit -m "chore: gallery-data.js を自動更新"
+          git push
