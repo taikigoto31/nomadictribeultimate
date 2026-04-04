@@ -59,7 +59,7 @@
     box-shadow: var(--shadow-md);
     cursor: pointer;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
-    background-color: var(--white);
+    background-color: var(--main-color);
 }
 
 .tournament-card:hover {
@@ -67,42 +67,73 @@
     box-shadow: var(--shadow-lg);
 }
 
-.tournament-card-cover {
+.tournament-card:hover .tournament-card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+}
+
+.tournament-card:hover .tournament-card-cover {
+    transform: scale(1.04);
+}
+
+/* サムネイルラッパー（position基準） */
+.tournament-card-thumb {
+    position: relative;
     width: 100%;
     aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.tournament-card-cover {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    background-color: var(--light-bg);
+    transition: transform var(--transition-base);
 }
 
 .tournament-card-cover-placeholder {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    background-color: var(--light-bg);
+    height: 100%;
+    background-color: #222;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--light-text);
-    font-size: 2rem;
+    color: rgba(255,255,255,0.3);
+    font-size: 2.5rem;
 }
 
-.tournament-card-body {
+/* 大会名オーバーレイ */
+.tournament-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     padding: 16px;
+    transition: background var(--transition-base);
 }
 
 .tournament-card-name {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: var(--dark-text);
-    margin: 0 0 4px;
+    color: var(--white);
+    margin: 0 0 6px;
+    line-height: 1.4;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 
 .tournament-card-meta {
-    font-size: 0.85rem;
-    color: var(--light-text);
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.8);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+}
+
+.tournament-card-meta i {
+    margin-right: 4px;
+    font-size: 0.75rem;
 }
 
 /* ======== 写真グリッド（大会を開いたとき） ======== */

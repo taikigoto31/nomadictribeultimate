@@ -79,12 +79,14 @@ document.addEventListener("DOMContentLoaded", function () {
             card.setAttribute("aria-label", name + " の写真を見る");
 
             card.innerHTML = `
-                ${coverHTML}
-                <div class="tournament-card-body">
-                    <p class="tournament-card-name">${name}</p>
-                    <div class="tournament-card-meta">
-                        ${date ? `<span>${date}</span><span>&middot;</span>` : ""}
-                        <span>${count}枚</span>
+                <div class="tournament-card-thumb">
+                    ${coverHTML}
+                    <div class="tournament-card-overlay">
+                        <p class="tournament-card-name">${name}</p>
+                        <div class="tournament-card-meta">
+                            ${date ? `<span><i class="fas fa-calendar-alt"></i> ${date}</span>` : ""}
+                            <span><i class="fas fa-images"></i> ${count}枚</span>
+                        </div>
                     </div>
                 </div>`;
 
