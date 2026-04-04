@@ -115,6 +115,7 @@
     align-items: center;
     gap: 12px;
     margin-bottom: 20px;
+    grid-column: 1 / -1;
 }
 
 .gallery-photos-back {
@@ -146,6 +147,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 12px;
+    grid-column: 1 / -1;
 }
 
 .gallery-photo-item {
