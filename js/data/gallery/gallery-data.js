@@ -24,5 +24,13 @@
 // ============================================
 
 const galleryData = [
-    // ここに大会ごとのオブジェクトを追加してください
+    {
+        tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
+        folder: "2026_dreamcup",
+        cover: "",      // 代表写真のファイル名を入れてください（例: "01.jpg"）
+        photos: [
+            // 写真ファイルを images/gallery/2026_dreamcup/ に入れたら追加してください
+            // { file: "01.jpg", caption: "" },
+        ]
+    },
 ];
