@@ -30,7 +30,7 @@
         <nav class="header-bottom">
             <ul class="nav-links">
                 <li><a href="schedule.html">試合情報</a></li>
-                <li><a href="wucc.html">WUCC2026</a></li>
+                <!-- <li><a href="wucc.html">WUCC2026</a></li> -->
                 <li><a href="news.html">ニュース</a></li>
                 <li><a href="club.html">クラブ概要</a></li>
                 <li><a href="team.html">選手・スタッフ</a></li>
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <nav class="header-bottom">
             <ul class="nav-links">
                 <li><a href="schedule.html">試合情報</a></li>
-                <li><a href="wucc.html">WUCC2026</a></li>
+                <!-- <li><a href="wucc.html">WUCC2026</a></li> -->
                 <li><a href="news.html">ニュース</a></li>
                 <li><a href="club.html">クラブ概要</a></li>
                 <li><a href="team.html">選手・スタッフ</a></li>
