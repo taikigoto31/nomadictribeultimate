@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const recipientEmail = typeof contactConfig !== 'undefined' ? contactConfig.email : 'nomadictribe2013@gmail.com';
             const subject = typeof contactConfig !== 'undefined' ? 
                 contactConfig.subjectPrefix + formValues.type : 
-                'Nomadic Tribe Ultimate お問い合わせ: ' + formValues.type;
+                'NomadicTribe お問い合わせ: ' + formValues.type;
 
             // メール送信（Web APIを使用）
             await sendEmail(recipientEmail, subject, emailBody, formValues.email);
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         body += "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
         body += "\n";
-        body += "このメールは Nomadic Tribe Ultimate のお問い合わせフォームから送信されました。\n";
+        body += "このメールは NomadicTribe のお問い合わせフォームから送信されました。\n";
         body += "\n";
         
         return body;

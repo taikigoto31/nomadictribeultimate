@@ -18,19 +18,19 @@ const newsDataItem7 = {
 
     <h3>大会結果</h3>
     <ul>
-        <li>Nomadic Tribe ノマ：3位（2勝1敗）</li>
-        <li>Nomadic Tribe トラ：2位（2勝1敗）</li>
+        <li>NomadicTribe ノマ：3位（2勝1敗）</li>
+        <li>NomadicTribe トラ：2位（2勝1敗）</li>
     </ul>
 
     <h3>試合詳細</h3>
-    <h4>Nomadic Tribe ノマ</h4>
+    <h4>NomadicTribe ノマ</h4>
     <ul>
         <li>2/28 (Sat) vs BeA ｜ 8-2 ○</li>
         <li>2/28 (Sat) vs 文化シャッターバズバレッツ ｜ 10-13 ●</li>
         <li>2/28 (Sat) vs 上智大学フリークス ｜ 13-7 ○</li>
     </ul>
 
-    <h4>Nomadic Tribe トラ</h4>
+    <h4>NomadicTribe トラ</h4>
     <ul>
         <li>2/28 (Sat) vs 慶應義塾大学ホワイトホーンズ ｜ 10-7 ○</li>
         <li>2/28 (Sat) vs 上智大学フリークス ｜ 11-9 ○</li>

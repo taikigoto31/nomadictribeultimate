@@ -56,8 +56,10 @@
 }
 
 .partner-intro h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 3px;
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -71,9 +73,8 @@
 /* パートナーロゴグリッド */
 .partner-grid {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     max-width: 1000px;
     margin: 0 auto;
@@ -83,12 +84,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 24px 32px;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background-color: var(--white);
     transition: box-shadow 0.3s, transform 0.3s;
-    width: fit-content; /* ロゴのサイズに合わせて調整 */
+    min-width: 200px;
 }
 
 .partner-logo-item:hover {
@@ -97,8 +98,28 @@
 }
 
 .partner-logo-item img {
-    height: 80px; /* ロゴの高さを統一 */
+    height: 70px;
     width: auto;
-    max-width: 200px; /* ロゴの最大幅を統一 */
+    max-width: 200px;
     object-fit: contain;
+}
+
+/* パートナー (レスポンシブ) */
+@media (max-width: 768px) {
+    .partner-intro h2 {
+        font-size: 1.4rem;
+    }
+
+    .partner-grid {
+        gap: 12px;
+    }
+
+    .partner-logo-item {
+        padding: 16px 20px;
+        min-width: 140px;
+    }
+
+    .partner-logo-item img {
+        height: 50px;
+    }
 }

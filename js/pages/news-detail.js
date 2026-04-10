@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // ページタイトルを更新
-        document.title = `${news.title} - NEWS - Nomadic Tribe Ultimate`;
+        document.title = `${news.title} - NEWS - NomadicTribe`;
 
         // お知らせ詳細を表示
         displayNewsDetail(news);

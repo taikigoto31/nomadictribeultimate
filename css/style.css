@@ -76,12 +76,14 @@ img {
 
 .section-title {
     text-align: center;
-    font-size: 2.25rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
     color: var(--dark-text);
     margin-bottom: 12px;
-    font-weight: 800;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 6px;
+    line-height: 1;
     position: relative;
     display: inline-block;
     width: 100%;
@@ -100,12 +102,13 @@ img {
 /* セクションの副題スタイルを追加 */
 .section-subtitle {
     text-align: center;
-    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
     color: var(--light-text);
     margin-top: 8px;
     margin-bottom: 40px;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+    font-weight: 300;
+    letter-spacing: 3px;
 }
 
 /* ======== ヘッダー ======== */
@@ -178,16 +181,23 @@ img {
 }
 
 .site-branding .site-title {
-    font-size: 1.5rem; /* タイトルサイズ */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     font-weight: 700;
+    letter-spacing: 2px;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.1;
+    white-space: nowrap;
 }
 
 .site-branding .site-description {
-    font-size: 1.5rem; /* 説明文サイズ */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     margin: 0;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .header-top-right {
@@ -238,7 +248,11 @@ img {
 
 .nav-links li a {
     color: var(--white);
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     white-space: nowrap;
     padding: 8px 16px;
     border-radius: var(--radius-sm);
@@ -262,8 +276,6 @@ img {
 
 .nav-links li a:hover {
     color: var(--accent-color);
-    background-color: rgba(230, 0, 18, 0.05);
-    transform: translateY(-1px);
 }
 
 .nav-links li a:hover::before {
@@ -457,15 +469,21 @@ img {
 }
 
 .match-schedule .schedule-date .day {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
     color: var(--main-color);
     display: block;
+    letter-spacing: 2px;
+    line-height: 1;
 }
 
 .match-schedule .schedule-date .weekday {
-    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
     font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: var(--light-text);
 }
 
@@ -477,8 +495,11 @@ img {
 }
 
 .match-schedule .schedule-tournament {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: var(--accent-color);
     margin-bottom: 3px;
 }
@@ -528,8 +549,10 @@ img {
 }
 
 .match-schedule .schedule-result .schedule-score {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 2px;
     color: var(--main-color);
     display: inline-flex;
     align-items: center;
@@ -541,11 +564,12 @@ img {
     align-items: center;
     padding: 5px 14px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
     font-weight: 700;
+    letter-spacing: 1.5px;
     color: var(--white);
     line-height: 1;
-    letter-spacing: 0.5px;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
 }
@@ -655,14 +679,16 @@ img {
     padding: 14px 42px;
     border: 2px solid var(--accent-color);
     color: var(--accent-color);
-    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
     font-weight: 700;
     text-decoration: none;
     border-radius: var(--radius-md);
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
-    letter-spacing: 0.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     background-color: transparent;
 }
 
@@ -790,20 +816,24 @@ img {
 }
 
 .news-date {
-    font-size: 1rem;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
     color: var(--dark-text);
 }
 
 .news-category {
-    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
     font-weight: 700;
     padding: 4px 12px;
     border: 1px solid var(--accent-color);
     background: linear-gradient(135deg, rgba(230, 0, 18, 0.1), rgba(230, 0, 18, 0.05));
     color: var(--accent-color);
     border-radius: var(--radius-sm);
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 .news-description {
@@ -841,8 +871,10 @@ img {
 }
 
 .donation-title {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 3px;
     color: var(--main-color);
     margin-bottom: 18px;
 }
@@ -1130,97 +1162,248 @@ img {
 }
 
 
-/* ======== ファンクラブページ ======== */
-.fc-plan-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-bottom: 20px;
-}
-
-.fc-plan-card {
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 22px 18px;
-    background-color: var(--white);
+/* ======== 共通ページヒーロー ======== */
+.page-hero {
+    background-color: var(--main-color);
+    color: var(--white);
+    text-align: center;
+    padding: 48px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
-    overflow: hidden;
 }
 
-.fc-plan-card::before {
+.page-hero::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), rgba(230, 0, 18, 0.3));
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1;
 }
 
-.fc-plan-fee {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--accent-color);
+.page-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 8px;
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
 }
 
-.fc-plan-fee span {
+.page-hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
-    font-weight: 400;
-    color: var(--light-text);
-    margin-left: 2px;
-}
-
-.fc-plan-name {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--light-text);
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-}
-
-.fc-plan-card p {
-    font-size: 0.9rem;
-    line-height: 1.75;
-    color: var(--dark-text);
-    margin: 0;
-}
-
-.fc-plan-extra {
-    background-color: var(--main-color);
-    border-color: var(--main-color);
-    grid-column: span 1;
-}
-
-.fc-plan-extra::before {
-    background: linear-gradient(90deg, #ff6b6b, rgba(230, 0, 18, 0.5));
-}
-
-.fc-plan-extra .fc-plan-fee {
-    color: #ff6b6b;
-}
-
-.fc-plan-extra .fc-plan-name {
-    color: rgba(255,255,255,0.5);
-    border-bottom-color: rgba(255,255,255,0.15);
-}
-
-.fc-plan-extra p {
-    color: rgba(255,255,255,0.85);
-}
-
-.fc-plan-extra strong {
-    color: var(--white);
+    font-weight: 300;
+    letter-spacing: 3px;
+    opacity: 0.75;
+    position: relative;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
-    .fc-plan-grid {
+    .page-hero-title {
+        font-size: 2.6rem;
+        letter-spacing: 5px;
+    }
+}
+
+/* ======== ファンクラブページ ======== */
+
+.fc-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 20px;
+}
+
+.fc-intro {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--light-text);
+    margin-bottom: 48px;
+}
+
+/* プランセクション */
+.fc-section {
+    margin-bottom: 32px;
+}
+
+.fc-section-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 72px;
+}
+
+.fc-section-name {
+    background-color: #2a2a2a;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 28px;
+}
+
+.fc-section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    color: var(--white);
+    line-height: 1;
+}
+
+.fc-section-sublabel {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+}
+
+.fc-section-price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 28px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--white);
+    gap: 2px;
+}
+
+.fc-price-yen {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-right: 2px;
+    opacity: 0.85;
+}
+
+.fc-price-tax {
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 4px;
+    align-self: flex-end;
+    padding-bottom: 6px;
+}
+
+.fc-price-1 { background-color: #8b3a2a; }
+.fc-price-2 { background-color: #2a5c3a; }
+.fc-price-3 { background-color: #2a3a6c; }
+.fc-price-4 { background-color: #6c2a6c; }
+.fc-price-extra { background-color: var(--accent-color); font-size: 1.5rem; }
+
+.fc-section-body {
+    background-color: var(--white);
+    padding: 24px 28px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+}
+
+.fc-benefits-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--light-text);
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+.fc-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.fc-benefits-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: var(--main-color);
+    color: var(--white);
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+}
+
+.fc-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fc-num-plus {
+    background-color: var(--accent-color);
+    font-size: 1rem;
+}
+
+/* 申し込みボタン */
+.fc-apply {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.fc-apply-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 48px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.fc-apply-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.fc-apply-disabled {
+    background-color: #888;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.fc-apply-disabled:hover {
+    background-color: #888;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .fc-hero-title {
+        font-size: 2.8rem;
+    }
+
+    .fc-section-header {
+        height: auto;
         grid-template-columns: 1fr;
     }
 
-    .fc-plan-extra {
-        grid-column: span 1;
+    .fc-section-name {
+        padding: 14px 20px;
+    }
+
+    .fc-section-price {
+        justify-content: flex-start;
+        padding: 14px 20px;
+        font-size: 1.8rem;
+    }
+
+    .fc-section-body {
+        padding: 18px 16px;
     }
 }
 
@@ -1612,10 +1795,14 @@ img {
 }
 
 .footer-column h3 {
-    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
     font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
     margin-bottom: 15px;
     color: var(--white);
+    opacity: 0.6;
 }
 
 .footer-column > ul {
@@ -1639,9 +1826,12 @@ img {
 .footer-column ul li a {
     color: var(--white);
     text-decoration: none;
-    opacity: 0.8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    opacity: 0.75;
     transition: all var(--transition-base);
-    font-size: 0.95rem;
     display: inline-block;
     padding: 4px 0;
     position: relative;
@@ -1722,17 +1912,22 @@ img {
 }
 
 .footer-brand-text h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
     margin: 0 0 5px 0;
     color: var(--white);
-    letter-spacing: 2px;
+    letter-spacing: 5px;
 }
 
 .footer-brand-text p {
-    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     margin: 0;
-    opacity: 0.9;
+    opacity: 0.5;
     color: var(--white);
 }
 
@@ -1815,16 +2010,31 @@ img {
     }
 
     .site-branding {
-        margin-left: 10px; /* ロゴとの間隔 */
+        margin-left: 10px;
     }
 
     .site-branding .site-title {
-        font-size: 1rem; /* モバイルではさらに小さく */
+        font-size: 0.78rem;
+        letter-spacing: 0.5px;
         line-height: 1.2;
     }
+
     .site-branding .site-description {
-        font-size: 0.7rem;
-        margin-top: 2px;
+        font-size: 0.55rem;
+        letter-spacing: 1.5px;
+    }
+
+    .header-top-right {
+        flex-shrink: 0;
+    }
+
+    .header-top-right .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .header-top-right .social-icon i {
+        font-size: 1.6rem;
     }
 
     .header-top-right {

@@ -53,18 +53,21 @@
 }
 
 .player-profile-number {
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 3px;
     color: var(--accent-color);
     line-height: 1;
 }
 
 .player-profile-position {
-    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
     font-weight: 600;
+    letter-spacing: 2px;
     color: var(--light-text);
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .player-profile-name {
@@ -75,7 +78,10 @@
 }
 
 .player-profile-name-en {
-    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 2px;
     color: var(--light-text);
 }
 
@@ -143,8 +149,10 @@
 }
 
 .career-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 3px;
     color: var(--dark-text);
     margin-bottom: 15px;
     text-align: center; /* 中央揃え */
@@ -177,8 +185,10 @@
 
 /* Q&A */
 .qna-title {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 4px;
     color: var(--dark-text);
     text-align: center;
     margin-bottom: 25px;

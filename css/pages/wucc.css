@@ -99,8 +99,10 @@
 }
 
 .countdown-value {
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 400;
+    letter-spacing: 3px;
     color: var(--white);
     line-height: 1;
     margin-bottom: 8px;
@@ -109,11 +111,12 @@
 }
 
 .countdown-label {
-    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
     color: rgba(255, 255, 255, 0.95);
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 500;
 }
 
 .countdown-target {

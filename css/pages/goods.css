@@ -53,17 +53,21 @@
 }
 
 .section-main-title {
+    font-family: 'Bebas Neue', sans-serif;
     text-align: center;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 400;
     color: var(--main-color);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
 }
 
 .section-sub-title {
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 2px;
     color: var(--light-text);
     margin-top: 5px;
     margin-bottom: 30px;
@@ -88,10 +92,11 @@
 }
 
 .goods-coming-title {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
     color: var(--main-color);
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     margin-bottom: 6px;
 }
 
@@ -153,6 +158,39 @@
 .goods-deadline {
     color: var(--dark-text);
     font-weight: 500;
+}
+
+/* 販売終了 */
+.goods-card--sold-out {
+    cursor: default;
+    opacity: 0.7;
+}
+
+.goods-card--sold-out:hover {
+    box-shadow: none;
+    transform: none;
+}
+
+.goods-card-image {
+    position: relative;
+}
+
+
+.goods-sold-out-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--light-text);
+}
+
+.goods-order-disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: #aaa !important;
+    border-color: #aaa !important;
+    opacity: 0.6;
 }
 
 .goods-card-price .goods-deadline {

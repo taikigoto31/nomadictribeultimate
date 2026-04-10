@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
         <div class="footer-branding wrapper">
             <div class="footer-logo">
-                <img src="images/NomadicTribeLogo.png" alt="Nomadic Tribe Ultimate ロゴ">
+                <img src="images/NomadicTribeLogo.png" alt="NomadicTribe ロゴ">
             </div>
             <div class="footer-brand-text">
                 <h2>NOMADIC TRIBE ULTIMATE</h2>
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
         <div class="copyright wrapper">
-            <p>&copy; Nomadic Tribe Ultimate. All Rights Reserved.</p>
+            <p>&copy; NomadicTribe. All Rights Reserved.</p>
         </div>
     </footer>
         `;

@@ -61,8 +61,10 @@
 }
 
 .schedule-filter .year {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 3px;
     color: var(--main-color);
     min-width: 60px;
     text-align: center;
@@ -100,8 +102,10 @@
 }
 
 .schedule-filter .months a {
-    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
     font-weight: 600;
+    letter-spacing: 1px;
     color: var(--light-text);
     padding: 5px 10px;
     border-radius: 5px;
@@ -160,15 +164,21 @@
 }
 
 .schedule-date .day {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 2px;
     color: var(--main-color);
     display: block;
+    line-height: 1;
 }
 
 .schedule-date .weekday {
-    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
     font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: var(--light-text);
 }
 
@@ -180,8 +190,11 @@
 }
 
 .schedule-tournament {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: var(--accent-color);
     margin-bottom: 3px;
 }

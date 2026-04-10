@@ -37,6 +37,7 @@ const goodsDataItem1 = {
             ["袖丈", "57", "59", "60", "61", "62", "63"]
         ]
     },
+    endDate: "2026-04-05",
     orderUrl: "https://forms.gle/xXYYFcJvJmMqv21T9"
 };
 
