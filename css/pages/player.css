@@ -1,44 +1,5 @@
 /* ======== 選手個人ページ専用スタイル ======== */
 
-/* ヒーローイメージ (選手・スタッフページと同じスタイル) */
-.page-hero { 
-    background-image: url('../../images/header/team-hero.jpg'); /* チームページ用の背景画像 */
-    background-color: var(--main-color);
-    color: var(--white);
-    text-align: center;
-    padding: 40px 20px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-.page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* 背景画像の上に半透明の黒いオーバーレイ */
-    z-index: 1;
-}
-
-.page-hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    z-index: 2;
-}
-
-.page-hero-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    position: relative;
-    z-index: 2;
-}
 
 .player-page-content {
     max-width: 900px;
