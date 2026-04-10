@@ -113,13 +113,15 @@
 }
 
 .team-sort-tab {
+    font-family: 'Montserrat', sans-serif;
     border: 1px solid var(--border-color);
     background-color: var(--white);
     color: var(--dark-text);
     border-radius: 999px;
     padding: 6px 14px;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    letter-spacing: 0.5px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     white-space: nowrap;
@@ -143,10 +145,11 @@
 .team-nav-list a {
     /* color: var(--white); */ /* <-- 白文字から変更 */
     color: var(--dark-text); /* <-- 濃いテキスト色に変更 */
-    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     transition: color 0.3s, opacity 0.3s;
     opacity: 0.8;
 }
@@ -178,11 +181,12 @@
 
 
 .category-title {
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--dark-text);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     margin-bottom: 25px;
     border-bottom: 3px solid var(--accent-color);
     padding-bottom: 10px;
@@ -318,8 +322,10 @@
 }
 
 .player-number {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
     color: var(--accent-color);
 }
 
@@ -332,7 +338,11 @@
 }
 
 .player-position {
-    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     color: var(--light-text);
     margin-top: 2px;
 }

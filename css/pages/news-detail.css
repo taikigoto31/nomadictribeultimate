@@ -89,14 +89,19 @@
 }
 
 .news-detail-date {
-    font-size: 1rem;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
     color: var(--dark-text);
 }
 
 .news-detail-category {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     padding: 4px 12px;
     border: 1px solid var(--accent-color);
     background-color: #ffe5e5; /* 薄い赤背景 */

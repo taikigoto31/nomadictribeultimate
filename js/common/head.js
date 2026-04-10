@@ -1,5 +1,12 @@
 // 共通のhead要素を設定（DOMContentLoadedより前に実行）
 (function() {
+    // Google Fonts (Bebas Neue / Montserrat) を注入
+    if (!document.querySelector('link[href*="Bebas+Neue"]')) {
+        const p1 = document.createElement('link'); p1.rel = 'preconnect'; p1.href = 'https://fonts.googleapis.com'; document.head.appendChild(p1);
+        const p2 = document.createElement('link'); p2.rel = 'preconnect'; p2.href = 'https://fonts.gstatic.com'; p2.crossOrigin = ''; document.head.appendChild(p2);
+        const fl = document.createElement('link'); fl.rel = 'stylesheet'; fl.href = 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;700&display=swap'; document.head.appendChild(fl);
+    }
+
     // ファビコンを追加（まだ追加されていない場合）
     if (!document.querySelector("link[rel='icon']")) {
         const favicon = document.createElement("link");

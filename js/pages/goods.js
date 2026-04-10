@@ -41,6 +41,15 @@ document.addEventListener("DOMContentLoaded", function() {
         setupModalClose(modal);
     }
 
+    function isSoldOut(item) {
+        if (!item.endDate) return false;
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const end = new Date(item.endDate);
+        end.setHours(0, 0, 0, 0);
+        return today > end;
+    }
+
     function escapeHTML(str) {
         return String(str || "")
             .replace(/&/g, "&amp;")
@@ -56,9 +65,10 @@ document.addEventListener("DOMContentLoaded", function() {
     function renderGoodsList(goods, container) {
         container.innerHTML = "";
         goods.forEach(item => {
+            const soldOut = isSoldOut(item);
             const card = document.createElement("button");
             card.type = "button";
-            card.className = "goods-card";
+            card.className = "goods-card" + (soldOut ? " goods-card--sold-out" : "");
             card.setAttribute("data-goods-id", item.id);
             card.innerHTML = `
                 <div class="goods-card-image">
@@ -66,11 +76,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
                 <div class="goods-card-body">
                     <h4 class="goods-card-title">${item.name}</h4>
-                    <p class="goods-card-price">${renderPriceHTML(item)}</p>
+                    <p class="goods-card-price">${soldOut ? '<span class="goods-sold-out-label">販売終了</span>' : renderPriceHTML(item)}</p>
                 </div>
             `;
             card.addEventListener("click", function() {
-                openModal(item);
+                openModal(item, soldOut);
             });
             container.appendChild(card);
         });
@@ -86,13 +96,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-    function openModal(item) {
+    function openModal(item, soldOut = false) {
         if (!modal) return;
 
         modalTitle.textContent = item.name || "";
-        modalPrice.innerHTML = renderPriceHTML(item);
+        modalPrice.innerHTML = soldOut ? '<span class="goods-sold-out-label">販売終了</span>' : renderPriceHTML(item);
         modalDescription.innerHTML = formatDescription(item.description);
-        modalOrder.href = item.orderUrl && item.orderUrl.trim() !== "" ? item.orderUrl : "#";
+
+        if (soldOut) {
+            modalOrder.removeAttribute("href");
+            modalOrder.classList.add("goods-order-disabled");
+            modalOrder.textContent = "販売終了";
+        } else {
+            modalOrder.href = item.orderUrl && item.orderUrl.trim() !== "" ? item.orderUrl : "#";
+            modalOrder.classList.remove("goods-order-disabled");
+            modalOrder.textContent = "注文フォームへ";
+        }
 
         renderGallery(item.images || []);
         renderSizeChart(item.sizeChart);

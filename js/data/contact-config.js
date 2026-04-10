@@ -6,7 +6,7 @@ const contactConfig = {
     email: "nomadictribe2013@gmail.com",
     
     // メールの件名（プレフィックス）
-    subjectPrefix: "Nomadic Tribe Ultimate お問い合わせ: ",
+    subjectPrefix: "NomadicTribe お問い合わせ: ",
     
     // EmailJSの設定
     // EmailJSのアカウント作成後、以下を設定してください
