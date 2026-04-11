@@ -18,6 +18,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     const groupedPlayers = groupPlayersByPosition(playersData);
+    const MBTI_GROUP = {
+        INTJ: { order: 0,  ja: "建築家" },
+        INTP: { order: 1,  ja: "論理学者" },
+        ENTJ: { order: 2,  ja: "指揮官" },
+        ENTP: { order: 3,  ja: "討論者" },
+        INFJ: { order: 4,  ja: "提唱者" },
+        INFP: { order: 5,  ja: "仲介者" },
+        ENFJ: { order: 6,  ja: "主人公" },
+        ENFP: { order: 7,  ja: "運動家" },
+        ISTJ: { order: 8,  ja: "管理者" },
+        ISFJ: { order: 9,  ja: "擁護者" },
+        ESTJ: { order: 10, ja: "幹部" },
+        ESFJ: { order: 11, ja: "領事" },
+        ISTP: { order: 12, ja: "巨匠" },
+        ISFP: { order: 13, ja: "冒険家" },
+        ESTP: { order: 14, ja: "起業家" },
+        ESFP: { order: 15, ja: "エンターテイナー" },
+    };
     const UNIVERSITY_SCORE = {
         "千葉大学": 57.5,
         "中央大学": 57.5,
@@ -66,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
             renderGroupedList(sortContent, groupByBirthYear(getAllPlayers()), "");
         } else if (sortKey === "university") {
             renderGroupedList(sortContent, groupByUniversity(getAllPlayers()), "");
+        } else if (sortKey === "mbti") {
+            renderMbtiGroupedList(sortContent, groupByMbti(getAllPlayers()));
         }
     }
 
@@ -129,6 +149,53 @@ document.addEventListener("DOMContentLoaded", function() {
         container.innerHTML = groupHtml;
     }
 
+    function extractMbti(player) {
+        if (!player.qna) return null;
+        const item = player.qna.find(q => q.q === "MBTI");
+        if (!item || !item.a || item.a === "ー" || item.a.trim() === "") return null;
+        return item.a.trim().toUpperCase();
+    }
+
+    function groupByMbti(players) {
+        const map = new Map();
+        players.forEach(player => {
+            const mbti = extractMbti(player);
+            const key = mbti || "";
+            if (!map.has(key)) map.set(key, []);
+            map.get(key).push(player);
+        });
+        const entries = Array.from(map.entries()).sort((a, b) => {
+            if (!a[0] && !b[0]) return 0;
+            if (!a[0]) return 1;
+            if (!b[0]) return -1;
+            const aOrder = MBTI_GROUP[a[0]] ? MBTI_GROUP[a[0]].order : 99;
+            const bOrder = MBTI_GROUP[b[0]] ? MBTI_GROUP[b[0]].order : 99;
+            return aOrder - bOrder;
+        });
+        return entries.map(([title, items]) => ({
+            title: title || "未設定",
+            items: sortPlayers(items, "number")
+        }));
+    }
+
+    function renderMbtiGroupedList(container, groups) {
+        const groupHtml = groups.map(group => {
+            const mbtiInfo = MBTI_GROUP[group.title];
+            const jaName = mbtiInfo ? mbtiInfo.ja : "";
+            const titleHtml = jaName
+                ? `${group.title} <span class="mbti-ja-name">${jaName}</span>`
+                : group.title;
+            const cards = group.items.map(player => createPlayerCard(player)).join("");
+            return `
+                <div class="team-sort-group">
+                    <h4 class="team-sort-title">${titleHtml}</h4>
+                    <div class="team-sort-grid">${cards}</div>
+                </div>
+            `;
+        }).join("");
+        container.innerHTML = groupHtml;
+    }
+
     function createPlayerCard(player) {
         const isBirthday = isBirthdayToday(player);
         const birthdayClass = isBirthday ? " is-birthday" : "";
@@ -137,8 +204,8 @@ document.addEventListener("DOMContentLoaded", function() {
             <a href="player.html?id=${player.id}" class="player-card-link${birthdayClass}">
                 <div class="player-card">
                     <div class="player-image">
-                        <img src="${player.playerImage}" 
-                             alt="${player.name}" 
+                        <img src="${player.playerImage}"
+                             alt="${player.name}"
                              loading="lazy"
                              onerror="handlePlayerImageError(this);">
                     </div>

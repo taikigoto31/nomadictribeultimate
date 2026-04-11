@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 element.textContent = elements[id];
             }
         });
+
     }
 
     /**
