@@ -375,6 +375,15 @@
     }
 }
 
+/* ======== MBTIグループ別ソートビュー ======== */
+
+.mbti-ja-name {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--light-text);
+    margin-left: 4px;
+}
+
 /* ======== 現在作成中メッセージ ======== */
 .under-construction {
     background-color: var(--white);
