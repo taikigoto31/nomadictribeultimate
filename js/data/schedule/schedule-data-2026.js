@@ -316,19 +316,67 @@ scheduleData["2026"] = {
         ],
         4: [
             {
-                id: 13,
+                id: 25,
                 date: "04.11",
                 weekday: "SAT",
                 tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
                 tournamentUrl: "https://score.clubjr.com/scview/493?lang=jp",
                 youtubeUrl: "",
-                opponent: "",
+                opponent: "vs 関西学院大学ARROWS",
                 venue: "大阪府堺市／J-GREEN堺",
-                score: "",
-                result: ""
+                score: "13-4",
+                result: "win"
             },
             {
-                id: 14,
+                id: 26,
+                date: "04.11",
+                weekday: "SAT",
+                tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
+                tournamentUrl: "https://score.clubjr.com/scview/493?lang=jp",
+                youtubeUrl: "",
+                opponent: "vs Rascals",
+                venue: "大阪府堺市／J-GREEN堺",
+                score: "12-10",
+                result: "win"
+            },
+            {
+                id: 27,
+                date: "04.12",
+                weekday: "SUN",
+                tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
+                tournamentUrl: "https://score.clubjr.com/scview/493?lang=jp",
+                youtubeUrl: "",
+                opponent: "vs Technicolor",
+                venue: "大阪府堺市／J-GREEN堺",
+                score: "11-7",
+                result: "win"
+            },
+            {
+                id: 28,
+                date: "04.12",
+                weekday: "SUN",
+                tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
+                tournamentUrl: "https://score.clubjr.com/scview/493?lang=jp",
+                youtubeUrl: "",
+                opponent: "vs 大阪スピリッツ",
+                venue: "大阪府堺市／J-GREEN堺",
+                score: "13-8",
+                result: "win"
+            },
+            {
+                id: 29,
+                date: "04.12",
+                weekday: "SUN",
+                tournament: "2026 CLUB JUNIOR INVITATIONAL ULTIMATE TOURNAMENT",
+                tournamentUrl: "https://score.clubjr.com/scview/493?lang=jp",
+                youtubeUrl: "",
+                opponent: "vs BuzzBullets",
+                venue: "大阪府堺市／J-GREEN堺",
+                score: "9-13",
+                result: "loss"
+            },
+            {
+                id: 30,
                 date: "04.25",
                 weekday: "SAT",
                 tournament: "2026 JAPAN ULTIMATE SPRING CAMP",
@@ -378,7 +426,7 @@ scheduleData["2026"] = {
         ],
         5: [
             {
-                id: 18,
+                id: 31,
                 date: "05.01",
                 weekday: "FRI",
                 tournament: "Tom's Tourney 2026",
@@ -390,7 +438,7 @@ scheduleData["2026"] = {
                 result: ""
             },
             {
-                id: 19,
+                id: 32,
                 date: "05.16",
                 weekday: "SAT",
                 tournament: "文部科学大臣杯第50回全日本アルティメット選手権大会　選抜予選",
