@@ -153,4 +153,15 @@
     .partner-logo-item img {
         height: 50px;
     }
+
+    .partner-cta {
+        margin-top: 36px;
+        padding-top: 28px;
+    }
+
+    .partner-cta-btn {
+        display: block;
+        text-align: center;
+        padding: 14px 24px;
+    }
 }

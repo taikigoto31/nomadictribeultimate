@@ -423,16 +423,24 @@ img {
     transform: translateY(-4px);
 }
 
-/* ======== 試合日程 ======== */
-.info-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
+/* ======== カードセクション共通スタイル ======== */
+.info-section,
+.news-section,
+.donation-section,
+.instagram,
+.partner {
     background-color: var(--white);
     margin-bottom: 30px;
     padding: 40px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
+}
+
+/* ======== 試合日程 ======== */
+.info-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
 }
 
 .match-schedule ul {
@@ -666,10 +674,15 @@ img {
     }
 }
 
-/* ======== スケジュール一覧ボタン (修正：赤色に変更) ======== */
+/* ======== リンクコンテナ ======== */
+.schedule-link-container,
+.news-link-container,
+.partner-link-container {
+    text-align: center;
+}
+
 .schedule-link-container {
-    text-align: center; /* ボタンを中央揃え */
-    margin-top: 20px; /* スケジュールリストとの間隔 */
+    margin-top: 20px;
 }
 
 .schedule-link-btn,
@@ -725,13 +738,6 @@ img {
 /* ======== 動画 (削除) ======== */
 
 /* ======== ニュース ======== */
-.news-section {
-    background-color: var(--white);
-    margin-bottom: 30px;
-    padding: 40px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-}
 
 .news ul {
     list-style: none;
@@ -844,7 +850,6 @@ img {
 }
 
 .news-link-container {
-    text-align: center;
     margin-top: 15px;
 }
 
@@ -861,6 +866,7 @@ img {
     background-color: var(--white);
     box-shadow: var(--shadow-md);
     border: 1px solid rgba(230, 0, 18, 0.08);
+    text-align: left;
 }
 
 .donation-text {
@@ -877,10 +883,6 @@ img {
     letter-spacing: 3px;
     color: var(--main-color);
     margin-bottom: 18px;
-}
-
-.donation-box {
-    text-align: left;
 }
 
 .donation-box .section-title,
@@ -980,9 +982,6 @@ img {
 
 .budget-item-label {
     min-width: 140px;
-}
-
-.budget-item-label {
     font-size: 0.95rem;
     color: var(--dark-text);
     font-weight: 600;
@@ -1407,271 +1406,8 @@ img {
     }
 }
 
-/* ======== サポートプログラムページ ======== */
-.sp-section h3 {
-    font-size: 1.25rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
-    margin-bottom: 16px;
-}
-
-.sp-lead {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--dark-text);
-    margin-bottom: 8px;
-}
-
-.sp-text {
-    color: var(--light-text);
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-/* コスト比較テーブル */
-.sp-cost-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.sp-cost-table {
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-}
-
-.sp-cost-table-header {
-    background-color: var(--main-color);
-    color: var(--white);
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 10px 14px;
-}
-
-.sp-cost-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 14px;
-    font-size: 0.9rem;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--white);
-}
-
-.sp-cost-row:last-child {
-    border-bottom: none;
-}
-
-.sp-cost-row:nth-child(even) {
-    background-color: var(--light-bg);
-}
-
-.sp-cost-accent {
-    color: var(--accent-color);
-    font-weight: 700;
-}
-
-.sp-cost-total {
-    background-color: var(--main-color) !important;
-    color: var(--white);
-    font-weight: 800;
-    font-size: 0.95rem;
-}
-
-.sp-cost-total span:last-child {
-    color: var(--accent-color);
-}
-
-/* メリット4カード */
-.sp-benefit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-top: 16px;
-}
-
-.sp-benefit-item {
-    background-color: var(--light-bg);
-    border-radius: var(--radius-sm);
-    padding: 18px 16px;
-    border: 1px solid var(--border-color);
-    position: relative;
-}
-
-.sp-benefit-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--accent-color);
-    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-}
-
-.sp-benefit-num {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    margin-bottom: 4px;
-}
-
-.sp-benefit-item h4 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 4px;
-}
-
-.sp-benefit-sub {
-    font-size: 0.8rem;
-    color: var(--light-text);
-    font-style: italic;
-    margin-bottom: 8px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 8px;
-}
-
-.sp-benefit-item p:last-child {
-    font-size: 0.88rem;
-    line-height: 1.75;
-    color: var(--dark-text);
-    margin: 0;
-}
-
-/* サポートプラン */
-.sp-plan-intro {
-    background-color: var(--light-bg);
-    border-left: 4px solid var(--accent-color);
-    padding: 14px 18px;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--dark-text);
-}
-
-.sp-plan-intro p {
-    margin: 0;
-}
-
-.sp-plan-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.sp-plan-item {
-    border-radius: var(--radius-sm);
-    padding: 20px 16px;
-    text-align: center;
-}
-
-.sp-plan-item p {
-    font-size: 0.82rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.sp-plan-top {
-    background-color: var(--main-color);
-    color: var(--white);
-}
-
-.sp-plan-main {
-    background-color: #2d3748;
-    color: var(--white);
-}
-
-.sp-plan-support {
-    background-color: #4a5568;
-    color: var(--white);
-}
-
-.sp-plan-label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-    opacity: 0.85;
-}
-
-.sp-plan-price {
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    margin-bottom: 12px;
-    line-height: 1;
-}
-
-.sp-plan-top .sp-plan-price {
-    color: #ff6b6b;
-}
-
-.sp-plan-item .donation-list {
-    color: var(--white);
-}
-
-.sp-plan-price span {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-left: 2px;
-}
-
-.sp-fund-use {
-    background-color: var(--light-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    padding: 16px 18px;
-}
-
-.sp-fund-use-title {
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 4px;
-}
-
-.sp-fund-use-title i {
-    margin-right: 6px;
-}
-
-.sp-fund-use-note {
-    font-size: 0.85rem;
-    color: var(--light-text);
-    font-style: italic;
-    margin-bottom: 10px;
-}
-
-/* レスポンシブ */
-@media (max-width: 768px) {
-    .sp-cost-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .sp-benefit-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .sp-plan-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .sp-plan-price {
-        font-size: 1.8rem;
-    }
-}
 
 /* ======== Instagram ======== */
-.instagram {
-    background-color: var(--white);
-    margin-bottom: 30px;
-    padding: 40px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-}
 
 .insta-grid {
     display: grid;
@@ -1718,13 +1454,6 @@ img {
 
 
 /* ======== パートナー ======== */
-.partner {
-    background-color: var(--white);
-    margin-bottom: 30px;
-    padding: 40px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-}
 
 .partner-logos {
     display: flex;
@@ -1760,7 +1489,6 @@ img {
 }
 
 .partner-link-container {
-    text-align: center;
     margin-top: 30px;
 }
 
@@ -2159,13 +1887,19 @@ img {
         overflow: hidden;
     }
 
-    /* 試合スケジュール */
+    /* カードセクション */
     .info-section,
     .news-section,
+    .donation-section,
     .instagram,
     .partner {
         padding: 25px 15px;
         border-radius: var(--radius-md);
+    }
+
+    .donation-title {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
     }
 
     .match-schedule li {

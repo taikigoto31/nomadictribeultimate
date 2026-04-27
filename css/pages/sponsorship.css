@@ -269,16 +269,89 @@
 
 /* ======== レスポンシブ ======== */
 @media (max-width: 600px) {
+    /* ヒーロー */
     .sp-hero {
-        height: 260px;
+        height: 220px;
     }
+    .sp-hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 8px;
+    }
+    .sp-hero p {
+        font-size: 0.85rem;
+    }
+    .sp-hero-label {
+        font-size: 0.65rem;
+        margin-bottom: 8px;
+    }
+
+    /* ページ余白 */
+    .sp-page {
+        padding: 32px 16px 56px;
+    }
+
+    /* 導入テキスト */
+    .sp-intro {
+        padding-bottom: 32px;
+        margin-bottom: 40px;
+    }
+    .sp-intro-lead {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    /* セクション */
+    .sp-block {
+        margin-bottom: 40px;
+    }
+    .sp-block-title {
+        font-size: 0.95rem;
+    }
+
+    /* プランカード */
     .sp-plans {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
+    .sp-plan-card-head {
+        padding: 18px 20px 16px;
+    }
+    .sp-plan-card-price {
+        font-size: 2.2rem;
+    }
+    .sp-plan-card-body {
+        padding: 16px 20px;
+    }
+    .sp-plan-note {
+        font-size: 0.8rem;
+        margin-top: 4px;
+    }
+
+    /* 資金使途 */
+    .sp-fund-block {
+        padding: 16px 18px;
+    }
+
+    /* メリットグリッド */
     .sp-merit-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
-    .sp-page {
-        padding: 40px 16px 60px;
+    .sp-merit-item {
+        padding: 16px;
+    }
+
+    /* CTA */
+    .sp-cta {
+        padding: 32px 20px;
+        border-radius: 8px;
+    }
+    .sp-cta h3 {
+        font-size: 1.15rem;
+    }
+    .sp-cta-btn {
+        display: block;
+        padding: 14px 24px;
+        font-size: 0.88rem;
     }
 }
