@@ -104,6 +104,37 @@
     object-fit: contain;
 }
 
+/* スポンサーシップへの導線 */
+.partner-cta {
+    text-align: center;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.partner-cta p {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    margin-bottom: 16px;
+}
+
+.partner-cta-btn {
+    display: inline-block;
+    padding: 12px 36px;
+    background-color: var(--main-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s;
+}
+
+.partner-cta-btn:hover {
+    opacity: 0.85;
+}
+
 /* パートナー (レスポンシブ) */
 @media (max-width: 768px) {
     .partner-intro h2 {
