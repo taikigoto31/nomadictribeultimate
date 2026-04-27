@@ -1611,6 +1611,10 @@ img {
     color: #ff6b6b;
 }
 
+.sp-plan-item .donation-list {
+    color: var(--white);
+}
+
 .sp-plan-price span {
     font-size: 1rem;
     font-weight: 600;
