@@ -13,16 +13,8 @@ const galleryData = [
     {
         tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
         folder: "2026_dreamcup",
-        cover: "LINE_ALBUM_2026ドリーム_260404_1.jpg",
+        cover: "IMG_3997.JPG",
         photos: [
-        { file: "LINE_ALBUM_2026ドリーム_260404_1.jpg", caption: "" },
-        { file: "LINE_ALBUM_2026ドリーム_260404_2.jpg", caption: "" },
-        { file: "LINE_ALBUM_2026ドリーム_260404_3.jpg", caption: "" },
-        { file: "LINE_ALBUM_2026ドリーム_260404_4.jpg", caption: "" },
-        { file: "LINE_ALBUM_2026ドリーム_260404_5.jpg", caption: "" },
-        { file: "LINE_ALBUM_2026ドリーム_260404_6.jpg", caption: "" },
-        { file: "LINE_ALBUM_2026ドリーム_260404_7.jpg", caption: "" },
-        { file: "LINE_ALBUM_2026ドリーム_260404_8.jpg", caption: "" },
         { file: "IMG_3997.JPG", caption: "" },
         { file: "IMG_4001.JPG", caption: "" },
         { file: "IMG_4002.JPG", caption: "" },
