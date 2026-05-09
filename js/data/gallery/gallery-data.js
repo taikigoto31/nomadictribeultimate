@@ -15,6 +15,7 @@ const galleryData = [
         folder: "2026_koshu_open",
         cover: "IMG_1001.JPG",
         photos: [
+        { file: "IMG_1001.JPG", caption: "" },
         { file: "IMG_1991.JPG", caption: "" },
         { file: "IMG_1999.JPG", caption: "" },
         { file: "IMG_2001.JPG", caption: "" },
@@ -65,8 +66,7 @@ const galleryData = [
         { file: "IMG_3041.JPG", caption: "" },
         { file: "IMG_3042.JPG", caption: "" },
         { file: "IMG_3060.JPG", caption: "" },
-        { file: "IMG_3074.JPG", caption: "" },
-        { file: "IMG_1001.JPG", caption: "" }
+        { file: "IMG_3074.JPG", caption: "" }
         ]
     },
     {
@@ -74,6 +74,7 @@ const galleryData = [
         folder: "2026_dreamcup",
         cover: "IMG_0001.JPG",
         photos: [
+        { file: "IMG_0001.JPG", caption: "" },
         { file: "IMG_3997.JPG", caption: "" },
         { file: "IMG_4001.JPG", caption: "" },
         { file: "IMG_4002.JPG", caption: "" },
@@ -114,8 +115,7 @@ const galleryData = [
         { file: "IMG_4661.JPG", caption: "" },
         { file: "IMG_4672.JPG", caption: "" },
         { file: "IMG_4673.JPG", caption: "" },
-        { file: "IMG_4689.JPG", caption: "" },
-        { file: "IMG_0001.JPG", caption: "" }
+        { file: "IMG_4689.JPG", caption: "" }
         ]
     }
 ];
