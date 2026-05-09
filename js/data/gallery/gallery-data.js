@@ -13,7 +13,7 @@ const galleryData = [
     {
         tournament: "2026 ULTIMATE 甲州オープン IN 山梨",
         folder: "2026_koshu_open",
-        cover: "IMG_1991.JPG",
+        cover: "IMG_1001.JPG",
         photos: [
         { file: "IMG_1991.JPG", caption: "" },
         { file: "IMG_1999.JPG", caption: "" },
@@ -72,7 +72,7 @@ const galleryData = [
     {
         tournament: "2026 CLUB Jr ULTIMATE DREAM CUP",
         folder: "2026_dreamcup",
-        cover: "IMG_3997.JPG",
+        cover: "IMG_0001.JPG",
         photos: [
         { file: "IMG_3997.JPG", caption: "" },
         { file: "IMG_4001.JPG", caption: "" },
