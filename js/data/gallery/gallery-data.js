@@ -56,7 +56,7 @@ const galleryData = [
         { file: "IMG_4672.JPG", caption: "" },
         { file: "IMG_4673.JPG", caption: "" },
         { file: "IMG_4689.JPG", caption: "" },
-        { file: "IMG_4691.JPG", caption: "" }
+        { file: "IMG_0001.JPG", caption: "" }
         ]
     },
     {
@@ -115,7 +115,7 @@ const galleryData = [
         { file: "IMG_3042.JPG", caption: "" },
         { file: "IMG_3060.JPG", caption: "" },
         { file: "IMG_3074.JPG", caption: "" },
-        { file: "IMG_3079.JPG", caption: "" }
+        { file: "IMG_1001.JPG", caption: "" }
         ]
     }
 ];
