@@ -590,8 +590,8 @@ scheduleData["2026"] = {
                 youtubeUrl: "",
                 opponent: "vs GONA",
                 venue: "静岡県御殿場市 時之栖スポーツセンター（うさぎ島グラウンド）",
-                score: "",
-                result: ""
+                score: "15-10",
+                result: "win"
             },
             {
                 id: 46,
@@ -602,8 +602,8 @@ scheduleData["2026"] = {
                 youtubeUrl: "",
                 opponent: "vs Technicolor",
                 venue: "静岡県御殿場市 時之栖スポーツセンター（うさぎ島グラウンド）",
-                score: "",
-                result: ""
+                score: "15-14",
+                result: "win"
             },
             {
                 id: 47,
@@ -614,8 +614,8 @@ scheduleData["2026"] = {
                 youtubeUrl: "",
                 opponent: "vs 文化シャッターバズバレッツ",
                 venue: "静岡県御殿場市 時之栖スポーツセンター（うさぎ島グラウンド）",
-                score: "",
-                result: ""
+                score: "15-14",
+                result: "win"
             },
             {
                 id: 48,
@@ -626,8 +626,8 @@ scheduleData["2026"] = {
                 youtubeUrl: "",
                 opponent: "vs 大阪スピリッツ",
                 venue: "静岡県御殿場市 時之栖スポーツセンター（うさぎ島グラウンド）",
-                score: "",
-                result: ""
+                score: "15-13",
+                result: "win"
             }
         ],
         6: [
