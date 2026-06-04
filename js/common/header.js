@@ -35,7 +35,7 @@
                 <li><a href="club.html">クラブ概要</a></li>
                 <li><a href="team.html">選手・スタッフ</a></li>
                 <li><a href="goods.html">グッズ</a></li>
-                <!-- <li><a href="fanclub.html">ファン</a></li> -->
+                <!-- <li><a href="donation.html">寄付</a></li> -->
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
                 <li><a href="gallery.html">フォト</a></li>
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li><a href="club.html">クラブ概要</a></li>
                 <li><a href="team.html">選手・スタッフ</a></li>
                 <li><a href="goods.html">グッズ</a></li>
-                <!-- <li><a href="fanclub.html">ファン</a></li> -->
+                <!-- <li><a href="donation.html">寄付</a></li> -->
                 <li><a href="partner.html">パートナー</a></li>
                 <li><a href="youth.html">ユース</a></li>
                 <li><a href="gallery.html">フォト</a></li>
