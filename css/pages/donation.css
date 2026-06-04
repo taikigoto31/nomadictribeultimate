@@ -1,0 +1,197 @@
+/* ======================================================
+   donation.css — 寄付金ページ専用スタイル
+   ====================================================== */
+
+.dn-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+}
+
+/* ======== 導入 ======== */
+.dn-intro {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.dn-intro-box {
+    background: #f9f9f9;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--main-color);
+    border-radius: 6px;
+    padding: 28px 32px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dn-intro-lead {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    line-height: 1.9;
+    color: var(--dark-text);
+    margin: 0;
+}
+
+/* ======== ブロック共通 ======== */
+.dn-block {
+    margin-bottom: 48px;
+}
+
+.dn-block-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.dn-block-title i {
+    color: var(--accent-color);
+}
+
+/* ======== 寄付内容 ======== */
+.dn-detail {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dn-detail-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dn-detail-row:last-child {
+    border-bottom: none;
+}
+
+.dn-detail-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--light-text);
+    min-width: 90px;
+    flex-shrink: 0;
+}
+
+.dn-detail-value {
+    font-size: 0.95rem;
+    color: var(--dark-text);
+}
+
+.dn-detail-value strong {
+    font-size: 1.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    color: var(--main-color);
+}
+
+/* ======== 振込先 ======== */
+.dn-bank {
+    background: #f9f9f9;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.dn-bank-row {
+    display: flex;
+    gap: 16px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dn-bank-row:last-child {
+    border-bottom: none;
+}
+
+.dn-bank-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--light-text);
+    min-width: 110px;
+    flex-shrink: 0;
+    padding-top: 1px;
+}
+
+.dn-bank-value {
+    font-size: 0.92rem;
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+.dn-bank-note {
+    font-size: 0.82rem;
+    color: var(--light-text);
+    line-height: 1.7;
+}
+
+/* ======== お問い合わせ ======== */
+.dn-contact-text {
+    font-size: 0.92rem;
+    color: var(--dark-text);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.dn-contact-btn-wrap {
+    text-align: center;
+}
+
+.dn-contact-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--main-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s;
+}
+
+.dn-contact-btn:hover {
+    opacity: 0.85;
+}
+
+/* ======== レスポンシブ ======== */
+@media (max-width: 600px) {
+    .dn-page {
+        padding: 32px 16px 56px;
+    }
+
+    .dn-intro {
+        margin-bottom: 40px;
+        padding-bottom: 32px;
+    }
+
+    .dn-detail-row,
+    .dn-bank-row {
+        flex-direction: column;
+        gap: 4px;
+        padding: 14px 16px;
+    }
+
+    .dn-detail-label,
+    .dn-bank-label {
+        min-width: unset;
+    }
+
+    .dn-contact-btn {
+        display: block;
+        text-align: center;
+        padding: 14px 24px;
+    }
+}
