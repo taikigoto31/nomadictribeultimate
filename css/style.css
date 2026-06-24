@@ -1481,9 +1481,8 @@ img {
 }
 
 .partner-logos img {
+    width: 200px;
     height: 80px;
-    width: auto;
-    max-width: 200px;
     object-fit: contain;
     transition: all var(--transition-base);
 }
@@ -1952,8 +1951,8 @@ img {
     }
 
     .partner-logos img {
+        width: 160px;
         height: 60px;
-        max-width: 150px;
     }
 
     /* フッター */
