@@ -4,10 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 1. 表示する画像リストを定義
     const galleryImages = [
-        "images/top/top1.jpg",  // 1枚目
-        "images/top/top2.jpg",  // 2枚目
-        "images/top/top3.jpg",  // 3枚目
-        "images/top/top4.png"   // 4枚目
+        "images/top/top3.jpg",  // 1枚目
+        "images/top/top1.jpg",  // 2枚目
+        "images/top/top2.jpg"   // 3枚目
     ];
     const numImages = galleryImages.length;
 
@@ -26,15 +25,13 @@ document.addEventListener("DOMContentLoaded", function() {
     if (mainImage && mainLink && prevImage && prevLink && nextImage && nextLink && thumbnailsContainer && sliderContainer && numImages > 0) {
         
         // 4. リンクマップの定義
-        // index 0: All Japan (news id=3)
-        // index 1: AOUC2025  (news id=2)
-        // index 2: WUCC2026ページ
-        // index 3: Nomacup Xmas (news id=4)
+        // index 0: WUCC2026ページ
+        // index 1: All Japan
+        // index 2: AOUC2025
         const linkMap = {
-            0: "news-detail.html?id=2",
-            1: "news-detail.html?id=1",
-            2: "wucc.html",
-            3: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/"
+            0: "wucc.html",
+            1: "news-detail.html?id=2",
+            2: "news-detail.html?id=1"
         };
 
         // 5. 変数の宣言（スコープを適切に管理）
