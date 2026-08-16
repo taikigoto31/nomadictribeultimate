@@ -724,12 +724,12 @@ scheduleData["2026"] = {
                 date: "08.16",
                 weekday: "SUN",
                 tournament: "WUCC2026",
-                tournamentUrl: "",
+                tournamentUrl: "https://results.wfdf.sport/wucc-2026/game/open/nomadic-tribe-zoom-1195",
                 youtubeUrl: "",
                 opponent: "vs Zoom",
                 venue: "Limerick, Ireland／Field 21（現地13:00）",
-                score: "",
-                result: ""
+                score: "15-8",
+                result: "win"
             },
             {
                 id: 50,
