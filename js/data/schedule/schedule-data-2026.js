@@ -736,24 +736,24 @@ scheduleData["2026"] = {
                 date: "08.17",
                 weekday: "MON",
                 tournament: "WUCC2026",
-                tournamentUrl: "",
+                tournamentUrl: "https://results.wfdf.sport/wucc-2026/game/open/nomadic-tribe-tchac-1198",
                 youtubeUrl: "",
                 opponent: "vs Tchac",
                 venue: "Limerick, Ireland／Field 14（現地9:00）",
-                score: "",
-                result: ""
+                score: "14-15",
+                result: "loss"
             },
             {
                 id: 51,
                 date: "08.17",
                 weekday: "MON",
                 tournament: "WUCC2026",
-                tournamentUrl: "",
+                tournamentUrl: "https://results.wfdf.sport/wucc-2026/game/open/nomadic-tribe-blue-devils-1196",
                 youtubeUrl: "",
                 opponent: "vs Blue Devils",
                 venue: "Limerick, Ireland／Field 27（現地14:00）",
-                score: "",
-                result: ""
+                score: "15-13",
+                result: "win"
             },
             {
                 id: 52,
