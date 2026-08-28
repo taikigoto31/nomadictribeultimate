@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             modalOrder.href = item.orderUrl && item.orderUrl.trim() !== "" ? item.orderUrl : "#";
             modalOrder.classList.remove("goods-order-disabled");
-            modalOrder.textContent = "注文フォームへ";
+            modalOrder.textContent = "OVNI STOREで注文する";
         }
 
         renderGallery(item.images || []);
