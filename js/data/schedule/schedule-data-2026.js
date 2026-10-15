@@ -974,10 +974,57 @@ scheduleData["2026"] = {
             //     venue: "ナショナルトレーニングセンターＪヴィレッジ (福島県楢葉町)",
             //     score: "15-12",
             //     result: ""
-            // }
+            // },
+            {
+                id: 59,
+                date: "10.17",
+                weekday: "SAT",
+                tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 1回戦",
+                tournamentUrl: "https://www.jfda.or.jp/2026/03/20/2026alljapan-ultimate-main/",
+                youtubeUrl: "",
+                opponent: "vs ノマスター",
+                venue: "つま恋リゾート彩の郷 (静岡県掛川市)",
+                score: "",
+                result: ""
+            },
+            {
+                id: 60,
+                date: "10.17",
+                weekday: "SAT",
+                tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 2回戦",
+                tournamentUrl: "https://www.jfda.or.jp/2026/03/20/2026alljapan-ultimate-main/",
+                youtubeUrl: "",
+                opponent: "vs 未定",
+                venue: "つま恋リゾート彩の郷 (静岡県掛川市)",
+                score: "",
+                result: ""
+            },
+            {
+                id: 61,
+                date: "10.18",
+                weekday: "SUN",
+                tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 準決勝",
+                tournamentUrl: "https://www.jfda.or.jp/2026/03/20/2026alljapan-ultimate-main/",
+                youtubeUrl: "",
+                opponent: "vs 未定",
+                venue: "つま恋リゾート彩の郷 (静岡県掛川市)",
+                score: "",
+                result: ""
+            },
         ],
         11: [
-            // 11月の試合データ
+            {
+                id: 62,
+                date: "11.03",
+                weekday: "TUE",
+                tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 決勝",
+                tournamentUrl: "https://www.jfda.or.jp/2026/03/20/2026alljapan-ultimate-main/",
+                youtubeUrl: "",
+                opponent: "vs 未定",
+                venue: "駒沢オリンピック公園 第二球技場 (東京都世田谷区)",
+                score: "",
+                result: ""
+            },
         ],
         12: [
             // 12月の試合データ
