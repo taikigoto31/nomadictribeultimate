@@ -186,7 +186,7 @@ scheduleData["2026"] = {
                 tournament: "NomadicTribe Cup",
                 tournamentUrl: "https://www.ovniultimate.com/2026/01/20/nomacup2026-feb/",
                 youtubeUrl: "",
-                opponent: "NomadicTribeノマ vs 文化シャッターバズバレッツ",
+                opponent: "NomadicTribeノマ vs 文化シヤッターバズバレッツ",
                 venue: "鬼怒緑地公園 (茨城県筑西市伊佐山)",
                 score: "10-13",
                 result: "loss"
@@ -612,7 +612,7 @@ scheduleData["2026"] = {
                 tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 選抜予選",
                 tournamentUrl: "",
                 youtubeUrl: "",
-                opponent: "vs 文化シャッターバズバレッツ",
+                opponent: "vs 文化シヤッターバズバレッツ",
                 venue: "静岡県御殿場市 時之栖スポーツセンター（うさぎ島グラウンド）",
                 score: "15-14",
                 result: "win"
@@ -984,8 +984,8 @@ scheduleData["2026"] = {
                 youtubeUrl: "",
                 opponent: "vs ノマスター",
                 venue: "つま恋リゾート彩の郷 (静岡県掛川市)",
-                score: "",
-                result: ""
+                score: "15-8",
+                result: "win"
             },
             {
                 id: 60,
@@ -994,10 +994,10 @@ scheduleData["2026"] = {
                 tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 2回戦",
                 tournamentUrl: "https://www.jfda.or.jp/2026/03/20/2026alljapan-ultimate-main/",
                 youtubeUrl: "",
-                opponent: "vs 未定",
+                opponent: "vs CLOWN",
                 venue: "つま恋リゾート彩の郷 (静岡県掛川市)",
-                score: "",
-                result: ""
+                score: "15-7",
+                result: "win"
             },
             {
                 id: 61,
@@ -1006,10 +1006,10 @@ scheduleData["2026"] = {
                 tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 準決勝",
                 tournamentUrl: "https://www.jfda.or.jp/2026/03/20/2026alljapan-ultimate-main/",
                 youtubeUrl: "",
-                opponent: "vs 未定",
+                opponent: "vs GONA",
                 venue: "つま恋リゾート彩の郷 (静岡県掛川市)",
-                score: "",
-                result: ""
+                score: "15-10",
+                result: "win"
             },
         ],
         11: [
@@ -1020,7 +1020,7 @@ scheduleData["2026"] = {
                 tournament: "文部科学大臣杯第51回全日本アルティメット選手権大会 決勝",
                 tournamentUrl: "https://www.jfda.or.jp/2026/03/20/2026alljapan-ultimate-main/",
                 youtubeUrl: "",
-                opponent: "vs 未定",
+                opponent: "vs 文化シヤッターバズバレッツ",
                 venue: "駒沢オリンピック公園 第二球技場 (東京都世田谷区)",
                 score: "",
                 result: ""
