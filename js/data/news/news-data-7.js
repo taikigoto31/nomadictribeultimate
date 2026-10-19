@@ -26,7 +26,7 @@ const newsDataItem7 = {
     <h4>NomadicTribe ノマ</h4>
     <ul>
         <li>2/28 (Sat) vs BeA ｜ 8-2 ○</li>
-        <li>2/28 (Sat) vs 文化シャッターバズバレッツ ｜ 10-13 ●</li>
+        <li>2/28 (Sat) vs 文化シヤッターバズバレッツ ｜ 10-13 ●</li>
         <li>2/28 (Sat) vs 上智大学フリークス ｜ 13-7 ○</li>
     </ul>
 
