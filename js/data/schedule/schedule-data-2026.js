@@ -1022,8 +1022,8 @@ scheduleData["2026"] = {
                 youtubeUrl: "",
                 opponent: "vs 文化シヤッターバズバレッツ",
                 venue: "駒沢オリンピック公園 第二球技場 (東京都世田谷区)",
-                score: "",
-                result: ""
+                score: "13-15",
+                result: "loss"
             },
         ],
         12: [
